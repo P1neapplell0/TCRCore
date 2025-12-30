@@ -11,6 +11,10 @@ import com.p1nero.tcrcore.client.gui.BlockTooltipHandler;
 import com.p1nero.tcrcore.client.item_renderer.RenderDualBokken;
 import com.p1nero.tcrcore.entity.TCREntities;
 import com.p1nero.tcrcore.entity.custom.aine_iris.AineIrisRenderer;
+import com.p1nero.tcrcore.entity.custom.cataclysm_boss.cloia.CloiaRenderer;
+import com.p1nero.tcrcore.entity.custom.cataclysm_boss.ignis.IgnisRenderer;
+import com.p1nero.tcrcore.entity.custom.cataclysm_boss.nethermel.NethermelRenderer;
+import com.p1nero.tcrcore.entity.custom.cataclysm_boss.scylla.ScyllaRenderer;
 import com.p1nero.tcrcore.entity.custom.girl.GirlGeoRenderer;
 import com.p1nero.tcrcore.entity.custom.guider.GuiderGeoRenderer;
 import com.p1nero.tcrcore.entity.custom.tutorial_golem.TutorialGolemRenderer;
@@ -39,6 +43,11 @@ public class ClientModEvents {
         EntityRenderers.register(TCREntities.GIRL.get(), GirlGeoRenderer::new);
         EntityRenderers.register(TCREntities.AINE_IRIS.get(), AineIrisRenderer::new);
         EntityRenderers.register(TCREntities.TUTORIAL_GOLEM.get(), TutorialGolemRenderer::new);
+
+        EntityRenderers.register(TCREntities.CLOIA.get(), CloiaRenderer::new);
+        EntityRenderers.register(TCREntities.IGNIS.get(), IgnisRenderer::new);
+        EntityRenderers.register(TCREntities.NETHERMEL.get(), NethermelRenderer::new);
+        EntityRenderers.register(TCREntities.SCYLLA.get(), ScyllaRenderer::new);
 
         BlockTooltipHandler.registerBlockTooltip(TCRBlocks.ABYSS_ALTAR_BLOCK,
                 TCRCoreMod.getInfo("altar_dim_info"),

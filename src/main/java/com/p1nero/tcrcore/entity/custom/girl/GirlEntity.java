@@ -62,6 +62,7 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import yesman.epicfight.client.ClientEngine;
 import yesman.epicfight.client.input.EpicFightKeyMappings;
 import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
+import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 
 import java.util.List;
 
@@ -469,7 +470,7 @@ public class GirlEntity extends PathfinderMob implements IEntityNpc, GeoEntity, 
             //技能
             DialogNode ans4 = new DialogNode(dBuilder.ans(5, I18n.get("item.epicskills.ability_stone"), I18n.get("item.epicskills.ability_stone"), EpicSkillsKeyMappings.OPEN_SKILL_TREE.getTranslatedKeyMessage()), dBuilder.optWithBrackets(4))
                     .addChild(new DialogNode.FinalNode(dBuilder.optWithBrackets(5), -1, (s) -> {
-                        LocalPlayerPatch localPlayerPatch = ClientEngine.getInstance().getPlayerPatch();
+                        LocalPlayerPatch localPlayerPatch = EpicFightCapabilities.getEntityPatch(Minecraft.getInstance().player, LocalPlayerPatch.class);
                         if(localPlayerPatch != null) {
                             Minecraft.getInstance().setScreen(new SkillTreeScreen(localPlayerPatch));
                         }

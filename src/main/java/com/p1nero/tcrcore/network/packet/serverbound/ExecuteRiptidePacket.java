@@ -1,6 +1,6 @@
 package com.p1nero.tcrcore.network.packet.serverbound;
 
-//import com.brass_amber.ba_bt.init.BTExtras;
+import com.brass_amber.ba_bt.init.BTExtras;
 import com.p1nero.dialog_lib.network.packet.BasePacket;
 import com.p1nero.tcrcore.gameassets.TCRAnimations;
 import net.minecraft.network.FriendlyByteBuf;
@@ -22,10 +22,10 @@ public record ExecuteRiptidePacket() implements BasePacket {
     @Override
     public void execute(Player player) {
         if(player instanceof ServerPlayer serverPlayer){
-            //TODO 高塔加进来后加回来
-//            if(serverPlayer.hasEffect(BTExtras.DEPTH_DROPPER_EFFECT.get())){
-//                return;
-//            }
+            //海洋塔里不能这样
+            if(serverPlayer.hasEffect(BTExtras.DEPTH_DROPPER_EFFECT.get())){
+                return;
+            }
             ServerPlayerPatch serverPlayerPatch = EpicFightCapabilities.getEntityPatch(serverPlayer, ServerPlayerPatch.class);
             if(serverPlayerPatch != null && serverPlayer.isUnderWater() && serverPlayerPatch.getEntityState().canUseSkill()) {
                 serverPlayerPatch.playAnimationSynchronized(TCRAnimations.TSUNAMI, -0.15F);

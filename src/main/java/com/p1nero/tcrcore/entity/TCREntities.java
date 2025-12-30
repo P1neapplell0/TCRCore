@@ -3,6 +3,11 @@ package com.p1nero.tcrcore.entity;
 import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.entity.custom.CustomColorItemEntity;
 import com.p1nero.tcrcore.entity.custom.aine_iris.AineIrisEntity;
+import com.p1nero.tcrcore.entity.custom.cataclysm_boss.BaseBossEntity;
+import com.p1nero.tcrcore.entity.custom.cataclysm_boss.cloia.CloiaEntity;
+import com.p1nero.tcrcore.entity.custom.cataclysm_boss.ignis.IgnisEntity;
+import com.p1nero.tcrcore.entity.custom.cataclysm_boss.nethermel.NethermalEntity;
+import com.p1nero.tcrcore.entity.custom.cataclysm_boss.scylla.ScyllaEntity;
 import com.p1nero.tcrcore.entity.custom.girl.GirlEntity;
 import com.p1nero.tcrcore.entity.custom.guider.GuiderEntity;
 import com.p1nero.tcrcore.entity.custom.tutorial_golem.TutorialGolem;
@@ -40,6 +45,18 @@ public class TCREntities {
     public static final RegistryObject<EntityType<TutorialGolem>> TUTORIAL_GOLEM = register("tutorial_golem",
             EntityType.Builder.of(TutorialGolem::new, MobCategory.CREATURE).sized(1.4F, 2.7f).fireImmune());
 
+    public static final RegistryObject<EntityType<CloiaEntity>> CLOIA = register("cloia",
+            EntityType.Builder.of(CloiaEntity::new, MobCategory.MONSTER).sized(0.6f, 1.8f));
+
+    public static final RegistryObject<EntityType<IgnisEntity>> IGNIS = register("ignis",
+            EntityType.Builder.of(IgnisEntity::new, MobCategory.MONSTER).sized(0.6f, 1.8f));
+
+    public static final RegistryObject<EntityType<NethermalEntity>> NETHERMEL = register("nethermel",
+            EntityType.Builder.of(NethermalEntity::new, MobCategory.MONSTER).sized(0.6f, 1.8f));
+
+    public static final RegistryObject<EntityType<ScyllaEntity>> SCYLLA = register("scylla",
+            EntityType.Builder.of(ScyllaEntity::new, MobCategory.MONSTER).sized(0.6f, 1.8f));
+
     private static <T extends Entity> RegistryObject<EntityType<T>> register(String name, EntityType.Builder<T> entityTypeBuilder) {
         return REGISTRY.register(name, () -> entityTypeBuilder.build(ResourceLocation.fromNamespaceAndPath(TCRCoreMod.MOD_ID, name).toString()));
     }
@@ -50,6 +67,12 @@ public class TCREntities {
         event.put(GIRL.get(), GuiderEntity.setAttributes());
         event.put(AINE_IRIS.get(), GuiderEntity.setAttributes());
         event.put(TUTORIAL_GOLEM.get(), TutorialGolem.setAttributes());
+
+        event.put(CLOIA.get(), BaseBossEntity.baseAttributes());
+        event.put(IGNIS.get(), BaseBossEntity.baseAttributes());
+        event.put(NETHERMEL.get(), BaseBossEntity.baseAttributes());
+        event.put(SCYLLA.get(), BaseBossEntity.baseAttributes());
+
     }
 
     @SubscribeEvent

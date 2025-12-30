@@ -5,7 +5,6 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "tcrcore.refmap.json",
   "mixins": [
-    "AbstractLargeMonsterMixin",
     "AdvancedCombatGoalMixin",
     "AltarOfAbyssBlockEntityMixin",
     "Ancient_Remnant_EntityMixin",

@@ -69,7 +69,7 @@ public abstract class ArteriusMixin extends PathfinderMob {
         }
     }
 
-    @Inject(method = "die", at = @At("HEAD"), cancellable = true)
+    @Inject(method = {"die", "m_6667_"}, at = @At("HEAD"), cancellable = true, remap = false)
     private void tcr$die(DamageSource cause, CallbackInfo ci) {
         if(cause.isCreativePlayer()) {
             return;

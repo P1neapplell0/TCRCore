@@ -219,7 +219,7 @@ dependencies {
     implementation fg.deobf("curse.maven:epic-fight-indestructible-915201:7125700")
 
     implementation fg.deobf("curse.maven:epic-fight-wraithon-1354901:7068815")
-    implementation fg.deobf("curse.maven:epic-fight-invincible-1184379:7303619")
+    implementation fg.deobf("curse.maven:epic-fight-invincible-1184379:7389802")
     implementation fg.deobf("libs:p1nero_bow:20.13.1.4")
     implementation fg.deobf("curse.maven:sword-soaring-1011068:7305158")
     implementation fg.deobf("libs:dodge_parry_reward:20.12.1")
@@ -228,9 +228,10 @@ dependencies {
     implementation fg.deobf("curse.maven:p1neros-dialogue-lib-1274526:7177400")
     implementation fg.deobf("curse.maven:entity-respawner-1363764:7105518")
 
-    implementation fg.deobf("libs:EpicFightNightfall:2.4")
-    implementation fg.deobf("curse.maven:nightfall-invade-1362602:7284519")
-    implementation fg.deobf("curse.maven:combat-evolution-1377795:7303078")
+    implementation fg.deobf("libs:EpicFightNightfall:3.0")
+    implementation fg.deobf("curse.maven:nightfall-invade-1362602:7366440")
+    implementation fg.deobf("curse.maven:combat-evolution-1377795:7373729")
+    implementation fg.deobf("libs:tcr_bosses:1.0.6")
     implementation fg.deobf("libs:mimic:1.0.0")
 
 //    implementation fg.deobf("curse.maven:shoulder-surfing-reloaded-243190:6993788")
@@ -294,7 +295,7 @@ dependencies {
     implementation fg.deobf("curse.maven:dodos-mobs-1349823:7018547")
     implementation fg.deobf("curse.maven:mowzies-mobs-250498:6586086")
     implementation fg.deobf("libs:bossesrise:1.0.9.1")
-    implementation fg.deobf("curse.maven:monster-expansion-1336105:7268733")
+    implementation fg.deobf("curse.maven:monster-expansion-1336105:7388120")
     implementation fg.deobf("curse.maven:from-the-shadow-reborn-986907:7037169")
     implementation fg.deobf("curse.maven:more-hitboxes-1115989:6942239")
     implementation fg.deobf("libs:cataclysm_dimension:1.5.6")
@@ -308,7 +309,8 @@ dependencies {
 
     implementation fg.deobf("curse.maven:ribbits-622967:6182692")
 
-    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:4.7.3")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.20.1:4.8.2")
+    implementation fg.deobf("curse.maven:book-of-dragons-1413424:7390141")
 
     implementation fg.deobf("curse.maven:explorers-compass-edited-1203888:6733733")
     implementation fg.deobf("curse.maven:natures-compass-252848:4712189")
@@ -370,7 +372,7 @@ dependencies {
         jarJar.ranged(it, "[2.3.0,)")
     }
 //    implementation fg.deobf("curse.maven:armourers-workshop-229523:6965580")//FIXME runData时需注释掉
-//    implementation fg.deobf("curse.maven:epic-knights-armor-and-weapons-509041:7090494")//FIXME runData时需注释掉
+    implementation fg.deobf("curse.maven:epic-knights-armor-and-weapons-509041:7090494")//FIXME runData时需注释掉
 //    implementation fg.deobf("curse.maven:item-borders-513769:5903326")//FIXME runData时需注释掉
 //    implementation fg.deobf("curse.maven:legendary-tooltips-532127:4662781")//FIXME runData时需注释掉
     implementation fg.deobf("curse.maven:prism-lib-638111:4650325")

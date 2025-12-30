@@ -212,6 +212,10 @@ public class    TCRZHLangGenerator extends TCRLangProvider {
         this.add(TCREntities.GUIDER.get(), "守望者");
         this.add(TCREntities.GIRL.get(), "摆渡人");
         this.add(TCREntities.TUTORIAL_GOLEM.get(), "训练傀儡");
+        this.add(TCREntities.CLOIA.get(), "克洛娅·缚咒");
+        this.add(TCREntities.NETHERMEL.get(), "奈特梅尔·烬钢");
+        this.add(TCREntities.IGNIS.get(), "伊格尼斯·焚心");
+        this.add(TCREntities.SCYLLA.get(), "斯库拉·涡潮");
 
         BanPortalScreenHandler.onGenerateZH(this);
 
