@@ -221,28 +221,6 @@
 			"unitWorth": 165
 		},
 
-		"hunters_normal_obj_bogged": {
-			"type": "entity",
-			"timeMult": 3.0,
-			"content": "trials:bogged",
-			"amount": {
-				"min": 1,
-				"max": 3
-			},
-			"unitWorth": 165
-		},
-
-		"hunters_normal_obj_breeze": {
-			"type": "entity",
-			"timeMult": 3.0,
-			"content": "trials:breeze",
-			"amount": {
-				"min": 1,
-				"max": 3
-			},
-			"unitWorth": 165
-		},
-
 		"hunters_normal_obj_nehemoth": {
 			"type": "entity",
 			"timeMult": 3.0,
