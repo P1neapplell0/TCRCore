@@ -163,6 +163,36 @@
     },
     {
         "mob": [
+            "wom:lycanth"
+        ],
+        "mincount": {
+            "amount": 3,
+            "perplayer": true
+        },
+        "result": "deny"
+    },
+    {
+        "mob": [
+            "wom:hollow"
+        ],
+        "mincount": {
+            "amount": 3,
+            "perplayer": true
+        },
+        "result": "deny"
+    },
+    {
+        "mob": [
+            "wom:saulomonk"
+        ],
+        "mincount": {
+            "amount": 3,
+            "perplayer": true
+        },
+        "result": "deny"
+    },
+    {
+        "mob": [
             "cataclysm:endermaptera"
         ],
         "mincount": {
