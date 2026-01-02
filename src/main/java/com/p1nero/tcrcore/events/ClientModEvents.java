@@ -9,6 +9,7 @@ import com.p1nero.tcrcore.block.client.AltarBlockRenderer;
 import com.p1nero.tcrcore.block.entity.TCRBlockEntities;
 import com.p1nero.tcrcore.client.gui.BlockTooltipHandler;
 import com.p1nero.tcrcore.client.item_renderer.RenderDualBokken;
+import com.p1nero.tcrcore.client.item_renderer.RenderTheIncinerator;
 import com.p1nero.tcrcore.entity.TCREntities;
 import com.p1nero.tcrcore.entity.custom.aine_iris.AineIrisRenderer;
 import com.p1nero.tcrcore.entity.custom.cataclysm_boss.cloia.CloiaRenderer;

@@ -1,0 +1,20 @@
+{
+  "trail": {
+    "color": [100,100,100],
+    "begin_pos": [0.0, 0.0, -0.5],
+    "end_pos": [0.0, -0.24, -3.0],
+    "lifetime": 7,
+    "interpolations": 4,
+    "texture_path": "tcrcore:textures/trail/yz2.png",
+    "particle_type": "efn:bloom_trail"
+  },
+  "transforms": {
+    "mainhand": {
+      "Tool_R": {
+        "translation": [0.0, 0.0, -0.13],
+        "rotation": [-90.0, 0.0, 0.0],
+        "scale": [1, 1, 1]
+      }
+    }
+  }
+}

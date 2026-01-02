@@ -10,4 +10,5 @@ import net.minecraftforge.registries.RegistryObject;
 public class TCREffects {
     public static final DeferredRegister<MobEffect> REGISTRY = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, TCRCoreMod.MOD_ID);
     public static final RegistryObject<MobEffect> INVULNERABLE = REGISTRY.register("invulnerable", () -> new SimpleEffect(MobEffectCategory.BENEFICIAL, 0X6c6a5c));
+    public static final RegistryObject<MobEffect> SOUL_INCINERATOR = REGISTRY.register("soul_incinerator", () -> new SimpleEffect(MobEffectCategory.BENEFICIAL, 16262179));
 }
