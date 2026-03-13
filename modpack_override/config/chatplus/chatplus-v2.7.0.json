@@ -107,7 +107,7 @@
         "countColor": -1,
         "scale": 0.4
     },
-    "movableChatEnabled": true,
+    "movableChatEnabled": false,
     "movableChatShowEnabledOnScreen": true,
     "movableChatKey": {
         "key": "key.keyboard.right.control",

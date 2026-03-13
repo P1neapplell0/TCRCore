@@ -2,15 +2,15 @@ package com.p1nero.tcrcore.mixin;
 
 import com.github.dodo.dodosmobs.entity.InternalAnimationMonster.IABossMonsters.Bone_Chimera_Entity;
 import com.github.dodo.dodosmobs.entity.InternalAnimationMonster.IABossMonsters.IABoss_monster;
+import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.capability.TCREntityCapabilityProvider;
+import net.minecraft.ChatFormatting;
 import net.minecraft.server.level.ServerBossEvent;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -54,6 +54,9 @@ public abstract class Bone_ChimeraMixin extends IABoss_monster {
     @Inject(method = "hurt", at = @At("HEAD"), cancellable = true)
     private void tcr$hurt(DamageSource damagesource, float amount, CallbackInfoReturnable<Boolean> cir) {
         if(!TCREntityCapabilityProvider.getTCREntityPatch(this).isFighting()) {
+            if(damagesource.getEntity() instanceof Player player) {
+                player.displayClientMessage(TCRCoreMod.getInfo("talk_to_start").withStyle(ChatFormatting.GOLD), true);
+            }
             cir.setReturnValue(false);
         }
     }

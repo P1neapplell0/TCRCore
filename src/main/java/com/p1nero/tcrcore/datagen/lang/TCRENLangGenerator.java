@@ -1,5 +1,6 @@
 package com.p1nero.tcrcore.datagen.lang;
 
+import com.brass_amber.ba_bt.init.BTEntityType;
 import com.github.L_Ender.cataclysm.init.ModItems;
 import com.github.dodo.dodosmobs.init.ModEntities;
 import com.hm.efn.registries.EFNItem;
@@ -269,6 +270,7 @@ public class TCRENLangGenerator extends TCRLangProvider {
         this.add(TCRItems.ANCIENT_ORACLE_FRAGMENT.get(), "Oracle Fragment");
         this.addItemUsageInfo(TCRItems.ANCIENT_ORACLE_FRAGMENT.get(), "§c§kI'm Your...");
 
+        this.addInfo("talk_to_start", "Talk to start fighting");
         this.addInfo("temp_dragon_flute", "[Temporary Dragon Flute]: It will be consumed after use!");
         this.addInfo("dragon_die_back", "Your dragon has died, no pet bed detected, and has beed saved to a new dragon flute");
         this.addInfo("only_work_on_dragon", "Only work on Dragon!");
@@ -282,7 +284,7 @@ public class TCRENLangGenerator extends TCRLangProvider {
         this.addInfo("can_not_guard", "Boss attacks cannot be blocked!");
         this.addInfo("pec_weapon_lock", "Weapon skill locked! Defeat [%s] in [%s] to unlock!");
         this.addInfo("resonance_stone_usage", "Can resonate with the location of the Angel's seal");
-        this.addInfo("resonance_search_failed", "[ERROR]：Failed to Resonate! Please retry after restarting the game! [%s]");
+        this.addInfo("resonance_search_failed", "[ERROR]：Failed to Resonate! Please retry after restarting the game! Please keep the latest.log and report to the author! [%s]");
         this.addInfo("yamato_skill_lock", "[%s] are locked. Requires special enchantment book to unlock!");
         this.addInfo("congratulation", "Congratulations!");
         this.addInfo("open_backpack_tutorial", "Press [%s] to view Backpack");
@@ -579,7 +581,7 @@ public class TCRENLangGenerator extends TCRLangProvider {
         this.addDialogOption(TCREntities.AINE.get(), 23, "§aI have no more questions");
         this.addDialogAnswer(TCREntities.AINE.get(), 39, "I am your attending physician, responsible for treating your schizophrenia. As for why I look like this, it's because we're in your mental world. Everything here is as you imagine it.");
         this.addDialogAnswer(TCREntities.AINE.get(), 40, "No need to worry. You've already killed them with your own hands. They are dead forever in your dreams. They won't come back.");
-        this.addDialogAnswer(TCREntities.AINE.get(), 41, "The Black Tide is actually the effect of the medication Risperdal. We use medication to control the activity of your various personalities. And you, as the kindest, purest personality, we chose you as our突破口. The other personalities were too troublesome, so we could only administer the medication to suppress them when you were in control of the body.");
+        this.addDialogAnswer(TCREntities.AINE.get(), 41, "The Black Tide is actually the effect of the medication Risperdal. We use medication to control the activity of your various personalities. And you, as the kindest, purest personality, we chose you as our breakthrough point. The other personalities were too troublesome, so we could only administer the medication to suppress them when you were in control of the body.");
         this.addDialogAnswer(TCREntities.AINE.get(), 42, "In your mental world, the medication manifests as the 'Black Tide.' It helps us restrain the other personalities. However, in your world, only you can truly affect them. So we fabricated the lie of recreation to guide you, step by step, to eliminate them.");
         this.addDialogAnswer(TCREntities.AINE.get(), 43, "From now on, you can live like a normal person! Of course, whenever you want to return here, just tell me!");
         this.addDialogAnswer(TCREntities.AINE.get(), 44, "So, let's go out together!");
@@ -647,6 +649,19 @@ public class TCRENLangGenerator extends TCRLangProvider {
         this.addDialogAnswer(ModEntities.BONE_CHIMERA, 2, "This body carries an undying curse. If you help me find release, my bones can be forged into a fine weapon. Are you ready?");
         this.addDialogOption(ModEntities.BONE_CHIMERA, 2, "Ready");
         this.addDialogOption(ModEntities.BONE_CHIMERA, 3, "Wait a while");
+
+        this.addDialogAnswer(BTEntityType.END_GOLEM, 0, "(This man has an extremely powerful aura, he remains silent.)");
+        this.addDialogAnswer(BTEntityType.END_GOLEM, 1, "(It still stands there, unmoved.)");
+        this.addDialogAnswer(BTEntityType.END_GOLEM, 2, "If you want it, you'll have to take it.");
+        this.addDialogAnswer(BTEntityType.END_GOLEM, 3, "But you already knew that.");
+        this.addDialogAnswer(BTEntityType.END_GOLEM, 4, "How many times have we fought.");
+        this.addDialogAnswer(BTEntityType.END_GOLEM, 5, "(A sinister smile)");
+        this.addDialogOption(BTEntityType.END_GOLEM, 0, "Hey, %s, the days you could easily open the portal are over!");
+        this.addDialogOption(BTEntityType.END_GOLEM, 1, "(Sigh) Give me the [%s].");
+        this.addDialogOption(BTEntityType.END_GOLEM, 2, "Continue.");
+        this.addDialogOption(BTEntityType.END_GOLEM, 3, "I had a feeling you’d say that.");
+        this.addDialogOption(BTEntityType.END_GOLEM, 4, "Hard to say. It's the only memory I have of us since we were kids.");
+        this.addDialogOption(BTEntityType.END_GOLEM, 5, "Time to finish this! Once for!");
 
         this.addDialogOption(EntityTypeModule.RIBBIT.get(), -2, "Leave");
         this.addDialogOption(EntityTypeModule.RIBBIT.get(), -1, "Continue");

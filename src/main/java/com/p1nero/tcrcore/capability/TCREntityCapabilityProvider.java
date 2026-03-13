@@ -1,5 +1,6 @@
 package com.p1nero.tcrcore.capability;
 
+import com.brass_amber.ba_bt.entity.hostile.golem.EndGolem;
 import com.github.dodo.dodosmobs.entity.InternalAnimationMonster.IABossMonsters.Bone_Chimera_Entity;
 import com.p1nero.tcrcore.TCRCoreMod;
 import net.minecraft.core.Direction;
@@ -17,6 +18,8 @@ import org.jetbrains.annotations.Nullable;
 
 @Mod.EventBusSubscriber(modid = TCRCoreMod.MOD_ID)
 public class TCREntityCapabilityProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
+
+    public static final TCREntityPatch EMPTY = new TCREntityPatch();
 
     public static Capability<TCREntityPatch> TCR_ENTITY = CapabilityManager.get(new CapabilityToken<>() {});
 
@@ -55,8 +58,8 @@ public class TCREntityCapabilityProvider implements ICapabilityProvider, INBTSer
 
     @SubscribeEvent
     public static void attachEntityCapabilities(AttachCapabilitiesEvent<Entity> event) {
-        if (event.getObject() instanceof Bone_Chimera_Entity boneChimeraEntity) {
-            if(!boneChimeraEntity.getCapability(TCREntityCapabilityProvider.TCR_ENTITY).isPresent()){
+        if (event.getObject() instanceof Bone_Chimera_Entity || event.getObject() instanceof EndGolem) {
+            if(!event.getObject().getCapability(TCREntityCapabilityProvider.TCR_ENTITY).isPresent()){
                 event.addCapability(ResourceLocation.fromNamespaceAndPath(TCRCoreMod.MOD_ID, "tcr_entity"), new TCREntityCapabilityProvider());
             }
         }
@@ -69,9 +72,9 @@ public class TCREntityCapabilityProvider implements ICapabilityProvider, INBTSer
 
     public static TCREntityPatch getTCREntityPatch(Entity entity) {
         if(entity == null) {
-            return new TCREntityPatch();
+            return EMPTY;
         }
-        return entity.getCapability(TCREntityCapabilityProvider.TCR_ENTITY).orElse(new TCREntityPatch());
+        return entity.getCapability(TCREntityCapabilityProvider.TCR_ENTITY).orElse(EMPTY);
     }
 
 }

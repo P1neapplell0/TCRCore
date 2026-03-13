@@ -1,0 +1,53 @@
+
+#Krypton Hybrid – Packet Compression
+#Select the compression algorithm used for all player connections.
+#IMPORTANT: BOTH the server and every connecting client must use the same
+#algorithm. Mismatched algorithms will immediately corrupt the session.
+[compression]
+	#Compression algorithm to use for network packets.
+	#  ZLIB  – vanilla zlib (DEFLATE). Always available. Minecraft default.
+	#  ZSTD  – Zstandard compression (zstd-jni, native). Best ratio; moderate CPU.
+	#Default: ZSTD
+	#Allowed Values: ZLIB, ZSTD
+	algorithm = "ZSTD"
+	#Zstd compression level (1 = fastest/largest, 22 = slowest/smallest).
+	#Only used when algorithm = ZSTD. Backed by zstd-jni (native).
+	#Level 3 is the zstd reference implementation default.
+	#Range: 1 – 22  |  Default: 3
+	#Range: 1 ~ 22
+	zstd_level = 17
+
+#Delayed Chunk Cache (DCC)
+#Reduces redundant chunk resends when a player moves near the edge of
+#their view distance. Departing chunks are buffered; if the player
+#re-enters range within the timeout, the full resend is skipped.
+[dcc]
+	#Enable or disable the Delayed Chunk Cache entirely.
+	#Default: true
+	enabled = false
+	#Maximum number of chunks buffered per player.
+	#When full, new departing chunks are untracked immediately.
+	#Range: 1 – 200  |  Default: 60
+	#Range: 1 ~ 200
+	size_limit = 144
+	#Cache radius (chunks) around the player's current position.
+	#Cached chunks farther than this are evicted and untracked.
+	#Range: 1 – 32  |  Default: 5
+	#Range: 1 ~ 32
+	distance = 7
+	#Seconds before a cached chunk is forcibly evicted.
+	#Higher values improve hit rate; lower values reduce client memory.
+	#Range: 5 – 300  |  Default: 30
+	#Range: 5 ~ 300
+	timeout_seconds = 30
+
+#Krypton Hybrid – Light Data Optimization
+#Reduces ClientboundLevelChunkWithLightPacket size by replacing uniform
+#DataLayer arrays (e.g. all-max sky-light sections) with 2-byte tokens.
+#Requires Krypton Hybrid on BOTH the server and every connecting client.
+[light_opt]
+	#Enable uniform-RLE encoding for light DataLayer arrays.
+	#Saves up to ~40 KB per chunk load in open-sky environments.
+	#Default: true
+	enabled = true
+

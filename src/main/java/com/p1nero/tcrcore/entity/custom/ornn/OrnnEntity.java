@@ -345,10 +345,10 @@ public class OrnnEntity extends PathfinderMob implements IEntityNpc, GeoEntity, 
                 new ItemStack(TCRItems.RARE_ARTIFACT_TICKET.get(), 1),
                 skillBook2,
                 142857, 0, 0.01f));
-//        offers.add(new MerchantOffer(
-//                new ItemStack(TCRItems.SOUL_FRAGMENT.get(), 1),
-//                new ItemStack(TCRItems.RESET_SKILL_STONE.get(), 1),
-//                142857, 0, 0.01f));
+        offers.add(new MerchantOffer(
+                new ItemStack(TCRItems.SOUL_FRAGMENT.get(), 1),
+                new ItemStack(TCRItems.RESET_SKILL_STONE.get(), 1),
+                142857, 0, 0.01f));
     }
 
     @Override

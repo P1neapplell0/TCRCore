@@ -44,7 +44,7 @@ public class CustomDialogHandler {
                 if (serverPlayer.server.isSingleplayer()) {
                     TCRPlayer.SARDINE_COUNT = newSardine;
                 }
-                PlayerEventListeners.handleFirstJoin(serverPlayer);
+                PlayerEventListeners.handleFirstJoin(serverPlayer, true);
             }
         }
     }

@@ -67,37 +67,32 @@ public class ResonanceStoneItem extends Item {
         if(player instanceof ServerPlayer serverPlayer && !itemStack.getOrCreateTag().getBoolean("searching")) {
             if(predicate.test(serverPlayer) && level.dimension().equals(dimension)) {
                 itemStack.getOrCreateTag().putBoolean("searching", true);
-                CompletableFuture.supplyAsync(() -> {
-                    serverPlayer.displayClientMessage(TCRCoreMod.getInfo("resonance_stone_working", this.getDescription()), true);
+                serverPlayer.displayClientMessage(TCRCoreMod.getInfo("resonance_stone_working", this.getDescription()), true);
+                serverPlayer.connection.send(new ClientboundSoundPacket(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(EpicSkillsSounds.GAIN_ABILITY_POINTS.get()), SoundSource.PLAYERS, player.getX(), player.getY(), player.getZ(), 1.0F, 1.0F, player.getRandom().nextInt()));
+                BlockPos pos = null;
+                try {
+                    pos = WorldUtil.getNearbyStructurePos(serverPlayer, targetStructure.toString(), y, ignoreFounded);
+                } catch (Exception e) {
+                    TCRCoreMod.LOGGER.error("TCRCore : Error finding structure [{}]: ", targetStructure, e);
+                    player.displayClientMessage(TCRCoreMod.getInfo("resonance_search_failed", targetStructure).withStyle(ChatFormatting.RED), false);
+                    itemStack.getOrCreateTag().putBoolean("searching", false);
+                }
+                if(pos != null) {
+                    if(y == SURFACE) {
+                        pos = WorldUtil.getSurfaceBlockPos(serverPlayer.serverLevel(), pos);
+                    }
+                    TCRPlayer tcrPlayer = TCRCapabilityProvider.getTCRPlayer(player);
+                    tcrPlayer.playDirectionParticle(player.getEyePosition(), new Vec3(pos.getX(), player.getEyeY(), pos.getZ()));
+                    itemStack.shrink(1);
                     serverPlayer.connection.send(new ClientboundSoundPacket(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(EpicSkillsSounds.GAIN_ABILITY_POINTS.get()), SoundSource.PLAYERS, player.getX(), player.getY(), player.getZ(), 1.0F, 1.0F, player.getRandom().nextInt()));
-                    BlockPos pos = null;
-                    try {
-                        pos = WorldUtil.getNearbyStructurePos(serverPlayer, targetStructure.toString(), y, ignoreFounded);
-                    } catch (Exception e) {
-                        TCRCoreMod.LOGGER.error("TCRCore : Error finding structure [{}]: {}", targetStructure, e.getMessage());
-                        player.displayClientMessage(TCRCoreMod.getInfo("resonance_search_failed", targetStructure).withStyle(ChatFormatting.RED), false);
-                        itemStack.getOrCreateTag().putBoolean("searching", false);
+                    if(!TCRCoreMod.isXaeroMapLoaded() && !TCRCoreMod.isJourneyMapLoaded()) {
+                        ResonanceStoneItem.handleNoXaeroMap(Component.literal(targetStructure.toString()), pos, serverPlayer);
                     }
-                    return pos;
-                })
-                .thenAccept(pos -> {
-                    if(pos != null) {
-                        if(y == SURFACE) {
-                            pos = WorldUtil.getSurfaceBlockPos(serverPlayer.serverLevel(), pos);
-                        }
-                        TCRPlayer tcrPlayer = TCRCapabilityProvider.getTCRPlayer(player);
-                        tcrPlayer.playDirectionParticle(player.getEyePosition(), new Vec3(pos.getX(), player.getEyeY(), pos.getZ()));
-                        itemStack.shrink(1);
-                        serverPlayer.connection.send(new ClientboundSoundPacket(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(EpicSkillsSounds.GAIN_ABILITY_POINTS.get()), SoundSource.PLAYERS, player.getX(), player.getY(), player.getZ(), 1.0F, 1.0F, player.getRandom().nextInt()));
-                        if(!TCRCoreMod.isXaeroMapLoaded() && !TCRCoreMod.isJourneyMapLoaded()) {
-                            ResonanceStoneItem.handleNoXaeroMap(Component.literal(targetStructure.toString()), pos, serverPlayer);
-                        }
-                        callback.accept(pos, serverPlayer);
-                    } else {
-                        player.displayClientMessage(TCRCoreMod.getInfo("resonance_search_failed", targetStructure).withStyle(ChatFormatting.RED), false);
-                        itemStack.getOrCreateTag().putBoolean("searching", false);
-                    }
-                });
+                    callback.accept(pos, serverPlayer);
+                } else {
+                    player.displayClientMessage(TCRCoreMod.getInfo("resonance_search_failed", targetStructure).withStyle(ChatFormatting.RED), false);
+                    itemStack.getOrCreateTag().putBoolean("searching", false);
+                }
             } else {
                 player.displayClientMessage(TCRCoreMod.getInfo("can_not_do_this_too_early"), false);
             }

@@ -10,5 +10,23 @@
       "tcrcore:common/clap"
     ],
     "subtitle": "subtitles.tcrcore.sound.clap"
+  },
+  "sound.tcr.drumbeat1": {
+    "sounds": [
+      "tcrcore:drumbeat1"
+    ],
+    "subtitle": "subtitles.tcrcore.sound.drumbeat1"
+  },
+  "sound.tcr.drumbeat2": {
+    "sounds": [
+      "tcrcore:drumbeat2"
+    ],
+    "subtitle": "subtitles.tcrcore.sound.drumbeat2"
+  },
+  "sound.tcr.drumbeat3": {
+    "sounds": [
+      "tcrcore:drumbeat3"
+    ],
+    "subtitle": "subtitles.tcrcore.sound.drumbeat3"
   }
 }

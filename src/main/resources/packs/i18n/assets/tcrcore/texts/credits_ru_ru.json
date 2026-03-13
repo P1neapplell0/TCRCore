@@ -1,0 +1,217 @@
+[
+  {
+    "section": "Команда разработчиков (всё оригинальное содержимое ниже)",
+    "disciplines": [
+      {
+        "discipline": "Автор",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "P1nero"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Программирование",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "P1nero"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Дизайн сюжета",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "P1nero"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Книга заданий и Бестиарий",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "P1nero",
+              "Windrinn"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Арт",
+        "titles": [
+          {
+            "title": "Моделирование",
+            "names": [
+              "Ao22333"
+            ]
+          },
+          {
+            "title": "Текстурирование",
+            "names": [
+              "一只路过的小吴",
+              "Ao22333",
+              "XVIII-凌",
+              "yu_moooo",
+              "脚踏梯子hill",
+              "I_Black_Demon_I"
+            ]
+          },
+          {
+            "title": "Скиннинг (Weight Painting)",
+            "names": [
+              "asanginxst"
+            ]
+          },
+          {
+            "title": "Обложка",
+            "names": [
+              "v4lk"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Дизайн ИИ монстров",
+        "titles": [
+          {
+            "title": "Боссы",
+            "names": [
+              "XVIII-凌",
+              "ShelMarow"
+            ]
+          },
+          {
+            "title": "Рядовые гуманоидные враги",
+            "names": [
+              "气球恶魔"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Дизайн сцен главного города",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "El_mal（玩建筑的牢E）",
+              "300wan"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Помощь в анимации",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "merlin204",
+              "asanginxst"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Серверная разработка",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "Windrinn"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Помощь в съёмке трейлера",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "Arcadia"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Apex Hosting",
+    "disciplines": [
+      {
+        "discipline": "Арендуйте свой сервер!",
+        "titles": [
+          {
+            "title": "Используйте ссылку для получения скидки!",
+            "names": [
+              "https://apexhost.gg/P1nero"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Рекламное место доступно",
+    "disciplines": [
+      {
+        "discipline": "Рекламное место доступно",
+        "titles": [
+          {
+            "title": "Рекламное место доступно",
+            "names": [
+              "Рекламное место доступно",
+              "Свяжитесь с P1nero для уточнений",
+              "gaylordfocker@foxmail.com"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Особая благодарность",
+    "disciplines": [
+      {
+        "discipline": "",
+        "titles": [
+          {
+            "title": "Все спонсоры",
+            "names": [
+              ""
+            ]
+          },
+          {
+            "title": "Переводчики (переводчики других языков, не забудьте добавить своё имя)",
+            "names": [
+              "zh_cn, en_us — P1nero, Windrinn",
+              "ru_ru — fimkov, DJDemin"
+            ]
+          },
+          {
+            "title": "Tribute",
+            "names": [
+              "Yesman",
+              "超级厉害宝宝(Super Awesome Baby) Team",
+              "Minecraft",
+              "Minecraft Forge",
+              "И всем модам, текстур-паккам, шейдерам и их авторам!"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

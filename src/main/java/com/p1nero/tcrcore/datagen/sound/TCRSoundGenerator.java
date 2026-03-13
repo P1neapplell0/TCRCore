@@ -14,5 +14,9 @@ public class TCRSoundGenerator extends TCRSoundProvider {
     public void registerSounds() {
         generateNewSoundWithSubtitle(TCRSounds.WIN_BGM, "bgm/win_bgm", 1);
         generateNewSoundWithSubtitle(TCRSounds.CLAP, "common/clap", 1);
+
+        generateNewSoundWithSubtitle(TCRSounds.DRUMBEAT_1, "drumbeat1", 1);
+        generateNewSoundWithSubtitle(TCRSounds.DRUMBEAT_2, "drumbeat2", 1);
+        generateNewSoundWithSubtitle(TCRSounds.DRUMBEAT_3, "drumbeat3", 1);
     }
 }

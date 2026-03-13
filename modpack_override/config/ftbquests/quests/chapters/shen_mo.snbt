@@ -456,11 +456,10 @@
 			size: 1.5d
 			subtitle: "{ftbquests.chapter.shen_mo.quest1C6CF37F43D11ED9.subtitle}"
 			tasks: [{
-				entity: "fdbosses:chesed"
-				icon: "fdbosses:chesed_trophy"
-				id: "6014D7CAB3E73A2E"
-				type: "kill"
-				value: 1L
+				advancement: "fdbosses:qliphoth_awakening/chesed"
+				criterion: ""
+				id: "53963CE524608B32"
+				type: "advancement"
 			}]
 			title: "{ftbquests.chapter.shen_mo.quest1C6CF37F43D11ED9.title}"
 			x: 4.5d
@@ -479,11 +478,10 @@
 			size: 1.5d
 			subtitle: "{ftbquests.chapter.shen_mo.quest4391005A02DF9BA2.subtitle}"
 			tasks: [{
-				entity: "fdbosses:malkuth"
-				icon: "fdbosses:malkuth_trophy"
-				id: "4F28257A1085C301"
-				type: "kill"
-				value: 1L
+				advancement: "fdbosses:qliphoth_awakening/malkuth"
+				criterion: ""
+				id: "0281C0F92687FCEE"
+				type: "advancement"
 			}]
 			title: "{ftbquests.chapter.shen_mo.quest4391005A02DF9BA2.title}"
 			x: 0.0d
@@ -502,11 +500,10 @@
 			size: 1.5d
 			subtitle: "{ftbquests.chapter.shen_mo.quest570C81A5E3AB8E08.subtitle}"
 			tasks: [{
-				entity: "fdbosses:geburah"
-				icon: "fdbosses:geburah_trophy"
-				id: "19CD0EF5AAD663EC"
-				type: "kill"
-				value: 1L
+				advancement: "fdbosses:qliphoth_awakening/geburah"
+				criterion: ""
+				id: "6C582254AFAF6220"
+				type: "advancement"
 			}]
 			title: "{ftbquests.chapter.shen_mo.quest570C81A5E3AB8E08.title}"
 			x: -4.5d

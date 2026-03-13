@@ -1,5 +1,6 @@
 package com.p1nero.tcrcore.datagen.lang;
 
+import com.brass_amber.ba_bt.init.BTEntityType;
 import com.github.L_Ender.cataclysm.init.ModItems;
 import com.github.dodo.dodosmobs.init.ModEntities;
 import com.hm.efn.registries.EFNItem;
@@ -267,6 +268,7 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         this.add(TCRItems.ANCIENT_ORACLE_FRAGMENT.get(), "神谕残卷");
         this.addItemUsageInfo(TCRItems.ANCIENT_ORACLE_FRAGMENT.get(), "§c§kI'm Your...");
 
+        this.addInfo("talk_to_start", "对话以开始战斗");
         this.addInfo("temp_dragon_flute", "[临时龙之笛]：使用后将消耗！");
         this.addInfo("dragon_die_back", "您的龙已死亡，未检测到宠物床，已转化为龙之笛。");
         this.addInfo("only_work_on_dragon", "只能对龙类使用！");
@@ -280,7 +282,7 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         this.addInfo("can_not_guard", "Boss攻击将无视防御！");
         this.addInfo("pec_weapon_lock", "武器技能已锁定！在[%s]击败[%s]以解锁！");
         this.addInfo("resonance_stone_usage", "可与使徒封印的位置共鸣。");
-        this.addInfo("resonance_search_failed", "错误：无法共鸣！请重启游戏后再次尝试！[%s]");
+        this.addInfo("resonance_search_failed", "错误：无法共鸣！请重启游戏后再次尝试！请保留latest.log并向作者报告此错误！[%s]");
         this.addInfo("yamato_skill_lock", "[%s]已锁定，需对应附魔书以解锁！");
         this.addInfo("congratulation", "恭喜！");
         this.addInfo("open_backpack_tutorial", "按下 [%s] 以打开随身空间");
@@ -647,6 +649,19 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         this.addDialogAnswer(ModEntities.BONE_CHIMERA, 2, "此身携有不死诅咒，你若助我解脱，吾之尸骨可铸利器。准备好了吗？");
         this.addDialogOption(ModEntities.BONE_CHIMERA, 2, "准备好了");
         this.addDialogOption(ModEntities.BONE_CHIMERA, 3, "再等等");
+
+        this.addDialogAnswer(BTEntityType.END_GOLEM, 0, "（此人有极强大的气场，他一言不发）");
+        this.addDialogAnswer(BTEntityType.END_GOLEM, 1, "（它还是在那里，不为所动）");
+        this.addDialogAnswer(BTEntityType.END_GOLEM, 2, "如果你想要，你得自己来拿。");
+        this.addDialogAnswer(BTEntityType.END_GOLEM, 3, "这规矩你早就懂的。");
+        this.addDialogAnswer(BTEntityType.END_GOLEM, 4, "我们之间打过多少次架了。");
+        this.addDialogAnswer(BTEntityType.END_GOLEM, 5, "（邪魅一笑）");
+        this.addDialogOption(BTEntityType.END_GOLEM, 0, "嘿，%s，你动不动就打开传送门的日子结束了！");
+        this.addDialogOption(BTEntityType.END_GOLEM, 1, "（叹气）把[%s]给我");
+        this.addDialogOption(BTEntityType.END_GOLEM, 2, "继续");
+        this.addDialogOption(BTEntityType.END_GOLEM, 3, "我就知道你会这么说（掏出武器）");
+        this.addDialogOption(BTEntityType.END_GOLEM, 4, "很难说，这是我从小唯一记得的事。");
+        this.addDialogOption(BTEntityType.END_GOLEM, 5, "该做个了解了！一了百了！");
 
         this.addDialogOption(EntityTypeModule.RIBBIT.get(), -2, "离开");
         this.addDialogOption(EntityTypeModule.RIBBIT.get(), -1, "继续");

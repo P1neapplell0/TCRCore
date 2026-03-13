@@ -12,6 +12,10 @@ public class TCRSounds {
     public static final RegistryObject<SoundEvent> WIN_BGM = createEvent("bgm.tcr.win_bgm");
     public static final RegistryObject<SoundEvent> CLAP = createEvent("sound.tcr.clap");
 
+    public static final RegistryObject<SoundEvent> DRUMBEAT_1 = createEvent("sound.tcr.drumbeat1");
+    public static final RegistryObject<SoundEvent> DRUMBEAT_2 = createEvent("sound.tcr.drumbeat2");
+    public static final RegistryObject<SoundEvent> DRUMBEAT_3 = createEvent("sound.tcr.drumbeat3");
+
     private static RegistryObject<SoundEvent> createEvent(String sound) {
         return REGISTRY.register(sound, () -> SoundEvent.createVariableRangeEvent(TCRCoreMod.prefix(sound)));
     }

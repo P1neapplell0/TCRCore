@@ -146,44 +146,47 @@ public class PlayerEventListeners {
         if (player instanceof ServerPlayer serverPlayer) {
             TCRCapabilityProvider.syncPlayerDataToClient(serverPlayer);
             TCRPlayer.updateSardineCount(serverPlayer);
-            handleFirstJoin(serverPlayer);
+            handleFirstJoin(serverPlayer, false);
         }
     }
 
-    public static void handleFirstJoin(ServerPlayer serverPlayer) {
+    public static void handleFirstJoin(ServerPlayer serverPlayer, boolean isNGPlus) {
         if (!PlayerDataManager.firstJoint.get(serverPlayer)) {
             serverPlayer.setRespawnPosition(TCRDimensions.SANCTUM_LEVEL_KEY, new BlockPos(WorldUtil.START_POS), 90, true, false);
             ServerLevel targetLevel = serverPlayer.server.getLevel(TCRDimensions.SANCTUM_LEVEL_KEY);
             serverPlayer = (ServerPlayer) serverPlayer.changeDimension(targetLevel, new PositionTeleporter(new BlockPos(WorldUtil.START_POS)));
             TCRAdvancementData.finishAdvancement(TCRCoreMod.MOD_ID, serverPlayer);
-            serverPlayer.server.getGameRules().getRule(GameRules.RULE_KEEPINVENTORY).set(true, serverPlayer.server);
-            serverPlayer.server.getGameRules().getRule(GameRules.RULE_MOBGRIEFING).set(false, serverPlayer.server);
-            serverPlayer.server.getGameRules().getRule(EpicFightGameRules.SKILL_REPLACE_COOLDOWN.getRuleKey()).set(200, serverPlayer.server);
-            ServerPlayer finalServerPlayer = serverPlayer;
-            ResourceKey<SkillTree> dpr = ResourceKey.create(SkillTree.SKILL_TREE_REGISTRY_KEY, ResourceLocation.fromNamespaceAndPath("dodge_parry_reward", "passive"));
-            serverPlayer.getCapability(SkillTreeProgression.SKILL_TREE_PROGRESSION).ifPresent(skillTreeProgression -> {
-                skillTreeProgression.unlockNode(EpicSkillsSkillTrees.BATTLEBORN, EFNSkills.EFN_DODGE_ROLL, finalServerPlayer);
-                skillTreeProgression.unlockNode(EpicSkillsSkillTrees.BATTLEBORN, EFNSkills.EFN_DODGE_STEP, finalServerPlayer);
-                skillTreeProgression.unlockNode(dpr, DPRSkills.STAMINA1, finalServerPlayer);
-            });
-            addSkill(serverPlayer, EFNSkills.EFN_DODGE_ROLL, SkillSlots.DODGE);
-            addSkill(serverPlayer, EFNSkills.EFN_PARRY, SkillSlots.GUARD);
-            addSkill(serverPlayer, DPRSkills.STAMINA1, SkillSlots.PASSIVE1);
+            if(!isNGPlus) {
+                serverPlayer.server.getGameRules().getRule(GameRules.RULE_KEEPINVENTORY).set(true, serverPlayer.server);
+                serverPlayer.server.getGameRules().getRule(GameRules.RULE_MOBGRIEFING).set(false, serverPlayer.server);
+                serverPlayer.server.getGameRules().getRule(EpicFightGameRules.SKILL_REPLACE_COOLDOWN.getRuleKey()).set(200, serverPlayer.server);
+                ServerPlayer finalServerPlayer = serverPlayer;
+                ResourceKey<SkillTree> dpr = ResourceKey.create(SkillTree.SKILL_TREE_REGISTRY_KEY, ResourceLocation.fromNamespaceAndPath("dodge_parry_reward", "passive"));
+                serverPlayer.getCapability(SkillTreeProgression.SKILL_TREE_PROGRESSION).ifPresent(skillTreeProgression -> {
+                    skillTreeProgression.unlockNode(EpicSkillsSkillTrees.BATTLEBORN, EFNSkills.EFN_DODGE_ROLL, finalServerPlayer);
+                    skillTreeProgression.unlockNode(EpicSkillsSkillTrees.BATTLEBORN, EFNSkills.EFN_DODGE_STEP, finalServerPlayer);
+                    skillTreeProgression.unlockNode(dpr, DPRSkills.STAMINA1, finalServerPlayer);
+                });
+                addSkill(serverPlayer, EFNSkills.EFN_DODGE_ROLL, SkillSlots.DODGE);
+                addSkill(serverPlayer, EFNSkills.EFN_PARRY, SkillSlots.GUARD);
+                addSkill(serverPlayer, DPRSkills.STAMINA1, SkillSlots.PASSIVE1);
 
-            DimensionsNet net = addBeyondDimensionNet(serverPlayer);
+                DimensionsNet net = addBeyondDimensionNet(serverPlayer);
 
-            ItemUtil.addItem(serverPlayer, Items.LANTERN, 1);
-            ItemUtil.addItem(serverPlayer, Items.BREAD, 32);
-            ItemUtil.addItem(serverPlayer, EpicSkillsItems.ABILIITY_STONE.get(), 1);
-//            ItemUtil.addItem(serverPlayer, TCRItems.RESET_SKILL_STONE.get(), 1);
+                ItemUtil.addItem(serverPlayer, Items.LANTERN, 1);
+                ItemUtil.addItem(serverPlayer, Items.BREAD, 32);
+                ItemUtil.addItem(serverPlayer, EpicSkillsItems.ABILIITY_STONE.get(), 1);
+                ItemUtil.addItem(serverPlayer, TCRItems.RESET_SKILL_STONE.get(), 1);
 
-            net.getUnifiedStorage().insert(new ItemStackKey(BDItems.XP_EXCHANGE_ITEM.get().getDefaultInstance()), 1, false);
-
+                net.getUnifiedStorage().insert(new ItemStackKey(BDItems.XP_EXCHANGE_ITEM.get().getDefaultInstance()), 1, false);
+            }
             PacketRelay.sendToPlayer(TCRPacketHandler.INSTANCE, new OpenCustomDialogPacket(OpenCustomDialogPacket.GAME_START), serverPlayer);
             TCRQuests.TALK_TO_AINE_0.start(serverPlayer);
             TCRQuests.TALK_TO_CHRONOS_0.start(serverPlayer);
 
-            PECDataManager.resetAll(serverPlayer, true);
+            if(!isNGPlus) {
+                PECDataManager.resetAll(serverPlayer, true);
+            }
 
             PlayerDataManager.firstJoint.put(serverPlayer, true);
         }

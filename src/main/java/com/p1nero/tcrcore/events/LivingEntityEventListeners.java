@@ -597,6 +597,18 @@ public class LivingEntityEventListeners {
 
         }
 
+        //还没对话不能开打
+        if(event.getEntity() instanceof EndGolem endGolem) {
+            if(!endGolem.level().isClientSide) {
+                if(!TCREntityCapabilityProvider.getTCREntityPatch(endGolem).isFighting()) {
+                    if(event.getSource().getEntity() instanceof Player player) {
+                        player.displayClientMessage(TCRCoreMod.getInfo("talk_to_start").withStyle(ChatFormatting.GOLD), true);
+                    }
+                    event.setCanceled(true);
+                }
+            }
+        }
+
     }
 
     /**
@@ -761,6 +773,17 @@ public class LivingEntityEventListeners {
 //                }
 //            }
 //        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingTick(LivingEvent.LivingTickEvent event) {
+        if(event.getEntity() instanceof EndGolem endGolem) {
+            if(!endGolem.level().isClientSide) {
+                if(!TCREntityCapabilityProvider.getTCREntityPatch(endGolem).isFighting()) {
+                    endGolem.setTarget(null);
+                }
+            }
+        }
     }
 
     public static void saveSpawnPos(Entity entity) {
