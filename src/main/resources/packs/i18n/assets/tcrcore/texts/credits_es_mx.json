@@ -1,0 +1,217 @@
+[
+  {
+    "section": "Equipo de Desarrollo (Todo el contenido original a continuación)",
+    "disciplines": [
+      {
+        "discipline": "Autor",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "P1nero"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Programación",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "P1nero"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Diseño de Historia",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "P1nero"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Libro de Misiones y Bestiario",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "P1nero",
+              "Windrinn"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Arte",
+        "titles": [
+          {
+            "title": "Modelado",
+            "names": [
+              "Ao22333"
+            ]
+          },
+          {
+            "title": "Texturizado",
+            "names": [
+              "一只路过的小吴",
+              "Ao22333",
+              "XVIII-凌",
+              "yu_moooo",
+              "脚踏梯子hill",
+              "I_Black_Demon_I"
+            ]
+          },
+          {
+            "title": "Pintado de Pesos",
+            "names": [
+              "asanginxst"
+            ]
+          },
+          {
+            "title": "Arte de Portada",
+            "names": [
+              "v4lk"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Diseño de IA de Monstruos",
+        "titles": [
+          {
+            "title": "Jefe",
+            "names": [
+              "XVIII-凌",
+              "ShelMarow"
+            ]
+          },
+          {
+            "title": "Enemigos Humanoides Regulares",
+            "names": [
+              "气球恶魔"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Diseño de Escena de la Ciudad Principal",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "El_mal（玩建筑的牢E）",
+              "300wan"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Asistencia de Animación",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "merlin204",
+              "asanginxst"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Desarrollo del Lado del Servidor",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "Windrinn"
+            ]
+          }
+        ]
+      },
+      {
+        "discipline": "Asistencia en la Filmación del Tráiler",
+        "titles": [
+          {
+            "title": "",
+            "names": [
+              "Arcadia"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Apex Hosting",
+    "disciplines": [
+      {
+        "discipline": "¡Renta tu servidor!",
+        "titles": [
+          {
+            "title": "¡Usa el enlace para obtener un descuento!",
+            "names": [
+              "https://apexhost.gg/P1nero"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Espacio Publicitario Disponible",
+    "disciplines": [
+      {
+        "discipline": "Espacio Publicitario Disponible",
+        "titles": [
+          {
+            "title": "Espacio Publicitario Disponible",
+            "names": [
+              "Espacio Publicitario Disponible",
+              "Contacta a P1nero para consultas",
+              "gaylordfocker@foxmail.com"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "section": "Agradecimientos Especiales",
+    "disciplines": [
+      {
+        "discipline": "",
+        "titles": [
+          {
+            "title": "Todos los Patrocinadores",
+            "names": [
+              ""
+            ]
+          },
+          {
+            "title": "Traductores (Los traductores de otros idiomas recuerden añadir su nombre aquí)",
+            "names": [
+              "zh_cn, en_us - P1nero, Windrinn",
+              "Keony Jean Paul Cruz Jimenez (Sayax_Invecto) Español"
+            ]
+          },
+          {
+            "title": "Tributo",
+            "names": [
+              "Yesman",
+              "超级厉害宝宝(Super Awesome Baby) Team",
+              "Minecraft",
+              "Minecraft Forge",
+              "¡Y todos los mods, paquetes de recursos, shaders y sus autores utilizados en este pack!"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
