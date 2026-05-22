@@ -451,7 +451,7 @@
 		}
 		{
 			dependencies: ["2F9F109962C8ADF4"]
-			hide_dependency_lines: false
+			hide_dependency_lines: true
 			hide_dependent_lines: true
 			icon: {
 				Count: 1
@@ -504,7 +504,7 @@
 		}
 		{
 			dependencies: ["04A38D08B97A07B0"]
-			description: ["{ftbquests.chapter.wu_qi.quest8474908420337455815.description1}"]
+			description: ["{ftbquests.chapter.wu_qi.quest8474908420337455815.subtitle}"]
 			hide_dependency_lines: false
 			hide_dependent_lines: true
 			icon: "cataclysm:gauntlet_of_bulwark"
@@ -517,7 +517,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest8474908420337455815.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.quest8017075452207773164.description1}"
 			tasks: [{
 				id: "415DF5832E4C8D7C"
 				item: "cataclysm:gauntlet_of_bulwark"
@@ -528,7 +528,7 @@
 		}
 		{
 			dependencies: ["04A38D08B97A07B0"]
-			description: ["{ftbquests.chapter.wu_qi.quest7307970604368276746.description1}"]
+			description: ["{ftbquests.chapter.wu_qi.quest8474908420337455815.subtitle}"]
 			hide_dependency_lines: false
 			hide_dependent_lines: true
 			icon: "cataclysm:gauntlet_of_maelstrom"
@@ -541,7 +541,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest7307970604368276746.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.quest8017075452207773164.description1}"
 			tasks: [{
 				id: "50F9A77D17C1354B"
 				item: "cataclysm:gauntlet_of_maelstrom"
@@ -598,7 +598,7 @@
 		}
 		{
 			dependencies: ["72C5DAEE93ACFDD5"]
-			description: ["{ftbquests.chapter.wu_qi.quest136175870569266267.description1}"]
+			description: ["{ftbquests.chapter.wu_qi.quest136175870569266267.subtitle}"]
 			hide_dependency_lines: false
 			hide_dependent_lines: true
 			icon: {
@@ -617,7 +617,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest136175870569266267.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.quest7307970604368276746.description1}"
 			tasks: [{
 				id: "5E4E921EFE71EF8A"
 				item: {
@@ -668,7 +668,7 @@
 		}
 		{
 			dependencies: ["2F9F109962C8ADF4"]
-			description: ["{ftbquests.chapter.wu_qi.quest665635487848629534.description1}"]
+			description: ["{ftbquests.chapter.wu_qi.quest8474908420337455815.subtitle}"]
 			icon: "cataclysm:meat_shredder"
 			icon_scale: 2.0d
 			id: "093CCFF3131C851E"
@@ -679,7 +679,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest665635487848629534.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.quest8017075452207773164.description1}"
 			tasks: [{
 				id: "5C1C8AA7BA54458A"
 				item: "cataclysm:meat_shredder"
@@ -690,7 +690,7 @@
 		}
 		{
 			dependencies: ["2F9F109962C8ADF4"]
-			description: ["{ftbquests.chapter.wu_qi.quest733255575103013824.description1}"]
+			description: ["{ftbquests.chapter.wu_qi.quest733255575103013824.subtitle}\\n{ftbquests.chapter.wu_qi.quest8017075452207773164.description1}"]
 			icon: {
 				Count: 1
 				id: "cataclysm:laser_gatling"
@@ -708,7 +708,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest733255575103013824.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.quest8017075452207773164.description1}"
 			tasks: [{
 				id: "64F04D5A90F5CD39"
 				item: {
@@ -726,7 +726,7 @@
 		}
 		{
 			dependencies: ["2F9F109962C8ADF4"]
-			description: ["{ftbquests.chapter.wu_qi.quest1487237069278884621.description1}"]
+			description: ["{ftbquests.chapter.wu_qi.quest8474908420337455815.subtitle}"]
 			icon: "cataclysm:wither_assault_shoulder_weapon"
 			icon_scale: 2.0d
 			id: "14A3BA3C1B29330D"
@@ -737,7 +737,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest1487237069278884621.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.quest8017075452207773164.description1}"
 			tasks: [{
 				id: "59F6CE0104A253B6"
 				item: "cataclysm:wither_assault_shoulder_weapon"
@@ -748,7 +748,7 @@
 		}
 		{
 			dependencies: ["14A3BA3C1B29330D"]
-			description: ["{ftbquests.chapter.wu_qi.quest2174003163847852864.description1}"]
+			description: ["{ftbquests.chapter.wu_qi.quest8474908420337455815.subtitle}"]
 			hide_dependency_lines: false
 			hide_dependent_lines: true
 			icon: "cataclysm:void_assault_shoulder_weapon"
@@ -761,7 +761,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest2174003163847852864.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.quest8017075452207773164.description1}"
 			tasks: [{
 				id: "36F71EEBEF8AE900"
 				item: "cataclysm:void_assault_shoulder_weapon"
@@ -772,7 +772,7 @@
 		}
 		{
 			dependencies: ["2F9F109962C8ADF4"]
-			description: ["{ftbquests.chapter.wu_qi.quest8017075452207773164.description1}"]
+			description: ["{ftbquests.chapter.wu_qi.quest136175870569266267.subtitle}"]
 			icon: "cataclysm:bulwark_of_the_flame"
 			icon_scale: 2.0d
 			id: "6F425FA5C25935EC"
@@ -783,7 +783,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest8017075452207773164.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.quest7307970604368276746.description1}"
 			tasks: [{
 				id: "54AB791F48B3639C"
 				item: "cataclysm:bulwark_of_the_flame"
@@ -870,8 +870,8 @@
 				}
 				type: "item"
 			}]
-			x: -11.25d
-			y: 7.5d
+			x: 13.5d
+			y: 5.25d
 		}
 		{
 			dependencies: ["395C30642B3F2BA7"]
@@ -1211,7 +1211,8 @@
 			y: 5.25d
 		}
 		{
-			dependencies: ["2F9F109962C8ADF4"]
+			dependencies: ["695915568AF5A8DE"]
+			hide_dependency_lines: false
 			icon_scale: 1.4d
 			id: "1906CC62E077B227"
 			rewards: [{
@@ -1221,7 +1222,7 @@
 			}]
 			shape: "none"
 			size: 3.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest1696022313405171865.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.trade_with_ornn}"
 			tasks: [{
 				id: "7ED8555AABADF249"
 				item: {
@@ -1233,11 +1234,13 @@
 				}
 				type: "item"
 			}]
-			x: -8.0d
-			y: -14.5d
+			x: -6.0d
+			y: -16.5d
 		}
 		{
 			dependencies: ["1906CC62E077B227"]
+			description: ["{ftbquests.chapter.wu_qi.quest4A93C88987F02ECF.subtitle}"]
+			hide_dependency_lines: false
 			id: "4A93C88987F02ECF"
 			rewards: [{
 				id: "57D97C4873E01F01"
@@ -1246,7 +1249,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest4A93C88987F02ECF.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.trade_with_ornn}"
 			tasks: [{
 				id: "23FD38D1346F10E4"
 				item: {
@@ -1261,7 +1264,7 @@
 			}]
 			title: "{ftbquests.chapter.wu_qi.quest4A93C88987F02ECF.title}"
 			x: -8.0d
-			y: -18.0d
+			y: -19.0d
 		}
 		{
 			dependencies: ["2F9F109962C8ADF4"]
@@ -1352,7 +1355,12 @@
 		}
 		{
 			dependencies: ["627E4A2C0428CC5A"]
-			description: ["{enchantment.efn.yamato_guard.desc}"]
+			description: [
+				"{ftbquests.chapter.wu_qi.quest4108291A69C3FFF6.subtitle}"
+				""
+				"{enchantment.efn.yamato_guard.desc}"
+			]
+			hide_dependency_lines: false
 			id: "3254967D776D648C"
 			rewards: [{
 				id: "5274468D1B56667C"
@@ -1361,7 +1369,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest3254967D776D648C.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.trade_with_ornn}"
 			tasks: [{
 				id: "3D44318518C329DE"
 				item: {
@@ -1383,7 +1391,12 @@
 		}
 		{
 			dependencies: ["627E4A2C0428CC5A"]
-			description: ["{enchantment.efn.yamato_doppelganger.desc}"]
+			description: [
+				"{ftbquests.chapter.wu_qi.quest4108291A69C3FFF6.subtitle}"
+				""
+				"{enchantment.efn.yamato_doppelganger.desc}"
+			]
+			hide_dependency_lines: false
 			id: "6533118C2C897C1E"
 			rewards: [{
 				id: "56ED6545CAF38BA6"
@@ -1392,7 +1405,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest6533118C2C897C1E.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.trade_with_ornn}"
 			tasks: [{
 				id: "718AD14EAA4DD552"
 				item: {
@@ -1414,7 +1427,12 @@
 		}
 		{
 			dependencies: ["627E4A2C0428CC5A"]
-			description: ["{enchantment.efn.yamato_summoned_sword.desc}"]
+			description: [
+				"{ftbquests.chapter.wu_qi.quest4108291A69C3FFF6.subtitle}"
+				""
+				"{enchantment.efn.yamato_summoned_sword.desc}"
+			]
+			hide_dependency_lines: false
 			id: "4108291A69C3FFF6"
 			rewards: [{
 				id: "68A7E29FE488F6BA"
@@ -1423,7 +1441,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest4108291A69C3FFF6.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.trade_with_ornn}"
 			tasks: [{
 				id: "6396BA16C3C11709"
 				item: {
@@ -1445,7 +1463,12 @@
 		}
 		{
 			dependencies: ["627E4A2C0428CC5A"]
-			description: ["{enchantment.efn.yamato_judgement_cut_end.desc}"]
+			description: [
+				"{ftbquests.chapter.wu_qi.quest4108291A69C3FFF6.subtitle}"
+				""
+				"{enchantment.efn.yamato_judgement_cut_end.desc}"
+			]
+			hide_dependency_lines: false
 			id: "5DBFF2EAFF720ABF"
 			rewards: [{
 				id: "325D10F10ECBA98C"
@@ -1454,7 +1477,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest5DBFF2EAFF720ABF.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.trade_with_ornn}"
 			tasks: [{
 				id: "6B39D41A39B381B4"
 				item: {
@@ -1667,6 +1690,8 @@
 		}
 		{
 			dependencies: ["0C51C2F3266B0A59"]
+			description: ["{ftbquests.chapter.wu_qi.trade_with_ornn}"]
+			hide_dependency_lines: false
 			id: "57E56FB77043E3CB"
 			rewards: [{
 				id: "15E330932CA83D10"
@@ -1675,7 +1700,7 @@
 			}]
 			shape: "none"
 			size: 1.5d
-			subtitle: "{ftbquests.chapter.wu_qi.quest57E56FB77043E3CB.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.quest57E56FB77043E3CB.subtitle}\\n{ftbquests.chapter.wu_qi.trade_with_ornn}"
 			tasks: [{
 				id: "688ED697A4A43758"
 				item: {
@@ -1802,7 +1827,12 @@
 		}
 		{
 			dependencies: ["627E4A2C0428CC5A"]
-			description: ["{enchantment.efn.yamato_heavy_rain.desc}"]
+			description: [
+				"{ftbquests.chapter.wu_qi.quest4108291A69C3FFF6.subtitle}"
+				""
+				"{enchantment.efn.yamato_heavy_rain.desc}"
+			]
+			hide_dependency_lines: false
 			id: "274826600E2C8D2E"
 			rewards: [{
 				id: "50ECE3170020B44F"
@@ -1811,7 +1841,7 @@
 			}]
 			shape: "none"
 			size: 2.0d
-			subtitle: "{ftbquests.chapter.wu_qi.quest6533118C2C897C1E.subtitle}"
+			subtitle: "{ftbquests.chapter.wu_qi.trade_with_ornn}"
 			tasks: [{
 				id: "1932E623FDA2916B"
 				item: {
@@ -1830,6 +1860,58 @@
 			title: "{enchantment.efn.yamato_heavy_rain}"
 			x: 2.5d
 			y: -19.005952380952387d
+		}
+		{
+			dependencies: ["2F9F109962C8ADF4"]
+			icon_scale: 1.4d
+			id: "695915568AF5A8DE"
+			rewards: [{
+				id: "763171F99F9DA47B"
+				type: "xp"
+				xp: 1
+			}]
+			shape: "none"
+			size: 3.0d
+			subtitle: "{ftbquests.chapter.wu_qi.quest3658525919730360002.subtitle}"
+			tasks: [{
+				id: "14D26A209B6B3A28"
+				item: "efn:hf_blade"
+				type: "item"
+			}]
+			x: -9.0d
+			y: -15.0d
+		}
+		{
+			dependencies: ["079E905C9C12E9C6"]
+			description: ["{enchantment.efn.scythe_enhance.desc}"]
+			hide_dependency_lines: false
+			id: "23F3D1ED2E99E292"
+			rewards: [{
+				id: "31219DEA33707D17"
+				type: "xp"
+				xp: 1
+			}]
+			shape: "none"
+			size: 2.0d
+			subtitle: "{ftbquests.chapter.wu_qi.trade_with_ornn}"
+			tasks: [{
+				id: "3CBCF9ED15A59BA3"
+				item: {
+					Count: 1
+					id: "minecraft:enchanted_book"
+					tag: {
+						StoredEnchantments: [{
+							id: "efn:scythe_enhance"
+							lvl: 1s
+						}]
+					}
+				}
+				match_nbt: true
+				type: "item"
+			}]
+			title: "{enchantment.efn.scythe_enhance}"
+			x: 2.265306122448976d
+			y: -1.0734693877550967d
 		}
 	]
 	title: "{ftbquests.chapter.wu_qi.title}"

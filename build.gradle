@@ -304,6 +304,7 @@ dependencies {
     implementation fg.deobf("curse.maven:ftb-library-forge-404465:6807424")
     implementation fg.deobf("curse.maven:ftb-teams-forge-404468:6130786")
     implementation fg.deobf("curse.maven:ftb-xmod-compat-889915:6402486")
+    implementation fg.deobf("curse.maven:certain-questing-additions-1372051:8048068")
 
     implementation fg.deobf("curse.maven:architectury-api-419699:5137938")
 

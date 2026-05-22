@@ -43,6 +43,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 import yesman.epicfight.skill.SkillSlot;
@@ -77,6 +78,9 @@ public class TCRCoreMod {
         TCRStructures.STRUCTURE_PIECE.register(bus);
         TCRGameRules.register();
         context.registerConfig(ModConfig.Type.CLIENT, TCRClientConfig.SPEC);
+        if(FMLEnvironment.dist.isDedicatedServer() && ModList.get().isLoaded("aaa_particles")) {
+            throw new IllegalStateException("[The Casket of Reveries]: AAA Particles mod is detected on server side. Please remove it or use our official server pack on curseforge additional file otherwise it will crash.");
+        }
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

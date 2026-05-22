@@ -59,6 +59,7 @@
   "ftbquests.chapter.wu_qi.quest103322110141927354.description2": "Gain the power of §6{entity.cataclysm.ignis}§r, can release {entity.cataclysm.ignis}'s finisher, unleashing §cFlame Soul Slash§r to knock back nearby monsters.",
   "ftbquests.chapter.wu_qi.quest103322110141927354.subtitle": "Smithing from drops from defeating §d{entity.cataclysm.ignis}§r.",
   "ftbquests.chapter.wu_qi.quest122987FF202B9F24.subtitle": "Obtained by Smithing",
+  "ftbquests.chapter.wu_qi.trade_with_ornn": "Obtained by trade with §6{entity.tcrcore.ornn}§r after §6[Advanced Forging]§r unlocked.",
   "ftbquests.chapter.wu_qi.quest1352920048638303632.description1": "§b*Custom Weapon§r",
   "ftbquests.chapter.wu_qi.quest1352920048638303632.description2": "Gain the power of §6{entity.cataclysm.the_leviathan}§r, can release {entity.cataclysm.the_leviathan}'s finisher, firing §5{entity.cataclysm.abyss_blast}§r to knock back nearby monsters.",
   "ftbquests.chapter.wu_qi.quest1352920048638303632.description3": "The grappling hook function is retained, with adapted animations added.",

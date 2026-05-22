@@ -59,6 +59,7 @@
   "ftbquests.chapter.wu_qi.quest103322110141927354.description2": "获得\u00266{entity.cataclysm.ignis}\u0026r的力量，可释放{entity.cataclysm.ignis}终结技，释放\u0026c炎魂斩\u0026r击退附近魔物",
   "ftbquests.chapter.wu_qi.quest103322110141927354.subtitle": "击败&d{entity.cataclysm.ignis}&r掉落物锻造",
   "ftbquests.chapter.wu_qi.quest122987FF202B9F24.subtitle": "锻造获得",
+  "ftbquests.chapter.wu_qi.trade_with_ornn": "在§6[高级锻造]§r解锁后与§6{entity.tcrcore.ornn}§r交易获得",
   "ftbquests.chapter.wu_qi.quest1352920048638303632.description1": "\u0026b*定制武器\u0026r",
   "ftbquests.chapter.wu_qi.quest1352920048638303632.description2": "获得\u00266{entity.cataclysm.the_leviathan}\u0026r的力量，可释放{entity.cataclysm.the_leviathan}终结技，发射\u00265{entity.cataclysm.abyss_blast}\u0026r击退附近魔物",
   "ftbquests.chapter.wu_qi.quest1352920048638303632.description3": "同时钩爪功能保留，并添加适配动画",
