@@ -55,8 +55,7 @@ public class CustomColorItemEntity extends ItemEntity {
                             ModItems.CURSED_EYE.get(),
                             ModItems.FLAME_EYE.get(),
                             ModItems.DESERT_EYE.get())
-                    .contains(getItem().getItem())
-                    || this.getItem().getDescriptionId().contains(TCRCoreMod.MOD_ID))
+                    .contains(getItem().getItem()))
                 return false;
         }
         return super.hurt(damageSource, value);

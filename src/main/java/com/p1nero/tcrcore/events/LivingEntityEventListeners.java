@@ -52,6 +52,7 @@ import com.p1nero.tcr_bosses.mixins.AbstractGolemInvoker;
 import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.capability.*;
 import com.p1nero.tcrcore.client.sound.WraithonMusicPlayer;
+import com.p1nero.tcrcore.entity.TCREntities;
 import com.p1nero.tcrcore.entity.custom.fake_npc.fake_end_golem.FakeEndGolem;
 import com.p1nero.tcrcore.entity.custom.fake_npc.fake_sky_golem.FakeSkyGolem;
 import com.p1nero.tcrcore.entity.custom.mimic.TCRMimic;
@@ -231,7 +232,7 @@ public class LivingEntityEventListeners {
 
             //附近玩家都处理击败
             livingEntity.level().getEntitiesOfClass(ServerPlayer.class, (new AABB(center, center)).inflate(30)).forEach(player -> {
-
+                ServerLevel serverLevel = player.serverLevel();
                 if (player.isSpectator() || player.isCreative()) {
                     player.displayClientMessage(TCRCoreMod.getInfo("creative_may_lost_progress").withStyle(ChatFormatting.RED), false);
                     return;
@@ -389,6 +390,11 @@ public class LivingEntityEventListeners {
                     }
                 } else if (livingEntity instanceof SkyGolem) {
                     if (TCRQuestManager.hasQuest(player, TCRQuests.GET_STORM_EYE)) {
+                        if(!serverLevel.getEntities(TCREntities.FAKE_SKY_GOLEM.get(),
+                                skyGolem -> skyGolem.getOwnerUUID() == player.getUUID()).isEmpty()) {
+                            //已经生了就不能重复刷
+                            return;
+                        }
                         givePlayerAward(player, 1, serverPlayer -> {
                             if (TCRMainLevelSaveData.get(serverPlayer.serverLevel()).isHardDifficulty()) {
                                 ItemUtils.addItemEntity(serverPlayer, TCRItems.RARE_ARTIFACT_TICKET.get(), 1);
@@ -404,6 +410,11 @@ public class LivingEntityEventListeners {
                     ItemUtils.addItemEntity(player, ItemRegistry.SHRIVING_STONE.get(), 1, ChatFormatting.GOLD.getColor().intValue());
                 } else if (livingEntity instanceof EndGolem) {
                     if (TCRQuestManager.hasQuest(player, TCRQuests.GET_VOID_EYE)) {
+                        if(!serverLevel.getEntities(TCREntities.FAKE_END_GOLEM.get(),
+                                fakeEndGolem -> fakeEndGolem.getOwnerUUID() == player.getUUID()).isEmpty()) {
+                            //已经生了就不能重复刷
+                            return;
+                        }
                         givePlayerAward(player, 2, serverPlayer -> {
                             if (TCRMainLevelSaveData.get(serverPlayer.serverLevel()).isHardDifficulty()) {
                                 ItemUtils.addItemEntity(serverPlayer, UAItems.HERO_EMBLEM.get(), 1);
