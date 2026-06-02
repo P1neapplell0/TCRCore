@@ -57,7 +57,7 @@
                         ]
                     },
                     {
-                        "title": "Chất liệu & Vẽ texture",
+                        "title": "Vẽ chất liệu và Texture",
                         "names": [
                             "一只路过的小吴",
                             "Ao22333",
@@ -76,7 +76,7 @@
                     {
                         "title": "Thiết kế bìa",
                         "names": [
-                            "v4lk"
+                            "v4lk (Ấn Độ)"
                         ]
                     }
                 ]
@@ -92,7 +92,7 @@
                         ]
                     },
                     {
-                        "title": "Quái nhân hình thường",
+                        "title": "Quái vật hình người thường",
                         "names": [
                             "气球恶魔"
                         ]
@@ -107,7 +107,7 @@
                         "names": [
                             "El_mal（玩建筑的牢E）",
                             "300wan",
-                          "yagizomerk"
+                            "yagizomerk (Thổ Nhĩ Kỳ)"
                         ]
                     }
                 ]
@@ -125,7 +125,7 @@
                 ]
             },
             {
-                "discipline": "Chế tác Server",
+                "discipline": "Thiết lập Server",
                 "titles": [
                     {
                         "title": "",
@@ -142,6 +142,23 @@
                         "title": "",
                         "names": [
                             "Arcadia"
+                        ]
+                    }
+                ]
+            },
+            {
+                "discipline": "Đóng góp Quan trọng trong Giai đoạn Thử nghiệm",
+                "titles": [
+                    {
+                        "title": "Bao gồm nhưng không giới hạn ở",
+                        "names": [
+                            "Windrinn",
+                            "下次一定出货",
+                            "Peanuts",
+                            "wswda6",
+                            "LoSo",
+                            "夜音初源NaitoOngen",
+                            "ak47xhy"
                         ]
                     }
                 ]
@@ -183,7 +200,7 @@
         ]
     },
     {
-        "section": "Đặc biệt Cảm ơn",
+        "section": "Lời Cảm Ơn Đặc Biệt",
         "disciplines": [
             {
                 "discipline": "",
@@ -198,17 +215,17 @@
                         "title": "Dịch giả (Dịch giả ngôn ngữ khác hãy thêm tên tại đây)",
                         "names": [
                             "zh_cn, en_us - P1nero, Windrinn",
-                            "vi_vn - cattfan"
+                            "vi_vn - cattfan, bravos2k5"
                         ]
                     },
                     {
-                        "title": "Kính tặng",
+                        "title": "Tri ân",
                         "names": [
                             "Yesman",
-                            "超级厉害宝宝(Super Awesome Baby) Đại Đội",
+                            "Siêu Lợi Hại Bảo Bảo (Super Awesome Baby) Đại Đội",
                             "Minecraft",
                             "Minecraft Forge",
-                            "Và tất cả các tác giả mod, resource pack, shader mà modpack này sử dụng!"
+                            "Cùng toàn bộ tác giả của các mod, resource pack, shader được sử dụng trong modpack này!"
                         ]
                     }
                 ]
