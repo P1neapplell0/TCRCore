@@ -251,6 +251,8 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         this.addItemUsageInfo(TCRItems.NINE_HEAVEN_DARKSTEEL.get(), "高阶材料，可将部分基础武器进阶为高阶武器");
         this.add(TCRItems.RETRACEMENT_STONE.get(), "回溯之石");
         this.addItemUsageInfo(TCRItems.RETRACEMENT_STONE.get(), "使用后将重置[%s]内的所有实体！");
+        this.add(TCRItems.BOSS_RUSH_MANAGER.get(), "神谕");
+        this.addItemUsageInfo(TCRItems.BOSS_RUSH_MANAGER.get(), "仅可在轮回绝境中使用。使用后会按随机顺序依次召唤 8 个 Boss。");
         this.add(TCRItems.RESET_SKILL_STONE.get(), "重置技能石");
         this.addItemUsageInfo(TCRItems.RESET_SKILL_STONE.get(), "使用后将重置技能树中的所有技能并返还点数，十分的珍贵！");
         this.add(TCRItems.PROOF_OF_ADVENTURE_PLUS.get(), "真·冒险之证");
@@ -479,6 +481,7 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         this.add(TCREntities.TUTORIAL_GOLEM.get(), "训练傀儡");
         this.add(TCREntities.TUTORIAL_HUMANOID.get(), "人形训练傀儡");
         this.add(TCREntities.TCR_MIMIC.get(), "我？");
+        this.add(TCREntities.BOSS_RUSH_MANAGER.get(), "Boss Rush 管理器");
 
         this.add(TCRBossEntities.LEVIATHAN_HUMANOID.get(), "沧溟|Thalassa-Mare");
         this.add(TCRBossEntities.HARBINGER_HUMANOID.get(), "归寂|Letum-Quietus");

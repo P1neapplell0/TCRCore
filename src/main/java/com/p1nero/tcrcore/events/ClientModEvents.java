@@ -21,6 +21,7 @@ import com.p1nero.tcrcore.client.item_renderer.RenderTheIncinerator;
 import com.p1nero.tcrcore.client.ponder.TCRPonderPlugin;
 import com.p1nero.tcrcore.entity.TCREntities;
 import com.p1nero.tcrcore.entity.custom.aine_iris.AineIrisRenderer;
+import com.p1nero.tcrcore.entity.custom.boss_rush.BossRushManagerRenderer;
 import com.p1nero.tcrcore.entity.custom.fake_npc.fake_boss.FakeBossNpcRenderer;
 import com.p1nero.tcrcore.entity.custom.fake_npc.fake_end_golem.FakeEndGolemRenderer;
 import com.p1nero.tcrcore.entity.custom.fake_npc.fake_sky_golem.FakeSkyGolemRenderer;
@@ -77,6 +78,7 @@ public class ClientModEvents {
             EntityRenderers.register(TCREntities.FAKE_END_GOLEM.get(), FakeEndGolemRenderer::new);
             EntityRenderers.register(TCREntities.TUTORIAL_GOLEM.get(), TutorialGolemRenderer::new);
             EntityRenderers.register(TCREntities.TUTORIAL_HUMANOID.get(), TutorialHumanoidRenderer::new);
+            EntityRenderers.register(TCREntities.BOSS_RUSH_MANAGER.get(), BossRushManagerRenderer::new);
 
             EntityRenderers.register(TCREntities.TCR_MIMIC.get(), TCRMimicRenderer::new);
 

@@ -3,19 +3,25 @@ package com.p1nero.tcrcore.item;
 import com.aetherteam.aether.data.resources.registries.AetherDimensions;
 import com.brass_amber.ba_bt.init.BTItems;
 import com.github.L_Ender.cataclysm.init.ModItems;
+import com.github.L_Ender.cataclysm.items.CuriosItem.AttributeContainer;
 import com.github.L_Ender.cataclysm.items.The_Incinerator;
 import com.p1nero.tcr_bosses.entity.TCRBossEntities;
 import com.p1nero.tcrcore.TCRCoreMod;
+import com.p1nero.tcrcore.capability.PlayerDataManager;
 import com.p1nero.tcrcore.capability.TCRQuestManager;
 import com.p1nero.tcrcore.capability.TCRQuests;
 import com.p1nero.tcrcore.compat.JourneyMapCompat;
 import com.p1nero.tcrcore.item.custom.*;
 import com.p1nero.tcrcore.utils.XaeroWaypointUtils;
 import com.p1nero.tcrcore.utils.WorldUtils;
+import dev.shadowsoffire.attributeslib.api.ALObjects;
+import io.redspace.ironsspellbooks.api.registry.AttributeRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.Tiers;
@@ -25,6 +31,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xaero.hud.minimap.waypoint.WaypointColor;
+import yesman.epicfight.world.entity.ai.attribute.EpicFightAttributes;
 
 import java.util.List;
 
@@ -36,8 +43,25 @@ public class TCRItems {
     public static final RegistryObject<Item> ABYSS_CORE = REGISTRY.register("abyss_core", () -> new SimpleDescriptionItem(new Item.Properties().stacksTo(16).rarity(Rarity.EPIC).fireResistant(), true));
     public static final RegistryObject<Item> VOID_CORE = REGISTRY.register("void_core", () -> new SimpleDescriptionItem(new Item.Properties().stacksTo(16).rarity(Rarity.EPIC).fireResistant(), true));
     public static final RegistryObject<Item> DUAL_BOKKEN = REGISTRY.register("dual_bokken", () -> new DualBokkenItem(new Item.Properties().stacksTo(1).rarity(Rarity.UNCOMMON).fireResistant()));
-    public static final RegistryObject<Item> PROOF_OF_ADVENTURE = REGISTRY.register("proof_of_adventure", () -> new ProofOfAdventureItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
-    public static final RegistryObject<Item> PROOF_OF_ADVENTURE_PLUS = REGISTRY.register("proof_of_adventure_plus", () -> new ProofOfAdventureItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<Item> PROOF_OF_ADVENTURE = REGISTRY.register("proof_of_adventure", () -> new ProofOfAdventureItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant())
+            .withPredicate(PlayerDataManager::isAllEyeKilled)
+            .withAttributes("charm",
+                    new AttributeContainer(Attributes.ATTACK_DAMAGE, 0.1, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(ALObjects.Attributes.CRIT_DAMAGE.get(), 0.2, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(ALObjects.Attributes.CRIT_CHANCE.get(), 0.1, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(Attributes.ARMOR, -0.25F, AttributeModifier.Operation.MULTIPLY_TOTAL)));
+    public static final RegistryObject<Item> PROOF_OF_ADVENTURE_PLUS = REGISTRY.register("proof_of_adventure_plus", () -> new ProofOfAdventureItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant())
+            .withPredicate(PlayerDataManager::isAllHumanoidKilled)
+            .withAttributes("charm",
+                    new AttributeContainer(Attributes.ATTACK_DAMAGE, 0.1, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(ALObjects.Attributes.CRIT_DAMAGE.get(), 0.4, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(ALObjects.Attributes.CRIT_CHANCE.get(), 0.2, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(EpicFightAttributes.IMPACT.get(), 0.2, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(EpicFightAttributes.ARMOR_NEGATION.get(), 0.2, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(AttributeRegistry.MAX_MANA.get(), 0.5, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(AttributeRegistry.SPELL_POWER.get(), 0.5, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(Attributes.ARMOR, -0.5F, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(Attributes.MAX_HEALTH, -0.5F, AttributeModifier.Operation.MULTIPLY_TOTAL)));
     public static final RegistryObject<Item> CORE_FLINT = REGISTRY.register("core_flint", () -> new CoreFlintItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
     public static final RegistryObject<Item> DRAGON_FLUTE = REGISTRY.register("dragon_flute", () -> new DragonFluteItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
 
@@ -253,6 +277,8 @@ public class TCRItems {
 
     // 九天玄铁
     public static final RegistryObject<Item> NINE_HEAVEN_DARKSTEEL = REGISTRY.register("nine_heaven_darksteel", () -> new SimpleDescriptionItem(new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC)));
+
+    public static final RegistryObject<Item> BOSS_RUSH_MANAGER = REGISTRY.register("boss_rush_manager", () -> new BossRushManagerItem(new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC)));
 
     // 地狱 · 紫金武器（炽焰熔岩风格）
     public static final RegistryObject<Item> EMBERFANG = REGISTRY.register("emberfang", () -> new NetherMagicSwordItem(Tiers.NETHERITE, 3, -2.4F, new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC))); // 紫金短刃（匕首模板）

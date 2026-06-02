@@ -1,0 +1,257 @@
+package com.p1nero.tcrcore.entity.custom.boss_rush;
+
+import com.p1nero.entityrespawner.entity.SoulEntity;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerBossEvent;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.BossEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BossRushManagerEntity extends PathfinderMob {
+
+    private static final int CHECK_INTERVAL = 20;
+    private static final String BOSS_LIST_TAG = "BossList";
+    private static final String INDEX_TAG = "BossIndex";
+    private static final String STARTED_TAG = "BossRushStarted";
+    private static final String FINISHED_TAG = "BossRushFinished";
+    private static final String CURRENT_BOSS_SPAWNED_TAG = "CurrentBossSpawned";
+
+    private final ServerBossEvent serverBossEvent = new ServerBossEvent(Component.empty(), BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.PROGRESS);
+
+    private List<EntityType<?>> bossList = List.of();
+
+    private int index;
+    private boolean bossRushStarted;
+    private boolean bossRushFinished;
+    private boolean currentBossSpawned;
+    private int nextCheckTick;
+
+    public BossRushManagerEntity(EntityType<? extends PathfinderMob> pEntityType, Level pLevel) {
+        super(pEntityType, pLevel);
+        this.setNoAi(true);
+        this.setNoGravity(true);
+        this.noPhysics = true;
+        this.noCulling = true;
+    }
+
+    public void setBossList(List<EntityType<?>> bossList) {
+        this.bossList = List.copyOf(bossList);
+        this.refreshBossBar();
+    }
+
+    public void onBossRushStarted() {
+        this.bossRushStarted = true;
+        this.bossRushFinished = false;
+        this.currentBossSpawned = false;
+        this.index = 0;
+        this.nextCheckTick = 0;
+        this.serverBossEvent.setVisible(true);
+        this.refreshBossBar();
+    }
+
+    public void onBossRushFinished() {
+        if (this.bossRushFinished) {
+            return;
+        }
+        this.bossRushFinished = true;
+        this.serverBossEvent.setProgress(1.0F);
+        this.serverBossEvent.setVisible(false);
+        this.serverBossEvent.removeAllPlayers();
+        this.discard();
+    }
+
+    public static AttributeSupplier setAttributes() {
+        return Mob.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 1.0D)
+                .add(Attributes.MOVEMENT_SPEED, 0.0D)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 1.0D)
+                .build();
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        this.setDeltaMovement(0.0D, 0.0D, 0.0D);
+        if (this.level().isClientSide || tickCount < 100 || !this.bossRushStarted || this.bossRushFinished) {
+            return;
+        }
+        if (this.tickCount >= this.nextCheckTick && this.level() instanceof ServerLevel serverLevel) {
+            this.nextCheckTick = this.tickCount + CHECK_INTERVAL;
+            this.tickBossRush(serverLevel);
+        }
+    }
+
+    private void tickBossRush(ServerLevel serverLevel) {
+        if (this.bossList.isEmpty() || this.index >= this.bossList.size()) {
+            this.onBossRushFinished();
+            return;
+        }
+        EntityType<?> currentBossType = this.getCurrentBossType();
+        if (currentBossType == null) {
+            this.onBossRushFinished();
+            return;
+        }
+
+        List<? extends Entity> currentBosses = List.copyOf(serverLevel.getEntities(currentBossType, entity -> entity != this));
+        boolean hasAliveBoss = currentBosses.stream().anyMatch(Entity::isAlive);
+        boolean hasRemnants = !currentBosses.isEmpty();
+
+        if (!this.currentBossSpawned) {
+            this.spawnCurrentBoss(serverLevel);
+            return;
+        }
+        if (hasAliveBoss) {
+            this.refreshBossBar();
+            return;
+        }
+        if (hasRemnants) {
+            currentBosses.forEach(Entity::discard);
+            this.index++;
+            this.currentBossSpawned = false;
+            if (this.index >= this.bossList.size()) {
+                this.onBossRushFinished();
+                return;
+            }
+        }
+        this.spawnCurrentBoss(serverLevel);
+    }
+
+    private void spawnCurrentBoss(ServerLevel serverLevel) {
+        EntityType<?> currentBossType = this.getCurrentBossType();
+        if (currentBossType == null) {
+            this.onBossRushFinished();
+            return;
+        }
+        Entity entity = currentBossType.create(serverLevel);
+        if (entity == null) {
+            this.index++;
+            this.currentBossSpawned = false;
+            if (this.index >= this.bossList.size()) {
+                this.onBossRushFinished();
+            }
+            return;
+        }
+        entity.addTag(SoulEntity.TAG);//防止掉那个玩意儿
+        entity.moveTo(this.getX(), this.getY(), this.getZ(), serverLevel.random.nextFloat() * 360.0F, 0.0F);
+        if (entity instanceof Mob mob) {
+            mob.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(this.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
+        }
+        serverLevel.addFreshEntity(entity);
+        this.currentBossSpawned = true;
+        this.refreshBossBar();
+    }
+
+    private EntityType<?> getCurrentBossType() {
+        if (this.index < 0 || this.index >= this.bossList.size()) {
+            return null;
+        }
+        return this.bossList.get(this.index);
+    }
+
+    private void refreshBossBar() {
+        if (this.bossList.isEmpty()) {
+            this.serverBossEvent.setName(Component.literal("Boss Rush"));
+            this.serverBossEvent.setProgress(0.0F);
+            return;
+        }
+        int displayIndex = Math.min(this.index + 1, this.bossList.size());
+        EntityType<?> currentBossType = this.getCurrentBossType();
+        Component bossName = currentBossType == null ? Component.literal("Unknown") : currentBossType.getDescription();
+        this.serverBossEvent.setName(bossName.copy().append(Component.literal(" | " + displayIndex + "/" + this.bossList.size())));
+        this.serverBossEvent.setProgress(Math.min(1.0F, displayIndex / (float) this.bossList.size()));
+        this.serverBossEvent.setVisible(true);
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag pCompound) {
+        super.addAdditionalSaveData(pCompound);
+        ListTag listTag = new ListTag();
+        for (EntityType<?> bossType : this.bossList) {
+            ResourceLocation key = ForgeRegistries.ENTITY_TYPES.getKey(bossType);
+            if (key != null) {
+                listTag.add(StringTag.valueOf(key.toString()));
+            }
+        }
+        pCompound.put(BOSS_LIST_TAG, listTag);
+        pCompound.putInt(INDEX_TAG, this.index);
+        pCompound.putBoolean(STARTED_TAG, this.bossRushStarted);
+        pCompound.putBoolean(FINISHED_TAG, this.bossRushFinished);
+        pCompound.putBoolean(CURRENT_BOSS_SPAWNED_TAG, this.currentBossSpawned);
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag pCompound) {
+        super.readAdditionalSaveData(pCompound);
+        List<EntityType<?>> restoredBossList = new ArrayList<>();
+        ListTag listTag = pCompound.getList(BOSS_LIST_TAG, CompoundTag.TAG_STRING);
+        for (int i = 0; i < listTag.size(); i++) {
+            ResourceLocation key = ResourceLocation.tryParse(listTag.getString(i));
+            if (key == null) {
+                continue;
+            }
+            EntityType<?> type = ForgeRegistries.ENTITY_TYPES.getValue(key);
+            if (type != null) {
+                restoredBossList.add(type);
+            }
+        }
+        this.bossList = List.copyOf(restoredBossList);
+        this.index = Math.max(0, pCompound.getInt(INDEX_TAG));
+        this.bossRushStarted = pCompound.getBoolean(STARTED_TAG);
+        this.bossRushFinished = pCompound.getBoolean(FINISHED_TAG);
+        this.currentBossSpawned = pCompound.getBoolean(CURRENT_BOSS_SPAWNED_TAG);
+        this.nextCheckTick = 0;
+        this.refreshBossBar();
+    }
+
+    @Override
+    public boolean hurt(@NotNull DamageSource pSource, float pAmount) {
+        return false;
+    }
+
+    @Override
+    public boolean isPushable() {
+        return false;
+    }
+
+    @Override
+    public boolean isInvisible() {
+        return true;
+    }
+
+    @Override
+    public void startSeenByPlayer(@NotNull ServerPlayer pServerPlayer) {
+        super.startSeenByPlayer(pServerPlayer);
+        this.serverBossEvent.addPlayer(pServerPlayer);
+    }
+
+    @Override
+    public void stopSeenByPlayer(@NotNull ServerPlayer pServerPlayer) {
+        super.stopSeenByPlayer(pServerPlayer);
+        this.serverBossEvent.removePlayer(pServerPlayer);
+    }
+
+    @Override
+    public void remove(@NotNull RemovalReason pReason) {
+        this.serverBossEvent.removeAllPlayers();
+        super.remove(pReason);
+    }
+
+    @Override
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return false;
+    }
+}

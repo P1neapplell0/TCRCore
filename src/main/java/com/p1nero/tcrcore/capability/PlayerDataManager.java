@@ -92,6 +92,28 @@ public class PlayerDataManager {
     public static BoolData ancientRemnantHumanoidKilled = new BoolData("ancientRemnantHumanoidKilled", false);
     public static BoolData harbingerRemnantHumanoidKilled = new BoolData("harbingerRemnantHumanoidKilled", false);
 
+    public static boolean isAllEyeKilled(Player player) {
+        return stormEyeKilled.get(player) &&
+                flameEyeKilled.get(player) &&
+                abyssEyeKilled.get(player) &&
+                cursedEyeKilled.get(player) &&
+                desertEyeKilled.get(player) &&
+                mechEyeKilled.get(player) &&
+                voidEyeKilled.get(player) &&
+                monstEyeKilled.get(player);
+    }
+
+    public static boolean isAllHumanoidKilled(Player player) {
+        return scyllaHumanoidKilled.get(player) &&
+                ignisHumanoidKilled.get(player) &&
+                netheriteHumanoidKilled.get(player) &&
+                maledictusHumanoidKilled.get(player) &&
+                leviathanHumanoidKilled.get(player) &&
+                enderGuardianHumanoidKilled.get(player) &&
+                ancientRemnantHumanoidKilled.get(player) &&
+                harbingerRemnantHumanoidKilled.get(player);
+    }
+
     public static void putData(Player player, String key, double value) {
         getTCRPlayer(player).putDouble(key, value);
     }

@@ -4,6 +4,7 @@ import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.entity.custom.CustomColorItemEntity;
 import com.p1nero.tcrcore.entity.custom.SimpleMobPatch;
 import com.p1nero.tcrcore.entity.custom.aine_iris.AineEntity;
+import com.p1nero.tcrcore.entity.custom.boss_rush.BossRushManagerEntity;
 import com.p1nero.tcrcore.entity.custom.fake_npc.fake_boss.FakeBossNpc;
 import com.p1nero.tcrcore.entity.custom.fake_npc.fake_boss.FakeBossPatch;
 import com.p1nero.tcrcore.entity.custom.fake_npc.fake_end_golem.FakeEndGolem;
@@ -82,6 +83,9 @@ public class TCREntities {
     public static final RegistryObject<EntityType<FakeBossNpc>> FAKE_ANCIENT_REMNANT_HUMANOID = register("fake_ancient_remnant_humanoid",
             EntityType.Builder.of(FakeBossNpc::new, MobCategory.CREATURE).sized(0.6f, 1.9f).fireImmune());
 
+    public static final RegistryObject<EntityType<BossRushManagerEntity>> BOSS_RUSH_MANAGER = register("boss_rush_manager",
+            EntityType.Builder.of(BossRushManagerEntity::new, MobCategory.CREATURE).sized(0.1f, 0.1f).clientTrackingRange(32).updateInterval(20).fireImmune());
+
 
     private static <T extends Entity> RegistryObject<EntityType<T>> register(String name, EntityType.Builder<T> entityTypeBuilder) {
         return REGISTRY.register(name, () -> entityTypeBuilder.build(ResourceLocation.fromNamespaceAndPath(TCRCoreMod.MOD_ID, name).toString()));
@@ -99,6 +103,7 @@ public class TCREntities {
         event.put(FAKE_ANCIENT_REMNANT_HUMANOID.get(), ChronosSolEntity.setAttributes());
 
         event.put(TCR_MIMIC.get(), TCRMimic.setAttributes());
+        event.put(BOSS_RUSH_MANAGER.get(), BossRushManagerEntity.setAttributes());
 
         event.put(CHRONOS_SOL.get(), ChronosSolEntity.setAttributes());
         event.put(FERRY_GIRL.get(), ChronosSolEntity.setAttributes());

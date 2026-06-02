@@ -76,6 +76,7 @@ public class TCRItemTabs {
                         output.accept(TCRItems.MAGIC_BOTTLE.get());
                         output.accept(TCRItems.WITHER_SOUL_STONE.get());
                         output.accept(TCRItems.WITHER_SOUL_STONE_ACTIVATED.get());
+                        output.accept(TCRItems.BOSS_RUSH_MANAGER.get());
                         output.accept(TCRItems.DIVINE_FRAGMENT.get());
                         output.accept(TCRItems.ABYSS_FRAGMENT.get());
                         output.accept(TCRItems.DESERT_FRAGMENT.get());
