@@ -62,10 +62,6 @@ public class BossRushManagerItem extends SimpleDescriptionItem {
         bossRushManagerEntity.onBossRushStarted();
         serverLevel.addFreshEntity(bossRushManagerEntity);
 
-        if (!pPlayer.getAbilities().instabuild) {
-            itemStack.shrink(1);
-        }
-        ItemUtils.addItemEntity(pPlayer, TCRItems.RETRACEMENT_STONE.get().getDefaultInstance());
         return InteractionResultHolder.sidedSuccess(itemStack, false);
     }
 }

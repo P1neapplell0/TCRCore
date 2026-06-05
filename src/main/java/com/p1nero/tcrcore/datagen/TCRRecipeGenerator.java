@@ -56,6 +56,12 @@ public class TCRRecipeGenerator extends TCRRecipeProvider implements IConditionB
                 .unlockedBy(getHasName(TCRItems.WITHER_SOUL_STONE.get()), has(TCRItems.WITHER_SOUL_STONE.get()))
                 .save(consumer);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TCRItems.BOSS_RUSH_MANAGER.get(), 1)
+                .requires(TCRItems.ANCIENT_ORACLE_FRAGMENT.get())
+                .requires(TCRItems.ANCIENT_ORACLE_FRAGMENT.get())
+                .unlockedBy(getHasName(TCRItems.WITHER_SOUL_STONE.get()), has(TCRItems.WITHER_SOUL_STONE.get()))
+                .save(consumer);
+
         //紫金匕
         SmithingTransformRecipeBuilder.smithing(
                         Ingredient.of(TCRItems.BLOOD_LOTUS.get()),

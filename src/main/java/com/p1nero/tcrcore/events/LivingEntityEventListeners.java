@@ -53,6 +53,7 @@ import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.capability.*;
 import com.p1nero.tcrcore.client.sound.WraithonMusicPlayer;
 import com.p1nero.tcrcore.entity.TCREntities;
+import com.p1nero.tcrcore.entity.custom.boss_rush.BossRushManagerEntity;
 import com.p1nero.tcrcore.entity.custom.fake_npc.fake_end_golem.FakeEndGolem;
 import com.p1nero.tcrcore.entity.custom.fake_npc.fake_sky_golem.FakeSkyGolem;
 import com.p1nero.tcrcore.entity.custom.mimic.TCRMimic;
@@ -667,20 +668,35 @@ public class LivingEntityEventListeners {
                     if (!(entity instanceof OwnableEntity) && entity instanceof LivingEntity living && !(entity instanceof Player)) {
                         //防堆命机制
                         living.setHealth(living.getMaxHealth());
-                        if (living instanceof BaseBossEntity baseBossEntity && baseBossEntity.level().dimension().equals(PBF1Dimensions.SANCTUM_OF_THE_BATTLE_LEVEL_KEY)) {
+                        if (living instanceof BaseBossEntity baseBossEntity
+                                && baseBossEntity.level().dimension().equals(PBF1Dimensions.SANCTUM_OF_THE_BATTLE_LEVEL_KEY)) {
                             //由于未知bug太多，我决定直接让它重生
-                            SoulEntity soulEntity = EntityRespawnerMod.createSoulEntity(baseBossEntity, 40, true);
-                            if (soulEntity != null) {
-                                soulEntity.setPos(0, 5, 0);
+                            //属于BossRush的实体直接死
+                            if(!baseBossEntity.getTags().contains(BossRushManagerEntity.BOSS_RUSH_TAG)) {
+                                SoulEntity soulEntity = EntityRespawnerMod.createSoulEntity(baseBossEntity, 40, true);
+                                if (soulEntity != null) {
+                                    soulEntity.setPos(0, 5, 0);
+                                }
                             }
                             baseBossEntity.discard();
                         }
-                        if (living instanceof Bone_Chimera_Entity boneChimeraEntity) {
-                            boneChimeraEntity.setStanding(false);//重置阶段
+
+                        //玩家死了boss连战直接重置
+                        if(living instanceof BossRushManagerEntity) {
+                            living.discard();
                         }
+
+                        //重置奇美拉阶段
+                        if (living instanceof Bone_Chimera_Entity boneChimeraEntity) {
+                            boneChimeraEntity.setStanding(false);
+                        }
+
+                        //模仿者重置记忆
                         if (living instanceof TCRMimic tcrMimic) {
                             tcrMimic.resetMemory();
                         }
+
+                        //重置耐力
                         if (living instanceof AbstractGolem) {
                             LivingEntityPatch<?> livingEntityPatch = EpicFightCapabilities.getEntityPatch(living, LivingEntityPatch.class);
                             if (livingEntityPatch instanceof ILivingEntityData) {
@@ -1040,9 +1056,11 @@ public class LivingEntityEventListeners {
         if (event.getEntity() instanceof BaseBossEntity baseBossEntity && serverLevel.dimension() == PBF1Dimensions.SANCTUM_OF_THE_BATTLE_LEVEL_KEY) {
             if (event.loadedFromDisk()) {
                 //由于未知bug太多，我决定直接让它重生
-                SoulEntity soulEntity = EntityRespawnerMod.createSoulEntity(baseBossEntity, 10, true);
-                if (soulEntity != null) {
-                    soulEntity.setPos(0, 5, 0);
+                if(!baseBossEntity.getTags().contains(BossRushManagerEntity.BOSS_RUSH_TAG)) {
+                    SoulEntity soulEntity = EntityRespawnerMod.createSoulEntity(baseBossEntity, 10, true);
+                    if (soulEntity != null) {
+                        soulEntity.setPos(0, 5, 0);
+                    }
                 }
                 event.setCanceled(true);
                 return;
@@ -1052,6 +1070,13 @@ public class LivingEntityEventListeners {
                     ItemUtils.addItemEntity(serverPlayer, TCRItems.RETRACEMENT_STONE.get().getDefaultInstance());
                     baseBossEntity.getPersistentData().putBoolean("retracement_stone_given", true);
                 });
+            }
+        }
+
+        if(event.getEntity() instanceof BossRushManagerEntity) {
+            if(event.loadedFromDisk()) {
+                event.setCanceled(true);
+                return;
             }
         }
 

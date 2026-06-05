@@ -18,6 +18,7 @@ public class PlayerDataManager {
     private final static Set<String> EXISTING_ID = new HashSet<>();
     public static DoubleData currentQuestId = new DoubleData("currentQuestId", 0);
 
+    public static BoolData bossRushFinished = new BoolData("bossRushFinished", false);
     //通关标记
     public static BoolData gameCleared = new BoolData("gameCleared", false);
 

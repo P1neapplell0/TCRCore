@@ -252,11 +252,13 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         this.add(TCRItems.RETRACEMENT_STONE.get(), "回溯之石");
         this.addItemUsageInfo(TCRItems.RETRACEMENT_STONE.get(), "使用后将重置[%s]内的所有实体！");
         this.add(TCRItems.BOSS_RUSH_MANAGER.get(), "神谕");
-        this.addItemUsageInfo(TCRItems.BOSS_RUSH_MANAGER.get(), "仅可在轮回绝境中使用。使用后会按随机顺序依次召唤 8 个 Boss。");
+        this.addItemUsageInfo(TCRItems.BOSS_RUSH_MANAGER.get(), "仅可在轮回绝境中使用。使用后会按随机顺序依次召唤 8 个 Boss。若死亡则将重新开始挑战！该物品不会消耗。");
         this.add(TCRItems.RESET_SKILL_STONE.get(), "重置技能石");
         this.addItemUsageInfo(TCRItems.RESET_SKILL_STONE.get(), "使用后将重置技能树中的所有技能并返还点数，十分的珍贵！");
         this.add(TCRItems.PROOF_OF_ADVENTURE_PLUS.get(), "真·冒险之证");
         this.addItemUsageInfo(TCRItems.PROOF_OF_ADVENTURE_PLUS.get(), "至高无上的荣耀！");
+        this.add(TCRItems.PROOF_OF_BOSS_RUSH.get(), "连战徽章");
+        this.addItemUsageInfo(TCRItems.PROOF_OF_BOSS_RUSH.get(), "你是...无坚不摧的！");
         this.add(TCRItems.DIVINE_FRAGMENT.get(), "神性碎片");
         this.addItemUsageInfo(TCRItems.DIVINE_FRAGMENT.get(), "上面记载了神的意志");
         this.add(TCRItems.ABYSS_FRAGMENT.get(), "渊海葬歌的回响");

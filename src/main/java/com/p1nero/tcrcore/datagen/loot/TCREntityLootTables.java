@@ -50,6 +50,7 @@ public class TCREntityLootTables extends EntityLootSubProvider {
         this.add(TCREntities.FAKE_LEVIATHAN_HUMANOID.get(), emptyLootTable());
         this.add(TCREntities.FAKE_ANCIENT_REMNANT_HUMANOID.get(), emptyLootTable());
         this.add(TCREntities.TCR_MIMIC.get(), emptyLootTable());
+        this.add(TCREntities.BOSS_RUSH_MANAGER.get(), emptyLootTable());
         this.add(TCRBossEntities.ANCIENT_REMNANT_HUMANOID.get(), LootTable.lootTable().withPool(
                         LootPool.lootPool()
                                 .setRolls(UniformGenerator.between(1.0F, 2.0F))

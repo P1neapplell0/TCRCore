@@ -1,6 +1,8 @@
 package com.p1nero.tcrcore.entity.custom.boss_rush;
 
+import com.p1nero.entityrespawner.entity.EntityRespawnerEntities;
 import com.p1nero.entityrespawner.entity.SoulEntity;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
@@ -23,7 +25,9 @@ import java.util.List;
 
 public class BossRushManagerEntity extends PathfinderMob {
 
-    private static final int CHECK_INTERVAL = 20;
+    public static final String BOSS_RUSH_TAG = "TCRBossRushEntity";
+
+    private static final int CHECK_INTERVAL = 40;
     private static final String BOSS_LIST_TAG = "BossList";
     private static final String INDEX_TAG = "BossIndex";
     private static final String STARTED_TAG = "BossRushStarted";
@@ -65,6 +69,7 @@ public class BossRushManagerEntity extends PathfinderMob {
 
     public void onBossRushFinished() {
         if (this.bossRushFinished) {
+            this.discard();
             return;
         }
         this.bossRushFinished = true;
@@ -86,6 +91,11 @@ public class BossRushManagerEntity extends PathfinderMob {
     public void tick() {
         super.tick();
         this.setDeltaMovement(0.0D, 0.0D, 0.0D);
+        if(this.level().isClientSide && tickCount % 10 == 0) {
+            for (int i = 0; i < 3; ++i) {
+                level().addParticle(ParticleTypes.SOUL, this.getX() + (this.random.nextDouble() - (double) 0.5F) * (double) 0.5F, this.getY() + this.random.nextDouble(), this.getZ() + (this.random.nextDouble() - (double) 0.5F) * (double) 0.5F,  0.0F,  0.05F,  0.0F);
+            }
+        }
         if (this.level().isClientSide || tickCount < 100 || !this.bossRushStarted || this.bossRushFinished) {
             return;
         }
@@ -106,6 +116,10 @@ public class BossRushManagerEntity extends PathfinderMob {
             return;
         }
 
+        //必须等这玩意儿复活，不然可能重复召唤boss
+        if(!serverLevel.getEntities(EntityRespawnerEntities.SOUL_ENTITY.get(), Entity::isAlive).isEmpty()) {
+            return;
+        }
         List<? extends Entity> currentBosses = List.copyOf(serverLevel.getEntities(currentBossType, entity -> entity != this));
         boolean hasAliveBoss = currentBosses.stream().anyMatch(Entity::isAlive);
         boolean hasRemnants = !currentBosses.isEmpty();
@@ -145,7 +159,10 @@ public class BossRushManagerEntity extends PathfinderMob {
             }
             return;
         }
-        entity.addTag(SoulEntity.TAG);//防止掉那个玩意儿
+        if(this.index > 0) {
+            entity.addTag(BOSS_RUSH_TAG);//标记，玩家死了不复活
+            entity.addTag(SoulEntity.TAG);//防止掉那个玩意儿
+        }
         entity.moveTo(this.getX(), this.getY(), this.getZ(), serverLevel.random.nextFloat() * 360.0F, 0.0F);
         if (entity instanceof Mob mob) {
             mob.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(this.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
@@ -171,9 +188,11 @@ public class BossRushManagerEntity extends PathfinderMob {
         int displayIndex = Math.min(this.index + 1, this.bossList.size());
         EntityType<?> currentBossType = this.getCurrentBossType();
         Component bossName = currentBossType == null ? Component.literal("Unknown") : currentBossType.getDescription();
-        this.serverBossEvent.setName(bossName.copy().append(Component.literal(" | " + displayIndex + "/" + this.bossList.size())));
+        Component name = bossName.copy().append(Component.literal(" | " + displayIndex + "/" + this.bossList.size()));
+        this.serverBossEvent.setName(name);
         this.serverBossEvent.setProgress(Math.min(1.0F, displayIndex / (float) this.bossList.size()));
         this.serverBossEvent.setVisible(true);
+        level().players().forEach(player -> player.displayClientMessage(name, true));
     }
 
     @Override

@@ -252,11 +252,13 @@ public class TCRENLangGenerator extends TCRLangProvider {
         this.add(TCRItems.RETRACEMENT_STONE.get(), "Retracement Stone");
         this.addItemUsageInfo(TCRItems.RETRACEMENT_STONE.get(), "After use, it will clear all entities in [%s] !");
         this.add(TCRItems.BOSS_RUSH_MANAGER.get(), "Oracle");
-        this.addItemUsageInfo(TCRItems.BOSS_RUSH_MANAGER.get(), "Can only be used in Infinite Samsara. After use, it summons 8 bosses one by one in a random order.");
+        this.addItemUsageInfo(TCRItems.BOSS_RUSH_MANAGER.get(), "Can only be used in Infinite Samsara. After use, it summons 8 bosses one by one in a random order. If you died you need to restart the challenge! The item will not be consumed.");
         this.add(TCRItems.RESET_SKILL_STONE.get(), "Reset Skill Stone");
         this.addItemUsageInfo(TCRItems.RESET_SKILL_STONE.get(), "After use, it will reset all skills in the skill tree and refund the points, very precious!");
         this.add(TCRItems.PROOF_OF_ADVENTURE_PLUS.get(), "True · Proof of Adventure");
         this.addItemUsageInfo(TCRItems.PROOF_OF_ADVENTURE_PLUS.get(), "The ultimate glory!");
+        this.add(TCRItems.PROOF_OF_BOSS_RUSH.get(), "Badge of Boss Rush");
+        this.addItemUsageInfo(TCRItems.PROOF_OF_BOSS_RUSH.get(), "YOU ARE ...INVINCIBLE!");
         this.add(TCRItems.DIVINE_FRAGMENT.get(), "Divine Fragment");
         this.addItemUsageInfo(TCRItems.DIVINE_FRAGMENT.get(), "It records the will of the gods.");
         this.add(TCRItems.ABYSS_FRAGMENT.get(), "Echo of the Abyssal Dirge");
