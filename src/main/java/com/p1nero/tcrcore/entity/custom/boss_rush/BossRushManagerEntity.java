@@ -144,7 +144,7 @@ public class BossRushManagerEntity extends PathfinderMob {
             return;
         }
         this.index++;
-        this.spawnCurrentBoss(serverLevel);
+        this.currentBossSpawned = false;//延迟出现，确保至少有2s的时间间隔（展示一下进度条hhhh）
     }
 
     private void spawnCurrentBoss(ServerLevel serverLevel) {
