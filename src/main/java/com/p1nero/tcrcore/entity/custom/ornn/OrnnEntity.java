@@ -395,6 +395,11 @@ public class OrnnEntity extends PathfinderMob implements IEntityNpc, GeoEntity, 
                 new ItemStack(TCRItems.SOUL_FRAGMENT.get(), 1),
                 new ItemStack(TCRItems.RESET_SKILL_STONE.get(), 1),
                 142857, 0, 0.01f));
+        offers.add(new MerchantOffer(
+                new ItemStack(TCRItems.ANCIENT_ORACLE_FRAGMENT.get(), 1),
+                new ItemStack(TCRItems.ANCIENT_ORACLE_FRAGMENT.get(), 1),
+                new ItemStack(TCRItems.BOSS_RUSH_MANAGER.get(), 1),
+                142857, 0, 0.01f));
     }
 
     @Override

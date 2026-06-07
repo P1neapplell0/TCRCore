@@ -288,6 +288,7 @@ public class TCRItems {
     // 九天玄铁
     public static final RegistryObject<Item> NINE_HEAVEN_DARKSTEEL = REGISTRY.register("nine_heaven_darksteel", () -> new SimpleDescriptionItem(new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC)));
 
+    //召唤器
     public static final RegistryObject<Item> BOSS_RUSH_MANAGER = REGISTRY.register("boss_rush_manager", () -> new BossRushManagerItem(new Item.Properties().stacksTo(1).fireResistant().rarity(Rarity.EPIC)));
 
     // 地狱 · 紫金武器（炽焰熔岩风格）
