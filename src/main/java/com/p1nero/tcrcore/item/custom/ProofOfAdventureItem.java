@@ -27,7 +27,7 @@ public class ProofOfAdventureItem extends CuriosItem implements ICurioItem {
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
         if(slotContext.entity() instanceof Player player && !player.isCreative()) {
-            if(predicate != null && predicate.test(player)) {
+            if(predicate != null && !predicate.test(player)) {
                 player.displayClientMessage(TCRCoreMod.getInfo("can_not_do_this_too_early"), true);
                 return false;
             }

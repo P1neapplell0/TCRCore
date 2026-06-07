@@ -302,6 +302,14 @@ public class PlayerDataManager {
             }
         }
 
+        public void markTrue(Player player) {
+            this.put(player, true);
+        }
+
+        public void markFalse(Player player) {
+            this.put(player, true);
+        }
+
         @Override
         public Boolean get(Player player) {
             return getTCRPlayer(player).getBoolean(key);

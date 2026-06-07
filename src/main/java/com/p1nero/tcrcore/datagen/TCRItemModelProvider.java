@@ -62,6 +62,7 @@ public class TCRItemModelProvider extends ItemModelProvider {
         simpleItem(TCRItems.RETRACEMENT_STONE);
         simpleItem(TCRItems.BLOOD_LOTUS);
         simpleItem(TCRItems.NINE_HEAVEN_DARKSTEEL);
+        simpleItem(TCRItems.BOSS_RUSH_MANAGER);
     }
 
     // Thank you kaupenjoe & El_Redstoniano!

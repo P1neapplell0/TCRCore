@@ -716,7 +716,11 @@ public class PlayerEventListeners {
         ItemStack itemStack = event.getStack();
         if (event.getEntity() instanceof ServerPlayer player) {
 
-            if(itemStack.is(LeonidasItems.THE_LOST_HELMET.get()) && !TCRQuests.FIND_HELMET_IN_OCEAN_MONUMENT.isFinished(player)) {
+            if(itemStack.is(TCRItems.PROOF_OF_BOSS_RUSH.get())) {
+                giveOracleEffect(player, TCRItems.PROOF_OF_BOSS_RUSH.get());
+            }
+
+            if(itemStack.is(LeonidasItems.THE_LOST_HELMET.get()) && TCRQuestManager.hasQuest(player, TCRQuests.FIND_HELMET_IN_OCEAN_MONUMENT) && !TCRQuests.FIND_HELMET_IN_OCEAN_MONUMENT.isFinished(player)) {
                 TCRQuests.FIND_HELMET_IN_OCEAN_MONUMENT.finish(player, true);
             }
 

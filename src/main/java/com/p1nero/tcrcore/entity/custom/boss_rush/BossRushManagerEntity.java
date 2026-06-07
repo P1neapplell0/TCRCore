@@ -2,6 +2,9 @@ package com.p1nero.tcrcore.entity.custom.boss_rush;
 
 import com.p1nero.entityrespawner.entity.EntityRespawnerEntities;
 import com.p1nero.entityrespawner.entity.SoulEntity;
+import com.p1nero.tcrcore.capability.PlayerDataManager;
+import com.p1nero.tcrcore.item.TCRItems;
+import com.p1nero.tcrcore.utils.ItemUtils;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -76,6 +79,14 @@ public class BossRushManagerEntity extends PathfinderMob {
         this.serverBossEvent.setProgress(1.0F);
         this.serverBossEvent.setVisible(false);
         this.serverBossEvent.removeAllPlayers();
+        if(this.level() instanceof ServerLevel serverLevel) {
+            serverLevel.players().forEach(serverPlayer -> {
+                if(!serverPlayer.isSpectator()) {
+                    PlayerDataManager.bossRushFinished.put(serverPlayer, true);
+                    ItemUtils.addItem(serverPlayer, TCRItems.PROOF_OF_BOSS_RUSH.get(), 1);
+                }
+            });
+        }
         this.discard();
     }
 
@@ -120,27 +131,19 @@ public class BossRushManagerEntity extends PathfinderMob {
         if(!serverLevel.getEntities(EntityRespawnerEntities.SOUL_ENTITY.get(), Entity::isAlive).isEmpty()) {
             return;
         }
-        List<? extends Entity> currentBosses = List.copyOf(serverLevel.getEntities(currentBossType, entity -> entity != this));
-        boolean hasAliveBoss = currentBosses.stream().anyMatch(Entity::isAlive);
-        boolean hasRemnants = !currentBosses.isEmpty();
 
         if (!this.currentBossSpawned) {
             this.spawnCurrentBoss(serverLevel);
             return;
         }
+
+        boolean hasAliveBoss = !serverLevel.getEntities(currentBossType, entity -> !entity.isRemoved() && entity.getTags().contains(BOSS_RUSH_TAG)).isEmpty();
+
         if (hasAliveBoss) {
             this.refreshBossBar();
             return;
         }
-        if (hasRemnants) {
-            currentBosses.forEach(Entity::discard);
-            this.index++;
-            this.currentBossSpawned = false;
-            if (this.index >= this.bossList.size()) {
-                this.onBossRushFinished();
-                return;
-            }
-        }
+        this.index++;
         this.spawnCurrentBoss(serverLevel);
     }
 
@@ -159,10 +162,8 @@ public class BossRushManagerEntity extends PathfinderMob {
             }
             return;
         }
-        if(this.index > 0) {
-            entity.addTag(BOSS_RUSH_TAG);//标记，玩家死了不复活
-            entity.addTag(SoulEntity.TAG);//防止掉那个玩意儿
-        }
+        entity.addTag(BOSS_RUSH_TAG);//标记，玩家死了不复活
+        entity.addTag(SoulEntity.TAG);//防止掉重置用的物品
         entity.moveTo(this.getX(), this.getY(), this.getZ(), serverLevel.random.nextFloat() * 360.0F, 0.0F);
         if (entity instanceof Mob mob) {
             mob.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(this.blockPosition()), MobSpawnType.MOB_SUMMONED, null, null);
