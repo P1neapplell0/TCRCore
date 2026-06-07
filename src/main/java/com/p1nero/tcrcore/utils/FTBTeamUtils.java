@@ -2,6 +2,7 @@ package com.p1nero.tcrcore.utils;
 
 import com.p1nero.dpr.DodgeParryRewardMod;
 import com.p1nero.fast_tpa.network.PacketRelay;
+import com.p1nero.p1nero_ec.capability.PECDataManager;
 import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.capability.PlayerDataManager;
 import com.p1nero.tcrcore.capability.TCRCapabilityProvider;
@@ -121,12 +122,14 @@ public class FTBTeamUtils {
             }
 
             //播报给被覆盖的
-            ServerPlayer toBroadcast;
+            ServerPlayer toBroadcast = newComer;
             if(tcrPlayer.copyFromFTBTeamMember(oldPlayer)) {
-                toBroadcast = newComer;
-            } else {
                 toBroadcast = oldPlayer;
+                oldPlayer = newComer;
             }
+
+            //PEC的覆盖
+            PECDataManager.getPECPlayer(newComer).copyFrom(PECDataManager.getPECPlayer(oldPlayer));
 
             toBroadcast.displayClientMessage(TCRCoreMod.getInfo("team_progress_synced").withStyle(ChatFormatting.GREEN), false);
             TCRQuestManager.ensureQuest(toBroadcast);

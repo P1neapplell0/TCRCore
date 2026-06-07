@@ -48,6 +48,9 @@ import java.util.List;
 import java.util.UUID;
 
 public class TCRPlayer {
+
+    @Nullable
+    private final Player original;
     public static final String PLAYER_NAME = "player_name";
     private int sardine;
     public static int SARDINE_COUNT;
@@ -71,6 +74,10 @@ public class TCRPlayer {
     //=======任务系统===========
     private List<TCRQuestManager.Quest> currentQuests = new ArrayList<>();
     private List<Integer> finishedQuests = new ArrayList<>();
+
+    public TCRPlayer(@Nullable Player player) {
+        this.original = player;
+    }
 
     public void addQuest(TCRQuestManager.Quest quest) {
         if (currentQuests.contains(quest)) {
@@ -266,7 +273,7 @@ public class TCRPlayer {
     }
 
     public void clear() {
-        copyFrom(new TCRPlayer());
+        copyFrom(new TCRPlayer(original));
     }
 
     public void playDirectionParticle(Vec3 from, Vec3 to) {

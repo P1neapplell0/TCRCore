@@ -23,18 +23,24 @@ public class TCRCapabilityProvider implements ICapabilityProvider, INBTSerializa
 
     public static Capability<TCRPlayer> TCR_PLAYER = CapabilityManager.get(new CapabilityToken<>() {});
 
-    private TCRPlayer TCRPlayer = null;
+    private final Player original;
 
-    public static TCRPlayer EMPTY = new TCRPlayer();
+    private TCRPlayer tcrPlayer = null;
+
+    public static TCRPlayer EMPTY = new TCRPlayer(null);
 
     private final LazyOptional<TCRPlayer> optional = LazyOptional.of(this::createTCRPlayer);
 
+    public TCRCapabilityProvider(Player player) {
+        original = player;
+    }
+
     private TCRPlayer createTCRPlayer() {
-        if(this.TCRPlayer == null){
-            this.TCRPlayer = new TCRPlayer();
+        if(this.tcrPlayer == null){
+            this.tcrPlayer = new TCRPlayer(original);
         }
 
-        return this.TCRPlayer;
+        return this.tcrPlayer;
     }
 
     @Override
@@ -62,7 +68,7 @@ public class TCRCapabilityProvider implements ICapabilityProvider, INBTSerializa
     public static void attachEntityCapabilities(AttachCapabilitiesEvent<Entity> event) {
         if (event.getObject() instanceof Player player) {
             if(!player.getCapability(TCRCapabilityProvider.TCR_PLAYER).isPresent()){
-                event.addCapability(ResourceLocation.fromNamespaceAndPath(TCRCoreMod.MOD_ID, "tcr_player"), new TCRCapabilityProvider());
+                event.addCapability(ResourceLocation.fromNamespaceAndPath(TCRCoreMod.MOD_ID, "tcr_player"), new TCRCapabilityProvider(player));
             }
         }
     }

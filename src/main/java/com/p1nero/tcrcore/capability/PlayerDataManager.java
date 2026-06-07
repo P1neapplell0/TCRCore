@@ -5,6 +5,7 @@ import com.p1nero.tcrcore.network.TCRPacketHandler;
 import com.p1nero.tcrcore.network.packet.clientbound.PersistentBoolDataSyncPacket;
 import com.p1nero.tcrcore.network.packet.clientbound.PersistentDoubleDataSyncPacket;
 import com.p1nero.tcrcore.network.packet.clientbound.PersistentStringDataSyncPacket;
+import com.p1nero.tcrcore.utils.FTBTeamUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.nbt.CompoundTag;
@@ -117,14 +118,31 @@ public class PlayerDataManager {
 
     public static void putData(Player player, String key, double value) {
         getTCRPlayer(player).putDouble(key, value);
+        //double就不要同步了。。目前只有选中的任务在用
+//        if(player instanceof ServerPlayer serverPlayer) {
+//            FTBTeamUtils.onlineTeamMembersDo(serverPlayer, member -> {
+//                getTCRPlayer(member).putDouble(key, value);
+//            });
+//        }
     }
 
     public static void putData(Player player, String key, String value) {
         getTCRPlayer(player).putString(key, value);
+//        if(player instanceof ServerPlayer serverPlayer) {
+//            FTBTeamUtils.onlineTeamMembersDo(serverPlayer, member -> {
+//                getTCRPlayer(member).putString(key, value);
+//            });
+//        }
     }
 
     public static void putData(Player player, String key, boolean value) {
         getTCRPlayer(player).putBoolean(key, value);
+        //姑息做法。。。客户端还是不同步= =
+        if(player instanceof ServerPlayer serverPlayer) {
+            FTBTeamUtils.onlineTeamMembersDo(serverPlayer, member -> {
+                getTCRPlayer(member).putBoolean(key, value);
+            });
+        }
     }
 
     public static boolean getBool(Player player, String key) {
@@ -176,12 +194,12 @@ public class PlayerDataManager {
         }
 
         public void lock(Player player) {
-            getTCRPlayer(player).putBoolean(key + "isLocked", true);
+            putData(player, key + "isLocked", true);
             isLocked = true;
         }
 
         public void unLock(Player player) {
-            getTCRPlayer(player).putBoolean(key + "isLocked", false);
+            putData(player, key + "isLocked", false);
             LocalPlayer localPlayer = Minecraft.getInstance().player;
             isLocked = false;
         }
@@ -210,7 +228,7 @@ public class PlayerDataManager {
         @Override
         public void put(Player player, String value) {
             if (!isLocked(player)) {
-                getTCRPlayer(player).putString(key, value);
+                putData(player, key, value);
                 if (player instanceof ServerPlayer serverPlayer) {
                     PacketRelay.sendToPlayer(TCRPacketHandler.INSTANCE, new PersistentStringDataSyncPacket(key, isLocked, value), serverPlayer);
                 } else {
@@ -251,7 +269,7 @@ public class PlayerDataManager {
         @Override
         public void put(Player player, Double value) {
             if (!isLocked(player)) {
-                getTCRPlayer(player).putDouble(key, value);
+                putData(player, key, value);
                 if (player instanceof ServerPlayer serverPlayer) {
                     PacketRelay.sendToPlayer(TCRPacketHandler.INSTANCE, new PersistentDoubleDataSyncPacket(key, isLocked, value), serverPlayer);
                 } else {
@@ -293,8 +311,7 @@ public class PlayerDataManager {
         public void put(Player player, Boolean value) {
             if (isLocked(player))
                 return;
-
-            getTCRPlayer(player).putBoolean(key, value);
+            putData(player, key, value);
             if (player instanceof ServerPlayer serverPlayer) {
                 PacketRelay.sendToPlayer(TCRPacketHandler.INSTANCE, new PersistentBoolDataSyncPacket(key, isLocked, value), serverPlayer);
             } else {

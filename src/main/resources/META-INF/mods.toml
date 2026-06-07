@@ -90,7 +90,7 @@ side="BOTH"
 [[dependencies.${mod_id}]]
 modId="p1nero_ec"
 mandatory=true
-versionRange="[0,)"
+versionRange="[20.14.0.9,)"
 ordering="AFTER"
 side="BOTH"
 
