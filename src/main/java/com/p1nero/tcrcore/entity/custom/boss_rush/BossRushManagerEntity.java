@@ -38,7 +38,7 @@ public class BossRushManagerEntity extends PathfinderMob {
 
     public static final String BOSS_RUSH_TAG = "TCRBossRushEntity";
 
-    private static final int CHECK_INTERVAL = 40;
+    private static final int CHECK_INTERVAL = 20;
     private static final String BOSS_LIST_TAG = "BossList";
     private static final String INDEX_TAG = "BossIndex";
     private static final String STARTED_TAG = "BossRushStarted";
@@ -92,10 +92,7 @@ public class BossRushManagerEntity extends PathfinderMob {
                 if (!serverPlayer.isSpectator()) {
                     PlayerDataManager.bossRushFinished.put(serverPlayer, true);
                     ItemStack proof = TCRItems.PROOF_OF_BOSS_RUSH.get().getDefaultInstance();
-                    int totalSeconds = tickCount / 20;
-                    int minutes = totalSeconds / 60;
-                    int seconds = totalSeconds % 60;
-                    String timeUsed = minutes + "m" + seconds + "s";
+                    String timeUsed = getTime();
                     proof.getOrCreateTag().putString("time_used", timeUsed);
                     proof.getOrCreateTag().putString("owner_name", serverPlayer.getGameProfile().getName());
                     ItemUtils.addItem(serverPlayer, proof, true);
@@ -105,6 +102,13 @@ public class BossRushManagerEntity extends PathfinderMob {
             });
         }
         this.discard();
+    }
+
+    private String getTime() {
+        int totalSeconds = tickCount / 20;
+        int minutes = totalSeconds / 60;
+        int seconds = totalSeconds % 60;
+        return minutes + "m" + seconds + "s";
     }
 
     public static AttributeSupplier setAttributes() {
@@ -206,7 +210,7 @@ public class BossRushManagerEntity extends PathfinderMob {
         int displayIndex = Math.min(this.index + 1, this.bossList.size());
         EntityType<?> currentBossType = this.getCurrentBossType();
         Component bossName = currentBossType == null ? Component.literal("Unknown") : currentBossType.getDescription();
-        Component name = bossName.copy().append(Component.literal(" | " + displayIndex + "/" + this.bossList.size()));
+        Component name = bossName.copy().append(Component.literal(" | " + displayIndex + "/" + this.bossList.size() + " " + getTime()));
         this.serverBossEvent.setName(name);
         this.serverBossEvent.setProgress(Math.min(1.0F, displayIndex / (float) this.bossList.size()));
         this.serverBossEvent.setVisible(true);
