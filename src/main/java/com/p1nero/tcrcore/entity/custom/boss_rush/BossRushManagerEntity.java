@@ -38,7 +38,7 @@ public class BossRushManagerEntity extends PathfinderMob {
 
     public static final String BOSS_RUSH_TAG = "TCRBossRushEntity";
 
-    private static final int CHECK_INTERVAL = 20;
+    private static final int CHECK_INTERVAL = 40;
     private static final String BOSS_LIST_TAG = "BossList";
     private static final String INDEX_TAG = "BossIndex";
     private static final String STARTED_TAG = "BossRushStarted";
@@ -135,6 +135,10 @@ public class BossRushManagerEntity extends PathfinderMob {
             this.nextCheckTick = this.tickCount + CHECK_INTERVAL;
             this.tickBossRush(serverLevel);
         }
+
+        if(this.tickCount % 20 == 0) {
+            refreshBossBar();
+        }
     }
 
     private void tickBossRush(ServerLevel serverLevel) {
@@ -161,7 +165,7 @@ public class BossRushManagerEntity extends PathfinderMob {
         boolean hasAliveBoss = !serverLevel.getEntities(currentBossType, entity -> !entity.isRemoved() && entity.getTags().contains(BOSS_RUSH_TAG)).isEmpty();
 
         if (hasAliveBoss) {
-            this.refreshBossBar();
+//            this.refreshBossBar();
             return;
         }
         this.index++;
@@ -210,7 +214,7 @@ public class BossRushManagerEntity extends PathfinderMob {
         int displayIndex = Math.min(this.index + 1, this.bossList.size());
         EntityType<?> currentBossType = this.getCurrentBossType();
         Component bossName = currentBossType == null ? Component.literal("Unknown") : currentBossType.getDescription();
-        Component name = bossName.copy().append(Component.literal(" | " + displayIndex + "/" + this.bossList.size() + " " + getTime()));
+        Component name = bossName.copy().append(Component.literal(" | " + displayIndex + "/" + this.bossList.size() + " | " + getTime()));
         this.serverBossEvent.setName(name);
         this.serverBossEvent.setProgress(Math.min(1.0F, displayIndex / (float) this.bossList.size()));
         this.serverBossEvent.setVisible(true);
