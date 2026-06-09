@@ -328,7 +328,7 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         this.add(TCRItems.MAGIC_GREATSWORD.get(), "镇九州");
         this.add(TCRItems.MAGIC_SPEAR.get(), "贯长空");
 
-        this.addInfo("time_used", "用时：");
+        this.addInfo("time_used", "用时：[%s]");
         this.addInfo("boss_health_modified_by_players", "受到附近玩家数量影响，Boss属性已发生变化！");
         this.addInfo("use_command_to_modify_limit", "[警告]:已达人数上限，请联系管理员使用\"%s\"以修改游戏规则。");
         this.addInfo("use_command_to_modify_limit1", "[警告]:已达人数上限，请联系管理员");

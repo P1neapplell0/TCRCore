@@ -95,10 +95,11 @@ public class BossRushManagerEntity extends PathfinderMob {
                     int totalSeconds = tickCount / 20;
                     int minutes = totalSeconds / 60;
                     int seconds = totalSeconds % 60;
-                    String timeUsed = " " + minutes + "m " + seconds + "s";
+                    String timeUsed = minutes + "m" + seconds + "s";
                     proof.getOrCreateTag().putString("time_used", timeUsed);
+                    proof.getOrCreateTag().putString("owner_name", serverPlayer.getGameProfile().getName());
                     ItemUtils.addItem(serverPlayer, proof, true);
-                    serverPlayer.connection.send(new ClientboundSetTitleTextPacket(TCRCoreMod.getInfo("time_used").append(timeUsed).withStyle(ChatFormatting.GOLD)));
+                    serverPlayer.connection.send(new ClientboundSetTitleTextPacket(TCRCoreMod.getInfo("time_used", timeUsed).withStyle(ChatFormatting.GOLD)));
                     serverPlayer.connection.send(new ClientboundSoundPacket(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE), SoundSource.PLAYERS, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(), 1.0F, 1.0F, serverPlayer.getRandom().nextInt()));
                 }
             });

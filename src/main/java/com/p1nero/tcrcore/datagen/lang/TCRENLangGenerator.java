@@ -329,7 +329,7 @@ public class TCRENLangGenerator extends TCRLangProvider {
         this.add(TCRItems.MAGIC_GREATSWORD.get(), "Ninehold");
         this.add(TCRItems.MAGIC_SPEAR.get(), "Heavenrend");
 
-        this.addInfo("time_used", "Time Used: ");
+        this.addInfo("time_used", "Time Used: [%s]");
         this.addInfo("boss_health_modified_by_players", "Affected by the number of nearby players, Boss attributes have changed!");
         this.addInfo("use_command_to_modify_limit", "[Warning]: The maximum number of players has been reached. Please contact the administrator to use \"%s\" to modify the game rules.");
         this.addInfo("use_command_to_modify_limit1", "[Warning]: The maximum number of players has been reached. Please contact the administrator");

@@ -20,6 +20,8 @@ public class BadgeOfBossRushItem extends ProofOfAdventureItem{
     public void appendHoverText(@NotNull ItemStack itemStack, @Nullable Level level, @NotNull List<Component> list, @NotNull TooltipFlag flag) {
         super.appendHoverText(itemStack, level, list, flag);
         String timeUsed = itemStack.getOrCreateTag().getString("time_used");
-        list.add(TCRCoreMod.getInfo("time_used").append(timeUsed));
+        String ownerName = itemStack.getOrCreateTag().getString("owner_name");
+        list.add(TCRCoreMod.getInfo("time_used", timeUsed));
+        list.add(TCRCoreMod.getInfo("dragon_owner", ownerName));
     }
 }
