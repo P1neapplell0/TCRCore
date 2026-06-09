@@ -65,6 +65,7 @@ public class EndGolemDialogExtension implements IEntityDialogueExtension<EndGole
     public void handleNpcInteraction(EndGolem endGolem, ServerPlayer player, int interactionID) {
         if(interactionID == 5) {
             TCREntityCapabilityProvider.getTCREntityPatch(endGolem).setFighting(true);
+            endGolem.setNoAi(false);
         }
         if(interactionID == 4) {
             endGolem.level().playSound(null, player.getX(), player.getY() + 0.75, player.getZ(), TCRSounds.DRUMBEAT_3.get(), SoundSource.BLOCKS, 1.0F, 1.0F);

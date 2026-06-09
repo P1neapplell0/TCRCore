@@ -1256,6 +1256,7 @@ public class LivingEntityEventListeners {
             if (!endGolem.level().isClientSide) {
                 if (!TCREntityCapabilityProvider.getTCREntityPatch(endGolem).isFighting()) {
                     endGolem.setTarget(null);
+                    endGolem.setNoAi(true);
                 }
             }
         } else if (event.getEntity() instanceof WitherBoss witherBoss) {

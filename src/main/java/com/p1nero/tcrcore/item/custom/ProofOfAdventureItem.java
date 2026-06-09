@@ -10,10 +10,12 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Predicate;
 
 public class ProofOfAdventureItem extends CuriosItem implements ICurioItem {
@@ -31,6 +33,17 @@ public class ProofOfAdventureItem extends CuriosItem implements ICurioItem {
                 player.displayClientMessage(TCRCoreMod.getInfo("can_not_do_this_too_early"), true);
                 return false;
             }
+
+            AtomicBoolean hasEquipped = new AtomicBoolean(false);
+            CuriosApi.getCuriosInventory(player).ifPresent(iCuriosItemHandler -> {
+                hasEquipped.set(iCuriosItemHandler.isEquipped(this));
+            });
+            //徽章只能戴一个
+            if(hasEquipped.get()) {
+                player.displayClientMessage(TCRCoreMod.getInfo("can_only_equip_one"), true);
+                return false;
+            }
+
         }
         return true;
     }
