@@ -212,7 +212,7 @@ dependencies {
 
     implementation fg.deobf("maven.modrinth:epicfight-extra:1.1.8-mc1.20.1-forge")
     implementation fg.deobf("curse.maven:epic-fight-guandao-moveset-900642:7416260")
-    implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:7517612")
+    implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:8195403")
     implementation fg.deobf("curse.maven:fancymenu-367706:6918987")
     implementation fg.deobf("curse.maven:drippy-loading-screen-511770:6412211")
     implementation fg.deobf("curse.maven:konkrete-410295:5028413")

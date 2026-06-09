@@ -62,7 +62,7 @@ public class TCRItems {
                     new AttributeContainer(AttributeRegistry.SPELL_POWER.get(), 0.5, AttributeModifier.Operation.MULTIPLY_TOTAL),
                     new AttributeContainer(Attributes.ARMOR, -0.5F, AttributeModifier.Operation.MULTIPLY_TOTAL),
                     new AttributeContainer(Attributes.MAX_HEALTH, -0.5F, AttributeModifier.Operation.MULTIPLY_TOTAL)));
-    public static final RegistryObject<Item> PROOF_OF_BOSS_RUSH = REGISTRY.register("proof_of_boss_rush", () -> new ProofOfAdventureItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant())
+    public static final RegistryObject<Item> PROOF_OF_BOSS_RUSH = REGISTRY.register("proof_of_boss_rush", () -> new BadgeOfBossRushItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant())
             .withPredicate(player -> PlayerDataManager.bossRushFinished.get(player))
             .withAttributes("charm",
                     new AttributeContainer(Attributes.ATTACK_DAMAGE, 0.1, AttributeModifier.Operation.MULTIPLY_TOTAL),

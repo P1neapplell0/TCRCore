@@ -2,23 +2,31 @@ package com.p1nero.tcrcore.entity.custom.boss_rush;
 
 import com.p1nero.entityrespawner.entity.EntityRespawnerEntities;
 import com.p1nero.entityrespawner.entity.SoulEntity;
+import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.capability.PlayerDataManager;
 import com.p1nero.tcrcore.item.TCRItems;
 import com.p1nero.tcrcore.utils.ItemUtils;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket;
+import net.minecraft.network.protocol.game.ClientboundSoundPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
@@ -79,11 +87,19 @@ public class BossRushManagerEntity extends PathfinderMob {
         this.serverBossEvent.setProgress(1.0F);
         this.serverBossEvent.setVisible(false);
         this.serverBossEvent.removeAllPlayers();
-        if(this.level() instanceof ServerLevel serverLevel) {
+        if (this.level() instanceof ServerLevel serverLevel) {
             serverLevel.players().forEach(serverPlayer -> {
-                if(!serverPlayer.isSpectator()) {
+                if (!serverPlayer.isSpectator()) {
                     PlayerDataManager.bossRushFinished.put(serverPlayer, true);
-                    ItemUtils.addItem(serverPlayer, TCRItems.PROOF_OF_BOSS_RUSH.get(), 1);
+                    ItemStack proof = TCRItems.PROOF_OF_BOSS_RUSH.get().getDefaultInstance();
+                    int totalSeconds = tickCount / 20;
+                    int minutes = totalSeconds / 60;
+                    int seconds = totalSeconds % 60;
+                    String timeUsed = " " + minutes + "m " + seconds + "s";
+                    proof.getOrCreateTag().putString("time_used", timeUsed);
+                    ItemUtils.addItem(serverPlayer, proof, true);
+                    serverPlayer.connection.send(new ClientboundSetTitleTextPacket(TCRCoreMod.getInfo("time_used").append(timeUsed).withStyle(ChatFormatting.GOLD)));
+                    serverPlayer.connection.send(new ClientboundSoundPacket(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE), SoundSource.PLAYERS, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(), 1.0F, 1.0F, serverPlayer.getRandom().nextInt()));
                 }
             });
         }
@@ -102,9 +118,9 @@ public class BossRushManagerEntity extends PathfinderMob {
     public void tick() {
         super.tick();
         this.setDeltaMovement(0.0D, 0.0D, 0.0D);
-        if(this.level().isClientSide && tickCount % 10 == 0) {
+        if (this.level().isClientSide && tickCount % 10 == 0) {
             for (int i = 0; i < 3; ++i) {
-                level().addParticle(ParticleTypes.SOUL, this.getX() + (this.random.nextDouble() - (double) 0.5F) * (double) 0.5F, this.getY() + this.random.nextDouble(), this.getZ() + (this.random.nextDouble() - (double) 0.5F) * (double) 0.5F,  0.0F,  0.05F,  0.0F);
+                level().addParticle(ParticleTypes.SOUL, this.getX() + (this.random.nextDouble() - (double) 0.5F) * (double) 0.5F, this.getY() + this.random.nextDouble(), this.getZ() + (this.random.nextDouble() - (double) 0.5F) * (double) 0.5F, 0.0F, 0.05F, 0.0F);
             }
         }
         if (this.level().isClientSide || tickCount < 100 || !this.bossRushStarted || this.bossRushFinished) {
@@ -128,7 +144,7 @@ public class BossRushManagerEntity extends PathfinderMob {
         }
 
         //必须等这玩意儿复活，不然可能重复召唤boss
-        if(!serverLevel.getEntities(EntityRespawnerEntities.SOUL_ENTITY.get(), Entity::isAlive).isEmpty()) {
+        if (!serverLevel.getEntities(EntityRespawnerEntities.SOUL_ENTITY.get(), Entity::isAlive).isEmpty()) {
             return;
         }
 
