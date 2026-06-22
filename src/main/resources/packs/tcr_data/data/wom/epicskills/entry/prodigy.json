@@ -925,7 +925,7 @@
           "stats": [
             {
               "type": "minecraft:killed",
-              "stat": "minecraft:guardian",
+              "stat": "minecraft:enderman",
               "value": {
                 "min": 50
               }

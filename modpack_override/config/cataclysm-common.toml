@@ -729,10 +729,10 @@
 		[mobs.ancient_remnant.combat_config]
 			#Scale mob health by this value
 			#Range: 0.1 ~ 1000000.0
-			health_multiplier = 2.6
+			health_multiplier = 1.5
 			#Scale mob attack damage by this value
 			#Range: 0.1 ~ 1000000.0
-			attack_multiplier = 1.5
+			attack_multiplier = 1.0
 
 		[mobs.ancient_remnant.cap_config]
 			#Damage Cap

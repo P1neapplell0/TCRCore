@@ -168,7 +168,7 @@ public class TCRQuests {
 
         KILL_DESERT_EYE = TCRQuestManager.create("kill_desert_eye")
                 .withIcon(SIDE_QUEST_1)
-                .withRewards(EpicSkillsItems.ABILIITY_STONE.get(), ModItems.WRATH_OF_THE_DESERT.get())
+                .withRewards(EpicSkillsItems.ABILIITY_STONE.get(), ModItems.SANDSTORM_IN_A_BOTTLE.get())
                 .shortDescParam(ModEntities.ANCIENT_REMNANT.get().getDescription().copy().withStyle(ChatFormatting.YELLOW))
                 .descParam(ModItems.DESERT_EYE.get().getDescription().copy().withStyle(ChatFormatting.YELLOW),
                         ModEntities.ANCIENT_REMNANT.get().getDescription().copy().withStyle(ChatFormatting.YELLOW),
@@ -190,7 +190,7 @@ public class TCRQuests {
                         ModEntities.NETHERITE_MONSTROSITY.get().getDescription().copy().withStyle(ChatFormatting.DARK_RED));
         KILL_STORM_EYE = TCRQuestManager.create("kill_storm_eye")
                 .withIcon(SIDE_QUEST_1)
-                .withRewards(EpicSkillsItems.ABILIITY_STONE.get(), ModItems.CERAUNUS.get(), ModItems.ASTRAPE.get())
+                .withRewards(EpicSkillsItems.ABILIITY_STONE.get(), ModItems.ESSENCE_OF_THE_STORM.get(), ModItems.LACRIMA.get())
                 .shortDescParam(ModEntities.SCYLLA.get().getDescription().copy().withStyle(ChatFormatting.AQUA))
                 .descParam(ModItems.STORM_EYE.get().getDescription().copy().withStyle(ChatFormatting.AQUA),
                         ModEntities.SCYLLA.get().getDescription().copy().withStyle(ChatFormatting.AQUA),
@@ -206,7 +206,7 @@ public class TCRQuests {
                         ModEntities.THE_LEVIATHAN.get().getDescription().copy().withStyle(ChatFormatting.BLUE));
         KILL_CURSED_EYE = TCRQuestManager.create("kill_cursed_eye")
                 .withIcon(SIDE_QUEST_1)
-                .withRewards(EpicSkillsItems.ABILIITY_STONE.get(), ModItems.SOUL_RENDER.get(), ModItems.THE_ANNIHILATOR.get())
+                .withRewards(EpicSkillsItems.ABILIITY_STONE.get(), ModItems.CURSIUM_INGOT.get())
                 .shortDescParam(ModEntities.MALEDICTUS.get().getDescription().copy().withStyle(ChatFormatting.DARK_GREEN))
                 .descParam(ModItems.CURSED_EYE.get().getDescription().copy().withStyle(ChatFormatting.DARK_GREEN),
                         ModEntities.MALEDICTUS.get().getDescription().copy().withStyle(ChatFormatting.DARK_GREEN),
@@ -214,7 +214,7 @@ public class TCRQuests {
                         ModEntities.MALEDICTUS.get().getDescription().copy().withStyle(ChatFormatting.DARK_GREEN));
         KILL_FLAME_EYE = TCRQuestManager.create("kill_flame_eye")
                 .withIcon(SIDE_QUEST_1)
-                .withRewards(EpicSkillsItems.ABILIITY_STONE.get(), ModItems.THE_INCINERATOR.get())
+                .withRewards(EpicSkillsItems.ABILIITY_STONE.get(), ModItems.IGNITIUM_INGOT.get())
                 .shortDescParam(ModEntities.IGNIS.get().getDescription().copy().withStyle(ChatFormatting.RED))
                 .descParam(ModItems.FLAME_EYE.get().getDescription().copy().withStyle(ChatFormatting.RED),
                         ModEntities.IGNIS.get().getDescription().copy().withStyle(ChatFormatting.RED),
