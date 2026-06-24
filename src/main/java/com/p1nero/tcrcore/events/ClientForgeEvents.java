@@ -1,5 +1,6 @@
 package com.p1nero.tcrcore.events;
 
+import com.github.L_Ender.cataclysm.init.ModEffect;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.p1nero.battle_field1.worldgen.PBF1Dimensions;
 import com.p1nero.dialog_lib.events.ClientNpcEntityDialogueEvent;
@@ -19,6 +20,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FormattedCharSequence;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraftforge.api.distmarker.Dist;
@@ -26,6 +28,8 @@ import net.minecraftforge.client.event.*;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.shelmarow.combat_evolution.api.event.OnExecutionStartEvent;
+import net.shelmarow.combat_evolution.api.event.ShowExecutionIconEvent;
 
 import java.util.*;
 
@@ -126,6 +130,14 @@ public class ClientForgeEvents {
 //            event.getGuiGraphics().fill(0, 0, event.getScreen().width, event.getScreen().height, FastColor.ABGR32.color(255, 255, 255, 255));
         }
 
+    }
+
+    @SubscribeEvent
+    public static void onShowExecutionIcon(ShowExecutionIconEvent event) {
+        LivingEntity livingEntity = event.getTarget().getOriginal();
+        if (livingEntity.hasEffect(ModEffect.EFFECTSTUN.get())) {
+            event.setCanceled(true);
+        }
     }
 
 }

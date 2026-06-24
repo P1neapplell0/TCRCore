@@ -1,5 +1,6 @@
 package com.p1nero.tcrcore.events;
 
+import com.github.L_Ender.cataclysm.init.ModEffect;
 import com.github.dodo.dodosmobs.entity.InternalAnimationMonster.IABossMonsters.Bone_Chimera_Entity;
 import com.p1nero.cataclysm_dimension.CataclysmDimensionMod;
 import com.p1nero.cataclysm_dimension.worldgen.CataclysmDimensions;
@@ -30,8 +31,12 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.shelmarow.combat_evolution.api.event.OnExecutionStartEvent;
 import org.merlin204.leonidas.item.LeonidasItems;
 import org.merlin204.wraithon.util.PositionTeleporter;
+import yesman.epicfight.world.capabilities.EpicFightCapabilities;
+import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
+import yesman.epicfight.world.damagesource.StunType;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -158,6 +163,14 @@ public class ForgeEvents {
                     serverBossEvent.removeAllPlayers();
                 }
             }));
+        }
+    }
+
+    @SubscribeEvent
+    public static void onExecutionStart(OnExecutionStartEvent event) {
+        LivingEntity livingEntity = event.getTarget().getOriginal();
+        if (livingEntity.hasEffect(ModEffect.EFFECTSTUN.get())) {
+            event.setCanceled(true);
         }
     }
 

@@ -250,7 +250,7 @@ dependencies {
     implementation fg.deobf("libs:entityrespawner:1.1.0")
 
     implementation fg.deobf("curse.maven:epicfight-nightfall-1307848:8020898")
-    implementation fg.deobf("curse.maven:combat-evolution-1377795:7780749")
+    implementation fg.deobf("curse.maven:combat-evolution-1377795:8309866")
     implementation fg.deobf("libs:tcr_bosses:1.1.11")
     implementation fg.deobf("libs:tcrmeshes:1.0.0")
     implementation fg.deobf("curse.maven:epic-fight-the-mimic-1360684:7717502")
