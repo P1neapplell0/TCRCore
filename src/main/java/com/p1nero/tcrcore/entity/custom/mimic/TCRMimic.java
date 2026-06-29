@@ -50,6 +50,11 @@ public class TCRMimic extends ProteusEntity {
         if(damageSource.is(DamageTypes.FALL)) {
             return false;
         }
+        if(damageSource.isCreativePlayer()) {//方便debug
+            this.setPhase(2);
+            this.die(damageSource);
+            return true;
+        }
         return super.hurt(damageSource, amount);
     }
 

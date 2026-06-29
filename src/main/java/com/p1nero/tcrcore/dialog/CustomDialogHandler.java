@@ -10,6 +10,7 @@ import com.p1nero.tcrcore.datagen.TCRAdvancementData;
 import com.p1nero.tcrcore.events.PlayerEventListeners;
 import com.p1nero.tcrcore.network.TCRPacketHandler;
 import com.p1nero.tcrcore.network.packet.clientbound.PlayTitlePacket;
+import com.p1nero.tcrcore.utils.FTBTeamUtils;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -37,14 +38,16 @@ public class CustomDialogHandler {
                 if (!serverPlayer.isCreative()) {
                     serverPlayer.getMainHandItem().shrink(1);
                 }
-                //二阶段，清理数据，回出生点
-
+                //二周目，清理数据，回出生点
                 int newSardine = TCRCapabilityProvider.clearPlayerData(serverPlayer);
-                TCRAdvancementData.revokeAllAdvancement(serverPlayer);
                 if (serverPlayer.server.isSingleplayer()) {
                     TCRPlayer.SARDINE_COUNT = newSardine;
                 }
-                PlayerEventListeners.handleFirstJoin(serverPlayer, true);
+                FTBTeamUtils.onlineTeamMembersDoWithSelf(serverPlayer, member -> {
+                    TCRAdvancementData.revokeAllAdvancement(member);
+                    PlayerEventListeners.handleFirstJoin(member, true);
+                    TCRCapabilityProvider.syncPlayerDataToClient(member);
+                });
             }
         }
     }

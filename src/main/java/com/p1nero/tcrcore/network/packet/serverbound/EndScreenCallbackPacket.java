@@ -14,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import org.merlin204.wraithon.util.PositionTeleporter;
 
 public record EndScreenCallbackPacket() implements BasePacket {
+
     @Override
     public void encode(FriendlyByteBuf buf) {
     }

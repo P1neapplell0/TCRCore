@@ -1,0 +1,74 @@
+
+["Lock-On Icon Settings"]
+	lockOnIconTypes = "DefaultType"
+	#Lock-on icon base size, Default: 0.4
+	#Range: 0.1 ~ 2.0
+	lockOnIconSize = 0.4
+	#Lock-on UI red color component Default: 1.0
+	#Range: 0.0 ~ 1.0
+	lockOnRed = 1.0
+	#Lock-on UI green color component Default: 1.0
+	#Range: 0.0 ~ 1.0
+	lockOnGreen = 1.0
+	#Lock-on UI blue color component Default: 1.0
+	#Range: 0.0 ~ 1.0
+	lockOnBlue = 1.0
+	#Lock-on UI alpha (transparency) component Default: 1.0
+	#Range: 0.0 ~ 1.0
+	lockOnAlpha = 1.0
+	#Enable automatic size scaling for large entities
+	#When enabled, lock-on UI will scale up for larger targets
+	lockOnSizeScaling = true
+
+["Lock-On Change Settings"]
+	#The farthest distance that can keep lock on to the target
+	#Range: 0.0 ~ 128.0
+	maxLockOnDistance = 30.0
+	#The farthest distance you can quickly lock on to the target
+	#Range: 0.0 ~ 128.0
+	maxTargetSelectDistance = 30.0
+	#Max camera pith when you lock on the target
+	#Range: -90.0 ~ 90.0
+	maxPithWhenLockOn = -30.0
+	#Min camera pith when you lock on the target
+	#Range: -90.0 ~ 90.0
+	minPithWhenLockOn = 40.0
+	#Pitch offset when you lock on the target
+	#Range: -90.0 ~ 90.0
+	pitchOffsetWhenLockOn = 15.0
+	#Range: 0.1 ~ 1.0
+	rotationTransition = 0.5
+
+["Lock-On WOM Attack Fix"]
+	#Fix WOM disabled lock on when attacking
+	fixWomAttackLockOn = true
+
+["Lock-On Dynamic camera Settings"]
+	#Enable the dynamic camera
+	enableDynamicCamera = true
+	#Max height of the camera offset
+	#Range: 0.0 ~ 15.0
+	maxDynamicCameraY = 2.5
+	#Max Horizontal distance of the camera offset
+	#Range: 0.0 ~ 15.0
+	maxDynamicCameraX = 7.5
+	#Enable the dynamic fov
+	enableDynamicFov = false
+	#Max dynamic fov multiplier
+	#Range: 1.0 ~ 2.0
+	maxFovMultiplier = 1.15
+
+["Third Person Camera"]
+	#Range: 0.0 ~ 15.0
+	startTransparencyDistance = 9.0
+	#Range: 0.0 ~ 15.0
+	fullyTransparencyDistance = 2.0
+	autoSwitchFirstPerson = true
+	#Range: 0.0 ~ 10.0
+	autoSwitchDistance = 1.0
+	enableModelTransparency = true
+
+["Entity Lock on Joint List"]
+	#example: minecraft:zombie#Head,Chest,Default
+	entityLockonJoint = []
+

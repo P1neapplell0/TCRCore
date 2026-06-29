@@ -24,14 +24,18 @@
 	enableSpearFinisherVFX = true
 	#Enable/disable Scythe-Finisher VFX
 	enableScytheFinisherVFX = true
-	#Enable/disable Murasama-Charge VFX
+	#Enable/disable HfBlade-Charge VFX
 	enableMurasamaChargeVFX = true
-	#Enable/disable Murasama-Flash VFX
+	#Enable/disable HfBlade-Flash VFX
 	enableMurasamaFlashVFX = true
 	#Enable/disable MortalBlade VFX
 	enableMortalBladeVFX = true
 	#Enable/disable DragonFlash VFX
 	enableDragonFlashVFX = true
+	#Enable/disable all AAA Effek VFX for Murasama (BurstRed, BreakOut, Charging)
+	enableMurasamaAAAVFX = false
+	#Enable/disable all AAA Effek VFX for HfBlade (BurstBlue, BreakOut_B, Charging)
+	enableHfBladeAAAVFX = false
 
 [judgementcut_end_camera]
 	#Enable/disable camera animations for JudgementCut-End
@@ -199,4 +203,15 @@
 [impact_frame]
 	#if enable it, some weapons will have impact frame effect
 	impact_frame = true
+
+[judgementcut_end_weapon_model]
+	#Enable/disable weapon model fix for JudgementCut-End
+	#When enabled, JudgementCut-End will use the DMC4 Yamato Model
+	#This is a CLIENT-SIDE only setting
+	#Default: true (enabled)
+	enableModelFix = true
+
+[afterimage]
+	#if enable it, some weapons will have unique afterimage
+	afterimage = true
 
