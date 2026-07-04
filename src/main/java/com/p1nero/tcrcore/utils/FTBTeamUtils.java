@@ -49,7 +49,7 @@ public class FTBTeamUtils {
         onlineTeamMembersDo(player, consumer, false);
     }
 
-    public static void onlineTeamMembersDo(ServerPlayer player, Consumer<ServerPlayer> consumer) {
+    public static void onlineTeamMembersDoIgnoreSelf(ServerPlayer player, Consumer<ServerPlayer> consumer) {
         onlineTeamMembersDo(player, consumer, true);
     }
 

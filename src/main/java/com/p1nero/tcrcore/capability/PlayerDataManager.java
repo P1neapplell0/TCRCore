@@ -139,7 +139,7 @@ public class PlayerDataManager {
         getTCRPlayer(player).putBoolean(key, value);
         //姑息做法。。。客户端还是不同步= =
         if(player instanceof ServerPlayer serverPlayer) {
-            FTBTeamUtils.onlineTeamMembersDo(serverPlayer, member -> {
+            FTBTeamUtils.onlineTeamMembersDoIgnoreSelf(serverPlayer, member -> {
                 getTCRPlayer(member).putBoolean(key, value);
             });
         }

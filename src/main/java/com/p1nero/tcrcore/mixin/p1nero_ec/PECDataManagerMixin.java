@@ -18,7 +18,7 @@ public abstract class PECDataManagerMixin {
     @Inject(method = "putData(Lnet/minecraft/world/entity/player/Player;Ljava/lang/String;Z)V", at = @At("TAIL"), remap = false)
     private static void tcr$putBoolData(Player player, String key, boolean value, CallbackInfo ci) {
         if(player instanceof ServerPlayer serverPlayer) {
-            FTBTeamUtils.onlineTeamMembersDo(serverPlayer, member -> {
+            FTBTeamUtils.onlineTeamMembersDoWithSelf(serverPlayer, member -> {
                 PECDataManager.getPECPlayer(member).putBoolean(key, value);
             });
         }

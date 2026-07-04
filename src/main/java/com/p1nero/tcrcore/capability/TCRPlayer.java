@@ -29,7 +29,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -538,7 +537,7 @@ public class TCRPlayer {
                     updateHealth(serverPlayer, true, oldAdder);
                     FTBTeamUtils.syncDataToTeamMembers(serverPlayer);
                     ItemUtils.addItemEntity(serverPlayer, EpicSkillsItems.ABILIITY_STONE.get(), 2, ChatFormatting.GOLD.getColor());
-                    FTBTeamUtils.onlineTeamMembersDo(serverPlayer, member -> {
+                    FTBTeamUtils.onlineTeamMembersDoIgnoreSelf(serverPlayer, member -> {
                         TCRCapabilityProvider.getTCRPlayer(member).updateHealth(member, true, 0);
                         ItemUtils.addItemEntity(member, EpicSkillsItems.ABILIITY_STONE.get(), 2, ChatFormatting.GOLD.getColor());
                     });

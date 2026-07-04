@@ -431,47 +431,47 @@ public class LivingEntityEventListeners {
                 } else if (livingEntity instanceof ScyllaHumanoid) {
                     if (!PlayerDataManager.scyllaHumanoidKilled.get(player)) {
                         givePlayerAward(player, 3);
-                        PECDataManager.ASTRAPE_LOCK.put(player, false);
-                        PECDataManager.CERAUNUS_LOCK.put(player, false);
                         PlayerDataManager.scyllaHumanoidKilled.put(player, true);
                     }
+                    PECDataManager.ASTRAPE_LOCK.put(player, false);
+                    PECDataManager.CERAUNUS_LOCK.put(player, false);
                 } else if (livingEntity instanceof IgnisHumanoid) {
                     if (!PlayerDataManager.ignisHumanoidKilled.get(player)) {
                         givePlayerAward(player, 3);
-                        PECDataManager.THE_INCINERATOR_LOCK.put(player, false);
                         PlayerDataManager.ignisHumanoidKilled.put(player, true);
                     }
+                    PECDataManager.THE_INCINERATOR_LOCK.put(player, false);
                 } else if (livingEntity instanceof NetheriteHumanoid) {
                     if (!PlayerDataManager.netheriteHumanoidKilled.get(player)) {
                         givePlayerAward(player, 3);
-                        PECDataManager.INFERNAL_FORGE_LOCK.put(player, false);
                         PlayerDataManager.netheriteHumanoidKilled.put(player, true);
                     }
+                    PECDataManager.INFERNAL_FORGE_LOCK.put(player, false);
                 } else if (livingEntity instanceof MaledictusHumanoid) {
                     if (!PlayerDataManager.maledictusHumanoidKilled.get(player)) {
                         givePlayerAward(player, 3);
-                        PECDataManager.DUAL_ANNIHILATOR_LOCK.put(player, false);
-                        PECDataManager.SOUL_RENDER_LOCK.put(player, false);
                         PlayerDataManager.maledictusHumanoidKilled.put(player, true);
                     }
+                    PECDataManager.DUAL_ANNIHILATOR_LOCK.put(player, false);
+                    PECDataManager.SOUL_RENDER_LOCK.put(player, false);
                 } else if (livingEntity instanceof LeviathanHumanoid) {
                     if (!PlayerDataManager.leviathanHumanoidKilled.get(player)) {
                         givePlayerAward(player, 3);
-                        PECDataManager.TIDAL_CLAW_LOCK.put(player, false);
                         PlayerDataManager.leviathanHumanoidKilled.put(player, true);
                     }
+                    PECDataManager.TIDAL_CLAW_LOCK.put(player, false);
                 } else if (livingEntity instanceof EnderGuardianHumanoid) {
                     if (!PlayerDataManager.enderGuardianHumanoidKilled.get(player)) {
                         givePlayerAward(player, 3);
-                        PECDataManager.GAUNTLET_OF_GUARD_LOCK.put(player, false);
                         PlayerDataManager.enderGuardianHumanoidKilled.put(player, true);
                     }
+                    PECDataManager.GAUNTLET_OF_GUARD_LOCK.put(player, false);
                 } else if (livingEntity instanceof AncientRemnantHumanoid) {
                     if (!PlayerDataManager.ancientRemnantHumanoidKilled.get(player)) {
                         givePlayerAward(player, 3);
-                        PECDataManager.WRATH_OF_THE_DESERT_LOCK.put(player, false);
                         PlayerDataManager.ancientRemnantHumanoidKilled.put(player, true);
                     }
+                    PECDataManager.WRATH_OF_THE_DESERT_LOCK.put(player, false);
                 } else if (livingEntity instanceof HarbingerHumanoid) {
                     if (!PlayerDataManager.harbingerRemnantHumanoidKilled.get(player)) {
                         givePlayerAward(player, 3);
