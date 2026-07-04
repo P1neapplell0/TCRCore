@@ -1,7 +1,6 @@
 package com.p1nero.tcrcore.entity.custom.fake_npc;
 
 import com.p1nero.dialog_lib.api.entity.custom.IEntityNpc;
-import com.p1nero.dialog_lib.api.entity.goal.LookAtConservingPlayerGoal;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -12,7 +11,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

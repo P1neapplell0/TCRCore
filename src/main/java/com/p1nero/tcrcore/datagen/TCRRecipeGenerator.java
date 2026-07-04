@@ -1,7 +1,6 @@
 package com.p1nero.tcrcore.datagen;
 
 import com.aetherteam.aether.block.AetherBlocks;
-import com.bobmowzie.mowziesmobs.server.item.ItemHandler;
 import com.cerbon.bosses_of_mass_destruction.item.BMDItems;
 import com.github.L_Ender.cataclysm.init.ModItems;
 import com.p1nero.tcrcore.TCRCoreMod;

@@ -3,7 +3,6 @@ package com.p1nero.tcrcore.utils;
 import com.p1nero.battle_field1.worldgen.PBF1Dimensions;
 import com.p1nero.cataclysm_dimension.worldgen.CataclysmDimensions;
 import com.p1nero.tcrcore.gamerule.TCRGameRules;
-import com.p1nero.tcrcore.worldgen.TCRDimensions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.protocol.game.ClientboundSoundPacket;

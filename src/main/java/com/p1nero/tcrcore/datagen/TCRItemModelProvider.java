@@ -2,7 +2,6 @@ package com.p1nero.tcrcore.datagen;
 
 import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.item.TCRItems;
-import io.redspace.ironsspellbooks.registries.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;

@@ -1,27 +1,16 @@
 package com.p1nero.tcrcore.events;
 
 import com.hm.efn.EFN;
-import com.hm.efn.gameasset.EFNWeaponCategories;
 import com.p1nero.tcrcore.TCRCoreMod;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.p1nero.ss.entity.SwordSoaringEntities;
-import net.p1nero.ss.entity.sword.fly_sword.FlySwordPatch;
-import net.p1nero.ss.entity.sword.gate_of_babylon.BabylonPatch;
-import net.p1nero.ss.entity.sword.screen_sword.ScreenSwordPatch;
-import net.p1nero.ss.entity.sword.wan.WanPatch;
-import net.p1nero.ss.entity.vatansever.VatanseverEntityPatch;
-import net.p1nero.ss.entity.vatansever_storm.VatanseverStormEntityPatch;
-import net.p1nero.ss.gameassets.SwordSoaringWeaponCategories;
-import yesman.epicfight.api.forgeevent.EntityPatchRegistryEvent;
 import yesman.epicfight.api.forgeevent.SkillBuildEvent;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.main.EpicFightMod;
 import yesman.epicfight.skill.guard.GuardSkill;
 import yesman.epicfight.skill.passive.EmergencyEscapeSkill;
 import yesman.epicfight.world.capabilities.item.CapabilityItem.WeaponCategories;
-import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
 import java.util.List;
 

@@ -7,8 +7,6 @@ import com.p1nero.cataclysm_dimension.worldgen.portal.CDTeleporter;
 import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.network.packet.clientbound.helper.DistHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -32,8 +30,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class AbstractAltarBlockEntity extends BlockEntity {

@@ -3,7 +3,6 @@ package com.p1nero.tcrcore.mixin.indestructible;
 import com.nameless.indestructible.world.ai.CombatBehaviors.WanderMotionSet;
 import com.nameless.indestructible.world.ai.goal.AdvancedCombatGoal;
 import com.nameless.indestructible.world.capability.Utils.IAdvancedCapability;
-import com.p1nero.tcr_bosses.entity.cataclysm.BaseBossEntity;
 import com.p1nero.tcr_bosses.entity.custom.BaseSmallBossEntity;
 import com.p1nero.tcrcore.utils.EntityUtils;
 import net.minecraft.world.entity.Entity;

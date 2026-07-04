@@ -2,11 +2,7 @@ package com.p1nero.tcrcore.events;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.util.ITeleporter;
 
 import java.util.function.Function;

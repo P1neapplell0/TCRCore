@@ -1,6 +1,5 @@
 package com.p1nero.tcrcore.block.custom;
 
-import com.p1nero.tcrcore.block.entity.AbyssAltarBlockEntity;
 import com.p1nero.tcrcore.block.entity.VoidAltarBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;

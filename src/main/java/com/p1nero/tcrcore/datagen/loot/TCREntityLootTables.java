@@ -1,6 +1,5 @@
 package com.p1nero.tcrcore.datagen.loot;
 
-import com.aetherteam.aether.item.AetherItems;
 import com.brass_amber.ba_bt.init.BTItems;
 import com.p1nero.tcr_bosses.entity.TCRBossEntities;
 import com.p1nero.tcrcore.entity.TCREntities;

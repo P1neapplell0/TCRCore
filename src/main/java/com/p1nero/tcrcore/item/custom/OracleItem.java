@@ -1,8 +1,5 @@
 package com.p1nero.tcrcore.item.custom;
 
-import com.p1nero.tcrcore.capability.TCRPlayer;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;

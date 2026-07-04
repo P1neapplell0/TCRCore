@@ -5,7 +5,6 @@ import com.brass_amber.ba_bt.init.BTItems;
 import com.github.L_Ender.cataclysm.init.ModEntities;
 import com.github.L_Ender.cataclysm.init.ModItems;
 import com.github.alexthe668.domesticationinnovation.server.item.DIItemRegistry;
-import com.hm.efn.gameasset.EFNSkills;
 import com.hm.efn.registries.EFNItem;
 import com.p1nero.tcr_bosses.entity.TCRBossEntities;
 import com.p1nero.tcrcore.TCRCoreMod;

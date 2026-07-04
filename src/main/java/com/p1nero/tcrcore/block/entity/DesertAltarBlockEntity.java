@@ -1,7 +1,6 @@
 package com.p1nero.tcrcore.block.entity;
 
 import com.github.L_Ender.cataclysm.init.ModItems;
-import com.github.L_Ender.cataclysm.init.ModParticle;
 import com.p1nero.tcrcore.capability.PlayerDataManager;
 import com.p1nero.tcrcore.capability.TCRQuestManager;
 import com.p1nero.tcrcore.capability.TCRQuests;

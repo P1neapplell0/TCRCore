@@ -1,8 +1,6 @@
 package com.p1nero.tcrcore.client.ponder;
 
-import com.aetherteam.aether.block.AetherBlocks;
 import com.almostreliable.summoningrituals.altar.AltarBlockEntity;
-import com.cerbon.bosses_of_mass_destruction.item.BMDItems;
 import com.github.L_Ender.cataclysm.init.ModItems;
 import com.hm.efn.registries.EFNItem;
 import com.p1nero.p1nero_ec.gameassets.PECAnimations;
@@ -103,7 +101,6 @@ public class TCRBossesPonderScene {
         scene.idle(20);
         scene.markAsFinished();
     }
-
 
     public static void addAncientRemainScene(SceneBuilder scene, SceneBuildingUtil util) {
         scene.title("add_ancient_remain", TCRBossEntities.ANCIENT_REMNANT_HUMANOID.get().getDescription().getString());
@@ -411,7 +408,6 @@ public class TCRBossesPonderScene {
         scene.markAsFinished();
     }
 
-
     public static void addIgnisScene(SceneBuilder scene, SceneBuildingUtil util) {
         scene.title("add_ignis", TCRBossEntities.IGNIS_HUMANOID.get().getDescription().getString());
 
@@ -508,7 +504,6 @@ public class TCRBossesPonderScene {
         scene.markAsFinished();
     }
 
-
     public static void addLeviathanScene(SceneBuilder scene, SceneBuildingUtil util) {
         scene.title("add_leviathan", TCRBossEntities.LEVIATHAN_HUMANOID.get().getDescription().getString());
 
@@ -587,7 +582,6 @@ public class TCRBossesPonderScene {
         scene.idle(20);
         scene.markAsFinished();
     }
-
 
     public static void addMaledictusScene(SceneBuilder scene, SceneBuildingUtil util) {
         scene.title("add_maledictus", TCRBossEntities.MALEDICTUS_HUMANOID.get().getDescription().getString());
@@ -780,6 +774,5 @@ public class TCRBossesPonderScene {
         scene.idle(20);
         scene.markAsFinished();
     }
-
 
 }

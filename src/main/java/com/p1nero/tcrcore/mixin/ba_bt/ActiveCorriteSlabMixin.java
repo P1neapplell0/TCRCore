@@ -1,6 +1,5 @@
 package com.p1nero.tcrcore.mixin.ba_bt;
 
-import com.brass_amber.ba_bt.block.block.ActiveCorriteBlock;
 import com.brass_amber.ba_bt.block.block.ActiveCorriteSlab;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;

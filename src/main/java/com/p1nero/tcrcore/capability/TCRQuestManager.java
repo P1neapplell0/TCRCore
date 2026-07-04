@@ -1,6 +1,5 @@
 package com.p1nero.tcrcore.capability;
 
-import com.google.common.collect.ImmutableList;
 import com.p1nero.fast_tpa.network.PacketRelay;
 import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.network.TCRPacketHandler;

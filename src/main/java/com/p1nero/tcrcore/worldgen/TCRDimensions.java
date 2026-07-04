@@ -1,7 +1,6 @@
 package com.p1nero.tcrcore.worldgen;
 
 import com.p1nero.tcrcore.TCRCoreMod;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -19,8 +18,6 @@ import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.FlatLevelSource;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.flat.FlatLayerInfo;
 import net.minecraft.world.level.levelgen.flat.FlatLevelGeneratorSettings;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -44,7 +41,6 @@ public class TCRDimensions {
             ResourceLocation.fromNamespaceAndPath(TCRCoreMod.MOD_ID, "real"));
     public static final ResourceKey<DimensionType> REAL_DIM_TYPE = ResourceKey.create(Registries.DIMENSION_TYPE,
             ResourceLocation.fromNamespaceAndPath(TCRCoreMod.MOD_ID, "real_type"));
-
 
     public static void bootstrapType(BootstapContext<DimensionType> context) {
         context.register(SANCTUM_DIM_TYPE,

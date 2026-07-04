@@ -34,9 +34,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.shelmarow.combat_evolution.api.event.OnExecutionStartEvent;
 import org.merlin204.leonidas.item.LeonidasItems;
 import org.merlin204.wraithon.util.PositionTeleporter;
-import yesman.epicfight.world.capabilities.EpicFightCapabilities;
-import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
-import yesman.epicfight.world.damagesource.StunType;
 
 import java.util.HashMap;
 import java.util.Map;

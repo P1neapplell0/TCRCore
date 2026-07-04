@@ -5,8 +5,6 @@ import com.p1nero.battle_field1.worldgen.PBF1Dimensions;
 import com.p1nero.tcrcore.entity.TCREntities;
 import com.p1nero.tcrcore.entity.custom.boss_rush.BossRushManagerEntity;
 import com.p1nero.tcr_bosses.entity.TCRBossEntities;
-import com.p1nero.tcrcore.item.TCRItems;
-import com.p1nero.tcrcore.utils.ItemUtils;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;

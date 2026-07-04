@@ -2,18 +2,13 @@ package com.p1nero.tcrcore.gameassets;
 
 import com.asanginxst.epicfightx.gameassets.animations.AnimationsX;
 import com.asanginxst.epicfightx.gameassets.animations.ExtraAnimations;
-import com.hm.efn.gameasset.animations.EFNFalchionAnimations;
 import com.hm.efn.gameasset.animations.EFNGreatSwordAnimations;
-import com.nameless.falchion.gameasset.FalchionAnimations;
 import com.nameless.falchion.gameasset.FalchionSkills;
-import com.p1nero.p1nero_ec.gameassets.PECSkills;
 import com.p1nero.tcrcore.TCRCoreMod;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import yesman.epicfight.api.animation.AnimationManager;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.collider.MultiOBBCollider;
 import yesman.epicfight.api.forgeevent.WeaponCapabilityPresetRegistryEvent;
@@ -22,8 +17,6 @@ import yesman.epicfight.gameasset.ColliderPreset;
 import yesman.epicfight.gameasset.EpicFightSounds;
 import yesman.epicfight.particle.EpicFightParticles;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
-import yesman.epicfight.world.capabilities.item.RangedWeaponCapability;
-import yesman.epicfight.world.capabilities.item.TridentCapability;
 import yesman.epicfight.world.capabilities.item.WeaponCapability;
 
 import java.util.function.Function;
@@ -73,7 +66,6 @@ public class TCRWeaponPresets {
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.RUN, AnimationsX.BIPED_RUN_SPEAR)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.SWIM, AnimationsX.BIPED_HOLD_SPEAR)
                     .livingMotionModifier(CapabilityItem.Styles.TWO_HAND, LivingMotions.BLOCK, AnimationsX.SPEAR_GUARD);
-
 
     @SubscribeEvent
     public static void register(WeaponCapabilityPresetRegistryEvent event) {

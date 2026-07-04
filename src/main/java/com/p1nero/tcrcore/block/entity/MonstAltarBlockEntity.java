@@ -1,7 +1,6 @@
 package com.p1nero.tcrcore.block.entity;
 
 import com.github.L_Ender.cataclysm.init.ModItems;
-import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.capability.PlayerDataManager;
 import com.p1nero.tcrcore.capability.TCRQuestManager;
 import com.p1nero.tcrcore.capability.TCRQuests;
@@ -9,7 +8,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;

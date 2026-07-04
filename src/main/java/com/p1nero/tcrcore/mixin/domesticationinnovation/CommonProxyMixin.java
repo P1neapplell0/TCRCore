@@ -2,11 +2,9 @@ package com.p1nero.tcrcore.mixin.domesticationinnovation;
 
 import com.github.alexthe668.domesticationinnovation.server.CommonProxy;
 import com.github.alexthe668.domesticationinnovation.server.item.DIItemRegistry;
-import com.p1nero.domesticationinnovationwhitelist.DomesticationInnovationWhitelistConfig;
 import com.p1nero.tcrcore.TCRCoreMod;
 import net.magister.bookofdragons.entity.base.dragon.DragonBase;
 import net.minecraft.ChatFormatting;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

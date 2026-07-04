@@ -53,9 +53,6 @@ import yesman.epicfight.api.asset.AssetAccessor;
 import yesman.epicfight.api.client.event.EpicFightClientHooks;
 import yesman.epicfight.api.client.forgeevent.PatchedRenderersEvent;
 import yesman.epicfight.api.client.model.Meshes;
-import yesman.epicfight.api.client.model.SkinnedMesh;
-import yesman.epicfight.client.ClientEngine;
-import yesman.epicfight.client.camera.EpicFightTpsCameraDisableState;
 import yesman.epicfight.client.mesh.HumanoidMesh;
 import yesman.epicfight.client.renderer.patched.entity.PHumanoidRenderer;
 import yesman.epicfight.client.renderer.patched.entity.PIronGolemRenderer;
@@ -225,7 +222,6 @@ public class ClientModEvents {
 
         event.registerBlockEntityRenderer(Registration.ALTAR_ENTITY.get(), AltarRenderer::new);
     }
-
 
     @SubscribeEvent
     public static void registerItemRenderer(PatchedRenderersEvent.RegisterItemRenderer event) {

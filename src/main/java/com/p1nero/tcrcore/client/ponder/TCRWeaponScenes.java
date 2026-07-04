@@ -7,11 +7,8 @@ import net.createmod.ponder.api.element.EntityElement;
 import net.createmod.ponder.api.scene.SceneBuilder;
 import net.createmod.ponder.api.scene.SceneBuildingUtil;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import org.arc.epic_ponder.api.ponder.EpicFightSceneBuilder;
 import org.arc.epic_ponder.client.ponder.EFPSceneUtils;
-import yesman.epicfight.gameasset.Animations;
-import yesman.epicfight.world.item.EpicFightItems;
 
 public class TCRWeaponScenes {
     public static void showcaseFalchionBasicAttackCombo(SceneBuilder baseScene, SceneBuildingUtil util) {

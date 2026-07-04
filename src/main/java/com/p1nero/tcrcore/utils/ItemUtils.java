@@ -4,7 +4,6 @@ import com.github.L_Ender.cataclysm.init.ModItems;
 import com.github.alexthe668.domesticationinnovation.server.block.DIBlockRegistry;
 import com.github.alexthe668.domesticationinnovation.server.item.DIItemRegistry;
 import com.google.common.collect.ImmutableList;
-import com.hm.efn.registries.EFNItem;
 import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.entity.custom.CustomColorItemEntity;
 import com.p1nero.tcrcore.item.TCRItems;

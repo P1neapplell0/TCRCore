@@ -10,8 +10,6 @@ import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -19,8 +17,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import org.merlin204.mimic.copy.CopyAnimationInfo;
-import org.merlin204.mimic.entity.MimicEntities;
-import org.merlin204.mimic.entity.MimicEntity;
 import org.merlin204.mimic.entity.MimicPatch;
 import org.merlin204.mimic.entity.proteus.ProteusEntity;
 import org.merlin204.mimic.entity.shadow.ShadowMimicEntity;
@@ -139,7 +135,6 @@ public class TCRMimicPatch<T extends ProteusEntity> extends MimicPatch<T> {
         this.weaponAttackMotions.put(1, TCRMimicCombatBehaviors.PHASE1);
         this.weaponAttackMotions.put(2, TCRMimicCombatBehaviors.PHASE1);
         this.weaponAttackMotions.put(3, TCRMimicCombatBehaviors.PHASE3);
-
 
     }
 

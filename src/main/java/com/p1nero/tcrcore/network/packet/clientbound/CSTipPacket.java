@@ -2,7 +2,6 @@ package com.p1nero.tcrcore.network.packet.clientbound;
 import com.p1nero.dialog_lib.network.packet.BasePacket;
 import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.network.packet.clientbound.helper.DistHelper;
-import com.p1nero.tcrcore.network.packet.clientbound.helper.TCRClientHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Player;

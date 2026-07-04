@@ -1,13 +1,11 @@
 package com.p1nero.tcrcore.item.custom;
 
 import com.p1nero.tcrcore.TCRCoreMod;
-import net.magister.bookofdragons.advancement.ModAdvancementTriggers;
 import net.magister.bookofdragons.entity.base.dragon.DragonBase;
 import net.magister.bookofdragons.event.DragonDiscoveryEventHandler;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffects;

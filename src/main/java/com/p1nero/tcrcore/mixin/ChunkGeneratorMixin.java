@@ -1,29 +1,7 @@
 package com.p1nero.tcrcore.mixin;
 
-import com.aetherteam.aether.data.resources.registries.AetherDimensions;
-import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.p1nero.tcrcore.worldgen.MainStructureSets;
-import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.SectionPos;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.ChunkPos;
-import net.minecraft.world.level.StructureManager;
-import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;
-import net.minecraft.world.level.levelgen.RandomState;
-import net.minecraft.world.level.levelgen.structure.StructureSet;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 让结构和主线结构保持距离
