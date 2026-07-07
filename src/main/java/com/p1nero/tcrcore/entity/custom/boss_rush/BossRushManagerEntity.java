@@ -5,6 +5,7 @@ import com.p1nero.entityrespawner.entity.SoulEntity;
 import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.capability.PlayerDataManager;
 import com.p1nero.tcrcore.item.TCRItems;
+import com.p1nero.tcrcore.save_data.TCRMainLevelSaveData;
 import com.p1nero.tcrcore.utils.ItemUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.particles.ParticleTypes;
@@ -95,6 +96,7 @@ public class BossRushManagerEntity extends PathfinderMob {
                     String timeUsed = getTime();
                     proof.getOrCreateTag().putString("time_used", timeUsed);
                     proof.getOrCreateTag().putString("owner_name", serverPlayer.getGameProfile().getName());
+                    proof.getOrCreateTag().putString("difficulty", TCRMainLevelSaveData.get(serverLevel).getDifficulty().getKey());
                     ItemUtils.addItem(serverPlayer, proof, true);
                     serverPlayer.connection.send(new ClientboundSetTitleTextPacket(TCRCoreMod.getInfo("time_used", timeUsed).withStyle(ChatFormatting.GOLD)));
                     serverPlayer.connection.send(new ClientboundSoundPacket(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE), SoundSource.PLAYERS, serverPlayer.getX(), serverPlayer.getY(), serverPlayer.getZ(), 1.0F, 1.0F, serverPlayer.getRandom().nextInt()));

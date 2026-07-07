@@ -21,7 +21,9 @@ public class BadgeOfBossRushItem extends ProofOfAdventureItem{
         super.appendHoverText(itemStack, level, list, flag);
         String timeUsed = itemStack.getOrCreateTag().getString("time_used");
         String ownerName = itemStack.getOrCreateTag().getString("owner_name");
+        String difficulty = itemStack.getOrCreateTag().getString("difficulty");
         list.add(TCRCoreMod.getInfo("time_used", timeUsed));
+        list.add(TCRCoreMod.getInfo("difficulty", Component.translatable("options.difficulty." + difficulty)));
         list.add(TCRCoreMod.getInfo("dragon_owner", ownerName));
     }
 }
