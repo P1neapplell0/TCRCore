@@ -63,7 +63,7 @@ public class TCRPlayer {
     //=======共鸣石冷却任务计时=======
     private boolean resonanceStoneInCooldown;
     private long resonanceStoneStartTime;
-    private final int resonanceStoneCooldown = 6000;
+    public static final int RESONANCE_STONE_COOLDOWN = 3600;
 
     //=======指路粒子=====
     private int spawnParticleTimer = 0;
@@ -102,8 +102,7 @@ public class TCRPlayer {
     }
 
     public void startWaitingResonanceStoneCharge(ServerPlayer serverPlayer) {
-        ServerLevel overworld = serverPlayer.server.overworld();
-        resonanceStoneStartTime = overworld.getDayTime();//防止玩家使用add
+        resonanceStoneStartTime = serverPlayer.serverLevel().getGameTime();//防止玩家使用add无效
         resonanceStoneInCooldown = true;
         TCRQuests.WAIT_RESONANCE_STONE_CHARGE.start(serverPlayer);
     }
@@ -336,10 +335,9 @@ public class TCRPlayer {
         if(!resonanceStoneInCooldown) {
             return;
         }
-        ServerLevel overworld = serverPlayer.server.overworld();
-        long currentTime = overworld.getDayTime();
+        long currentTime = serverPlayer.serverLevel().getGameTime();
         //冷却结束，根据任务给予共鸣石
-        if(currentTime < resonanceStoneStartTime || currentTime - resonanceStoneStartTime > resonanceStoneCooldown) {
+        if(currentTime < resonanceStoneStartTime || currentTime - resonanceStoneStartTime > RESONANCE_STONE_COOLDOWN) {
             TCRQuests.WAIT_RESONANCE_STONE_CHARGE.finish(serverPlayer, true);
             //开启海洋章，用前一个眼是否完成来判断
             if(PlayerDataManager.desertEyeGotten.get(serverPlayer) && !TCRQuests.TALK_TO_CHRONOS_2.isFinished(serverPlayer)) {
