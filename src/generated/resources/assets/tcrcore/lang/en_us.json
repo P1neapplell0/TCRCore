@@ -375,6 +375,7 @@
   "info.tcr.attack_to_restart": "§cAttack to restart",
   "info.tcr.boss_health_modified_by_players": "Affected by the number of nearby players, Boss attributes have changed!",
   "info.tcr.boss_killed_ready_return": "§6Boss has been defeated! Block interaction unlocked!",
+  "info.tcr.boss_nearby_cannot_use_cinderous_soulcaller": "Cannot use Cinderous Soulcaller while a boss is nearby!",
   "info.tcr.boss_will_respawn": "Boss will respawn in %ds...",
   "info.tcr.can_not_do_this_too_early": "§6You are not destined to do this.",
   "info.tcr.can_not_dodge": "Boss attacks cannot be dodged!",

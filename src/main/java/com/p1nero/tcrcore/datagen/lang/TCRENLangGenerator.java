@@ -368,6 +368,7 @@ public class TCRENLangGenerator extends TCRLangProvider {
         this.addInfo("yamato_skill_lock", "[%s] are locked. Requires special enchantment book to unlock!");
         this.addInfo("congratulation", "Congratulations!");
         this.addInfo("open_backpack_tutorial", "Press [%s] to view Interspatial Storage");
+        this.addInfo("boss_nearby_cannot_use_cinderous_soulcaller", "Cannot use Cinderous Soulcaller while a boss is nearby!");
         this.addInfo("unlock_new_ftb_page_title", "§6New Chapter Unlocked!");
         this.addInfo("unlock_new_ftb_page_subtitle", "§aPress [%s§a] to view");
         this.addInfo("resonance_stone_working", "[%s] Resonating... Please wait patiently...");

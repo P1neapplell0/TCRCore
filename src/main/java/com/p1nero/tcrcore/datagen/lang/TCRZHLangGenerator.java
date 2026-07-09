@@ -367,6 +367,7 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         this.addInfo("yamato_skill_lock", "[%s]已锁定，需对应附魔书以解锁！");
         this.addInfo("congratulation", "恭喜！");
         this.addInfo("open_backpack_tutorial", "按下 [%s] 以打开随身空间");
+        this.addInfo("boss_nearby_cannot_use_cinderous_soulcaller", "附近存在Boss，无法使用余烬唤魂铃！");
         this.addInfo("unlock_new_ftb_page_title", "§6新图鉴解锁！");
         this.addInfo("unlock_new_ftb_page_subtitle", "§a按[%s§a]查看");
         this.addInfo("resonance_stone_working", "[%s]共鸣中...请耐心等待...");

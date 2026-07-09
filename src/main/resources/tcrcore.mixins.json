@@ -81,6 +81,7 @@
     "indestructible.AdvancedCombatGoalMixin",
     "iss.AdditionalWanderingTradesMixin",
     "iss.ArcaneAnvilMenuMixin",
+    "iss.CinderousSoulcallerItemMixin",
     "iss.MagicManagerMixin",
     "iss.ScrollItemMixin",
     "leonidas.LeonidasEntityMixin",

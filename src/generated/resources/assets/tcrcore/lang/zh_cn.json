@@ -375,6 +375,7 @@
   "info.tcr.attack_to_restart": "§c攻击Boss以再次发起挑战",
   "info.tcr.boss_health_modified_by_players": "受到附近玩家数量影响，Boss属性已发生变化！",
   "info.tcr.boss_killed_ready_return": "§6幻境英灵已击败！已解锁方块交互！",
+  "info.tcr.boss_nearby_cannot_use_cinderous_soulcaller": "附近存在Boss，无法使用余烬唤魂铃！",
   "info.tcr.boss_will_respawn": "Boss将在 %ds 后重生...",
   "info.tcr.can_not_do_this_too_early": "§6当前没有做此事的命运。",
   "info.tcr.can_not_dodge": "Boss攻击将无视闪避！",
