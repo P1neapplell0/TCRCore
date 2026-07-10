@@ -84,6 +84,7 @@
     "iss.CinderousSoulcallerItemMixin",
     "iss.MagicManagerMixin",
     "iss.ScrollItemMixin",
+    "ServerPlayerMixin",
     "leonidas.LeonidasEntityMixin",
     "leonidas.LeonidasForgeEventsMixin",
     "multiplayer_boss_fight.BossManagerMixin",
