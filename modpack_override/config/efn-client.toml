@@ -33,9 +33,9 @@
 	#Enable/disable DragonFlash VFX
 	enableDragonFlashVFX = true
 	#Enable/disable all AAA Effek VFX for Murasama (BurstRed, BreakOut, Charging)
-	enableMurasamaAAAVFX = false
+	enableMurasamaAAAVFX = true
 	#Enable/disable all AAA Effek VFX for HfBlade (BurstBlue, BreakOut_B, Charging)
-	enableHfBladeAAAVFX = false
+	enableHfBladeAAAVFX = true
 
 [judgementcut_end_camera]
 	#Enable/disable camera animations for JudgementCut-End
