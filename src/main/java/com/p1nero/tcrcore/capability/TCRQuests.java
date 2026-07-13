@@ -71,6 +71,8 @@ public class TCRQuests {
     //养龙支线
     public static Quest TAME_DRAGON;
     public static Quest TAME_DRAGON_BACK_TO_FERRY_GIRL;
+    public static Quest TAME_DRAGON_BIND_DRAGON;
+    public static Quest TAME_DRAGON_BACK_TO_FERRY_GIRL_2;
 
     //前往获取大地之眼
     public static Quest USE_LAND_RESONANCE_STONE;
@@ -317,6 +319,16 @@ public class TCRQuests {
                 .descParam(TCREntities.FERRY_GIRL.get().getDescription(), TCREntities.FERRY_GIRL.get().getDescription(), Items.SADDLE.getDescription(), DIItemRegistry.COLLAR_TAG.get().getDescription())
                 .withIcon(SIDE_QUEST_1)
                 .withRewards(Items.SADDLE)
+                .withTrackingPos(new BlockPos(WorldUtils.FERRY_GIRL_POS.above(1)), TCRDimensions.SANCTUM_LEVEL_KEY);
+
+        TAME_DRAGON_BIND_DRAGON = TCRQuestManager.create("tame_dragon_bind_dragon")
+                .descParam(TCREntities.FERRY_GIRL.get().getDescription(), com.kuzhi.findme.common.ModItems.NAME_PAPER.get().getDescription())
+                .withIcon(SIDE_QUEST_1);
+
+        TAME_DRAGON_BACK_TO_FERRY_GIRL_2 = TCRQuestManager.create("tame_dragon_back_to_ferry_girl_2")
+                .shortDescParam(TCREntities.FERRY_GIRL.get().getDescription())
+                .descParam(TCREntities.FERRY_GIRL.get().getDescription())
+                .withIcon(SIDE_QUEST_1)
                 .withTrackingPos(new BlockPos(WorldUtils.FERRY_GIRL_POS.above(1)), TCRDimensions.SANCTUM_LEVEL_KEY);
 
         USE_LAND_RESONANCE_STONE = TCRQuestManager.create("use_land_resonance_stone")

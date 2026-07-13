@@ -19,6 +19,7 @@
     "bookofdragons.DragonBaseMixin",
     "DrownedMixin",
     "fantasyarmor.FAArmorItemMixin",
+    "findme.CompanionContractServiceMixin",
     "aether.GuiHooksMixin",
     "cataclysm.Ignited_Revenant_EntityMixin",
     "cataclysm.Ignitium_ArmorMixin",

@@ -240,6 +240,7 @@ dependencies {
     implementation fg.deobf("libs:p1nero_bow:20.13.1.4")
 //    implementation fg.deobf("curse.maven:p1neros-epic-x-cataclysm-1325059:7842335")
     implementation fg.deobf("libs:p1nero_ec:20.14.0.9")
+    implementation fg.deobf("libs:Find_me:1.2.4")
 
     implementation fg.deobf("curse.maven:ares-hud-1477275:7849085")
     implementation fg.deobf("libs:better_trident_model:1.0.0")
@@ -253,6 +254,7 @@ dependencies {
     implementation fg.deobf("curse.maven:epicfight-nightfall-1307848:8020898")
     implementation fg.deobf("curse.maven:combat-evolution-1377795:8309866")
     implementation fg.deobf("libs:tcr_bosses:1.1.11")
+    implementation fg.deobf("libs:epicfight_awaken:1.2.6")
     implementation fg.deobf("libs:tcrmeshes:1.0.0")
     implementation fg.deobf("curse.maven:epic-fight-the-mimic-1360684:7717502")
 

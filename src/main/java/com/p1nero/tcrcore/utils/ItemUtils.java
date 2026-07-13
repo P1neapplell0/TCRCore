@@ -38,6 +38,7 @@ public class ItemUtils {
 
     public static void initAdditionalInfoItems() {
         additionalInfoItems.addAll(List.of(
+                com.kuzhi.findme.common.ModItems.NAME_PAPER.get(),
                 DIItemRegistry.COLLAR_TAG.get(),
                 DIBlockRegistry.WHITE_PET_BED.get().asItem(),
                 net.blay09.mods.waystones.item.ModItems.warpStone,

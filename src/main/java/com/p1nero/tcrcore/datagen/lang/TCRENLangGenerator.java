@@ -228,6 +228,7 @@ public class TCRENLangGenerator extends TCRLangProvider {
         this.addTCRItemInfo(ModItems.CHITIN_CLAW.get(), "Obtained by defeating the §3[Giant Claw Guard]§r in the §3cloudland of Scylla§r");
         this.addTCRItemInfo(Items.DRAGON_EGG, "Obtained by defeating the §d[Ender Dragon]§r in the §dEnd§r");
         this.addTCRItemInfo(EpicSkillsItems.ABILIITY_STONE.get(), "Right-click to use and gain skill points");
+        this.addTCRItemInfo(com.kuzhi.findme.common.ModItems.NAME_PAPER.get(), "Use on a tamed mount to register it in the Mount Manager");
 
         this.add("itemGroup.tcr.items", "The Casket of Reveries — Core Items");
         this.add("itemGroup.tcr.weapons", "The Casket of Reveries — Weapons");
@@ -729,6 +730,14 @@ public class TCRENLangGenerator extends TCRLangProvider {
         this.addDialogOption(TCREntities.FERRY_GIRL.get(), 6, "§6I have raised the dragon");
         this.addDialogAnswer(TCREntities.FERRY_GIRL.get(), 5, "It seems the little one is getting along well with you! Please accept these gifts! You can check their usage in the compendium. I believe they will bring more fun to your battles!");
         this.addDialogOption(TCREntities.FERRY_GIRL.get(), 7, "Accept");
+        this.addDialogOption(TCREntities.FERRY_GIRL.get(), 8, "§6Say again");
+
+        //驯龙支线：坐骑教学
+        this.addDialogAnswer(TCREntities.FERRY_GIRL.get(), 8, "The contract is sealed! Now I shall teach you how to use the mount summoning system!");
+        this.addDialogAnswer(TCREntities.FERRY_GIRL.get(), 9, "First, §6press [%s§6] §fto open the management system. Drag your contracted beast to the mount slot to complete mount binding!");
+        this.addDialogAnswer(TCREntities.FERRY_GIRL.get(), 10, "Next, §6short-press [%s§6]§f to summon your mount!");
+        this.addDialogAnswer(TCREntities.FERRY_GIRL.get(), 11, "§6Long-press [%s§6]§f to open the mount wheel! Select the corresponding mount in the wheel to recall or release it!");
+        this.addDialogAnswer(TCREntities.FERRY_GIRL.get(), 12, "Continue exploring the world and form contracts with more companions!");
 
         this.addDialogOption(ModEntities.BONE_CHIMERA, -1, "Return");
         this.addDialogAnswer(ModEntities.BONE_CHIMERA, 0, "Human? To find this place... did the Resonance Stone guide you here?");

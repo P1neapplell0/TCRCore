@@ -6,6 +6,7 @@ import com.p1nero.tcrcore.item.TCRItems;
 import com.p1nero.tcrcore.utils.EntityUtils;
 import net.magister.bookofdragons.entity.base.dragon.DragonBase;
 import net.magister.bookofdragons.entity.component.simulation.DragonNeedsSystem;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.ContainerListener;
@@ -67,6 +68,7 @@ public abstract class DragonBaseMixin extends TamableAnimal implements GeoEntity
             if (!pPlayer.isCreative()) {
                 mainHand.shrink(1);
             }
+            pPlayer.displayClientMessage(Component.literal("§6Growth: §f" + this.getGrowthProgress() + "/36000 §7| §6Stage: §f" + this.getGrowthStage() + "/2"), true);
         }
     }
 

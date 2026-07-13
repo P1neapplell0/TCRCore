@@ -129,6 +129,8 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         //驯龙支线
         this.addQuest(TCRQuests.TAME_DRAGON, "驯龙之章", "将龙养大", "%s送给了你一条龙，现在，按[%s]上说的办法，将它养成年吧！任何食物都可以喂养你的龙！龙，可是帝王之征！\n\n§a[任务奖励]: §f[%s] [%s]");
         this.addQuest(TCRQuests.TAME_DRAGON_BACK_TO_FERRY_GIRL, "驯龙之章", "和%s对话", "经过你精心呵护，龙已长大成年。%s之前说过，在龙养大后她有宝具要赠与我们。快回去找%s看看吧！\n\n§a[任务奖励]: §f[%s] [%s]");
+        this.addQuest(TCRQuests.TAME_DRAGON_BIND_DRAGON, "驯龙之章", "进行契约仪式", "[%s]给予了我们[%s]！快与龙进行契约仪式吧！");
+        this.addQuest(TCRQuests.TAME_DRAGON_BACK_TO_FERRY_GIRL_2, "驯龙之章", "和%s对话", "契约已成！快回去找%s看看吧！");
 
         //主线·沙漠之眼
         this.addQuest(TCRQuests.USE_LAND_RESONANCE_STONE, "大地之章", "使用[%s]", "你终于来到了传说中的[%s]。在这里将会遇到什么样的冒险呢？快使用[%s]吧！它将指引我们寻回第一颗眼睛。");
@@ -228,6 +230,7 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         this.addTCRItemInfo(ModItems.CHITIN_CLAW.get(), "于§3斯库拉幻境§r击败§3巨钳守卫§r获取");
         this.addTCRItemInfo(Items.DRAGON_EGG, "于§d末地§r击败§d[末影龙]§r获取");
         this.addTCRItemInfo(EpicSkillsItems.ABILIITY_STONE.get(), "右键使用以获取技能点");
+        this.addTCRItemInfo(com.kuzhi.findme.common.ModItems.NAME_PAPER.get(), "对驯服的坐骑使用以登记进坐骑管理器");
 
         this.add("itemGroup.tcr.items", "远梦之棺 —— 核心 物品");
         this.add("itemGroup.tcr.weapons", "远梦之棺 —— 核心 武器");
@@ -731,6 +734,14 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         this.addDialogOption(TCREntities.FERRY_GIRL.get(), 6, "§6我已将龙养大");
         this.addDialogAnswer(TCREntities.FERRY_GIRL.get(), 5, "看来小家伙和阁下相处很愉快呢！这些礼物还请阁下收下！阁下可在图鉴中查看它们的用法。相信小家伙们可以给阁下的战斗带来更多的乐趣！");
         this.addDialogOption(TCREntities.FERRY_GIRL.get(), 7, "收下");
+        this.addDialogOption(TCREntities.FERRY_GIRL.get(), 8, "§6再说一遍");
+
+        //驯龙支线：坐骑教学
+        this.addDialogAnswer(TCREntities.FERRY_GIRL.get(), 8, "契约已成！现在我将教阁下如何使用坐骑召唤系统！");
+        this.addDialogAnswer(TCREntities.FERRY_GIRL.get(), 9, "首先，§6按下[%s§6]§f即可打开管理系统，将契约兽拖拽至坐骑栏，即可完成坐骑绑定！");
+        this.addDialogAnswer(TCREntities.FERRY_GIRL.get(), 10, "接下来，§6短按[%s§6]§f即可召唤坐骑！");
+        this.addDialogAnswer(TCREntities.FERRY_GIRL.get(), 11, "§6长按[%s]§f即可打开坐骑轮盘！在轮盘里选择对应的坐骑即可收回或放出坐骑！");
+        this.addDialogAnswer(TCREntities.FERRY_GIRL.get(), 12, "继续探索世界以和更多的伙伴们达成契约吧！");
 
         this.addDialogOption(ModEntities.BONE_CHIMERA, -1, "返回");
         this.addDialogAnswer(ModEntities.BONE_CHIMERA, 0, "人类？竟能发现此地，可是共鸣石指引你前来此地？");

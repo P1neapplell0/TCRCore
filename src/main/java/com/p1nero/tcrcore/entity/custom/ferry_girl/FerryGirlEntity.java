@@ -237,6 +237,26 @@ public class FerryGirlEntity extends PathfinderMob implements IEntityNpc, GeoEnt
             return treeBuilder.buildWith(root);
         }
 
+        if(currentQuest.equals(TCRQuests.TAME_DRAGON_BACK_TO_FERRY_GIRL_2)) {
+            Component manageKey = Component.keybind("key.find_me.manage");
+            Component mountKey = Component.keybind("key.find_me.mount");
+
+            DialogNode tutorialStep1 = new DialogNode(dBuilder.ans(8), dBuilder.opt(8));
+            DialogNode tutorialStep2 = new DialogNode(dBuilder.ans(9, manageKey), dBuilder.opt(-1));
+            DialogNode tutorialStep3 = new DialogNode(dBuilder.ans(10, mountKey), dBuilder.opt(-1));
+            DialogNode tutorialStep4 = new DialogNode(dBuilder.ans(11, mountKey), dBuilder.opt(-1));
+            DialogNode tutorialFinal = new DialogNode(dBuilder.ans(12), dBuilder.opt(-1))
+                    .addChild(tutorialStep1)
+                    .addLeaf(dBuilder.opt(-2), 11);
+
+            tutorialStep1.addChild(tutorialStep2);
+            tutorialStep2.addChild(tutorialStep3);
+            tutorialStep3.addChild(tutorialStep4);
+            tutorialStep4.addChild(tutorialFinal);
+
+            return treeBuilder.buildWith(tutorialStep1);
+        }
+
         if(!PlayerDataManager.gameCleared.get(localPlayer)) {
             if (PlayerDataManager.chronosTalked.get(localPlayer)) {
                 root.addChild(aboutChronos);
@@ -361,8 +381,15 @@ public class FerryGirlEntity extends PathfinderMob implements IEntityNpc, GeoEnt
             FTBTeamUtils.onlineTeamMembersDoWithSelf(serverPlayer, member -> {
                 ItemUtils.addItemEntity(member, Items.SADDLE.getDefaultInstance());
                 ItemUtils.addItemEntity(member, DIItemRegistry.COLLAR_TAG.get().getDefaultInstance());
+                ItemUtils.addItemEntity(member, com.kuzhi.findme.common.ModItems.NAME_PAPER.get().getDefaultInstance());
             });
             TCRQuests.TAME_DRAGON_BACK_TO_FERRY_GIRL.finish(serverPlayer);
+            TCRQuests.TAME_DRAGON_BIND_DRAGON.start(serverPlayer);
+        }
+
+        //教学完成的对话
+        if(i == 11) {
+            TCRQuests.TAME_DRAGON_BACK_TO_FERRY_GIRL_2.finish(serverPlayer);
         }
 
         this.setConversingPlayer(null);

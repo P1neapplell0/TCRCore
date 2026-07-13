@@ -528,27 +528,28 @@ public class LivingEntityEventListeners {
             }
 
             //龙复活
-            else if (livingEntity instanceof DragonBase dragonBase) {
-                if (dragonBase.getOwnerUUID() != null) {
-                    dragonBase.setHealth(dragonBase.getMaxHealth());
-                    dragonBase.getPersistentData().putBoolean(TRIGGERED, false);
-                    ItemStack itemStack = TCRItems.DRAGON_FLUTE.get().getDefaultInstance();
-                    DragonFluteItem.saveToItem(itemStack, dragonBase);
-                    itemStack.getOrCreateTag().putBoolean("tcr_temp", true);
-                    if (dragonBase.getOwner() instanceof Player player) {
-                        ItemUtils.addItemEntity(player, itemStack);
-                        player.displayClientMessage(TCRCoreMod.getInfo("dragon_die_back").withStyle(ChatFormatting.GOLD), false);
-                    } else {
-                        List<Player> players = EntityUtils.getNearByPlayers(dragonBase, 32);
-                        if (!players.isEmpty()) {
-                            ItemUtils.addItemEntity(players.get(0), itemStack);
-                        } else {
-                            ItemUtils.addItemEntity(dragonBase, itemStack);
-                        }
-                    }
-                }
-                dragonBase.getPersistentData().putBoolean(TRIGGERED, true);
-            } else if (livingEntity instanceof IronGolem ironGolem && WorldUtils.isInStructure(livingEntity, WorldUtils.SKY_GOLEM) && !livingEntity.getPersistentData().getBoolean("already_respawn")) {
+//            else if (livingEntity instanceof DragonBase dragonBase) {
+//                if (dragonBase.getOwnerUUID() != null) {
+//                    dragonBase.setHealth(dragonBase.getMaxHealth());
+//                    dragonBase.getPersistentData().putBoolean(TRIGGERED, false);
+//                    ItemStack itemStack = TCRItems.DRAGON_FLUTE.get().getDefaultInstance();
+//                    DragonFluteItem.saveToItem(itemStack, dragonBase);
+//                    itemStack.getOrCreateTag().putBoolean("tcr_temp", true);
+//                    if (dragonBase.getOwner() instanceof Player player) {
+//                        ItemUtils.addItemEntity(player, itemStack);
+//                        player.displayClientMessage(TCRCoreMod.getInfo("dragon_die_back").withStyle(ChatFormatting.GOLD), false);
+//                    } else {
+//                        List<Player> players = EntityUtils.getNearByPlayers(dragonBase, 32);
+//                        if (!players.isEmpty()) {
+//                            ItemUtils.addItemEntity(players.get(0), itemStack);
+//                        } else {
+//                            ItemUtils.addItemEntity(dragonBase, itemStack);
+//                        }
+//                    }
+//                }
+//                dragonBase.getPersistentData().putBoolean(TRIGGERED, true);
+//            }
+            else if (livingEntity instanceof IronGolem ironGolem && WorldUtils.isInStructure(livingEntity, WorldUtils.SKY_GOLEM) && !livingEntity.getPersistentData().getBoolean("already_respawn")) {
                 //秽土转生
                 EntityRespawnerMod.createSoulEntity(ironGolem, 60, true);
                 ItemUtils.addItemEntity(livingEntity, TCRItems.DIVINE_FRAGMENT.get(), 1, ChatFormatting.GOLD.getColor().intValue());
