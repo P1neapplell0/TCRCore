@@ -43,6 +43,13 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.loading.FMLLoader;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -64,6 +71,7 @@ public class ClientModEvents {
     @SubscribeEvent
     public static void onClientSetup(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
+            checkFancyMenuLogo();
 
             EntityRenderers.register(TCREntities.CUSTOM_COLOR_ITEM.get(), ItemEntityRenderer::new);
 
@@ -233,6 +241,51 @@ public class ClientModEvents {
     public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
         event.registerAboveAll("tcr_quest", new CustomQuestOverlayRenderer());
         event.registerAboveAll("tcr_bt_spawner_indicator", new BTSpawnerBlockIndicatorRenderer());
+    }
+
+    /**
+     * 检测 fancymenu 的 logo32x.png 是否存在且完整，防止材质包被篡改
+     */
+    private static void checkFancyMenuLogo() {
+        // 只在开发环境跳过检查
+        if (!FMLLoader.isProduction()) {
+            return;
+        }
+        File gameDir = Minecraft.getInstance().gameDirectory;
+        File logoFile = new File(gameDir, "config/fancymenu/assets/logo32x.png");
+        String expectedHash = "e0b1a04e6c1473eb3e9c6275aecc738fde9ab42e3047fe48515781a8526eb8d3";
+
+        if (!logoFile.exists()) {
+            throw new IllegalStateException(
+                    "[The Casket of Reveries] Required file missing: config/fancymenu/assets/logo32x.png\n" +
+                            "Please reinstall the modpack."
+            );
+        }
+
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(Files.readAllBytes(logoFile.toPath()));
+            String fileHash = bytesToHex(hash);
+
+            if (!expectedHash.equals(fileHash)) {
+                throw new IllegalStateException(
+                        "[The Casket of Reveries] File integrity check failed: config/fancymenu/assets/logo32x.png\n" +
+                                "Expected: " + expectedHash + "\n" +
+                                "Got: " + fileHash + "\n" +
+                                "Please restore the original file from the modpack."
+                );
+            }
+        } catch (IOException | NoSuchAlgorithmException e) {
+            throw new RuntimeException("[The Casket of Reveries] Failed to verify logo32x.png integrity", e);
+        }
+    }
+
+    private static String bytesToHex(byte[] bytes) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bytes) {
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
     }
 
 }

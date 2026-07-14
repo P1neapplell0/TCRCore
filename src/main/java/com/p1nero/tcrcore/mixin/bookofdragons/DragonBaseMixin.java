@@ -6,6 +6,7 @@ import com.p1nero.tcrcore.item.TCRItems;
 import com.p1nero.tcrcore.utils.EntityUtils;
 import net.magister.bookofdragons.entity.base.dragon.DragonBase;
 import net.magister.bookofdragons.entity.component.simulation.DragonNeedsSystem;
+import net.magister.bookofdragons.event.DragonDiscoveryEventHandler;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -26,6 +27,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import software.bernie.geckolib.animatable.GeoEntity;
 
+import java.util.UUID;
+
 @Mixin(DragonBase.class)
 public abstract class DragonBaseMixin extends TamableAnimal implements GeoEntity, ContainerListener {
 
@@ -44,6 +47,21 @@ public abstract class DragonBaseMixin extends TamableAnimal implements GeoEntity
     @Shadow(remap = false)
     public abstract int getGrowthStage();
 
+    @Shadow
+    public abstract void setTamingRitualCompleted(boolean completed);
+
+    @Shadow
+    public abstract void setAwaitingTamingRitual(boolean awaiting);
+
+    @Shadow
+    public abstract void setTamingRitualTimer(int timer);
+
+    @Shadow
+    public abstract void setCommand(int command);
+
+    @Shadow
+    public abstract void addAffection(UUID playerUUID, int amount);
+
     protected DragonBaseMixin(EntityType<? extends TamableAnimal> p_21803_, Level p_21804_) {
         super(p_21803_, p_21804_);
     }
@@ -55,6 +73,15 @@ public abstract class DragonBaseMixin extends TamableAnimal implements GeoEntity
     private void tcr$mobInteract(Player pPlayer, InteractionHand pHand, CallbackInfoReturnable<InteractionResult> cir) {
         ItemStack mainHand = pPlayer.getMainHandItem();
         if (!pPlayer.level().isClientSide && mainHand.is(TCRItems.DIVINE_FRAGMENT.get())) {
+            if(!this.isOwnedBy(pPlayer)) {
+                this.tame(pPlayer);
+                this.setTamingRitualCompleted(true);
+                this.setAwaitingTamingRitual(false);
+                this.setTamingRitualTimer(0);
+                this.setCommand(2);
+                this.addAffection(pPlayer.getUUID(), 10);
+                DragonDiscoveryEventHandler.onDragonTamed(pPlayer, (DragonBase) (Object) this);
+            }
             this.setGrowthProgress(this.getGrowthProgress() + 6000);
             if (!pPlayer.isCreative()) {
                 mainHand.shrink(1);
