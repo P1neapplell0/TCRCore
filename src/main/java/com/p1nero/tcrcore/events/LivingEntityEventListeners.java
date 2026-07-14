@@ -1081,19 +1081,8 @@ public class LivingEntityEventListeners {
             }
         }
 
-        //设置出生点方便复活
+        //出生点设置已移至 BaseSmallBossEntityMixin.tick
         if (event.getEntity() instanceof BaseSmallBossEntity boss) {
-            if (!boss.hasSpawnPos()) {
-                if (FMLEnvironment.production) {
-                    BlockPos pos = boss.getOnPos();
-                    while (!serverLevel.getBlockState(pos).isAir()) {
-                        pos = pos.above();
-                    }
-                    boss.setSpawnPos(boss.getOnPos());
-                } else {
-                    TCRCoreMod.LOGGER.info("开发环境，跳过设置[{}]的出生点", boss.getDisplayName().getString());
-                }
-            }
             //除了黄金处刑者以外都要对话开启
             if (!(boss instanceof GoldenExecutorEntity) && !boss.getTags().contains("started")) {
                 boss.setInFighting(false);

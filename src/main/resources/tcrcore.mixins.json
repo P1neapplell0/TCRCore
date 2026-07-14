@@ -35,6 +35,7 @@
     "iss.PriestEntityMixin",
     "iss.PyromancerMixin",
     "StructureManagerAccessor",
+    "tcr_bosses.BaseSmallBossEntityMixin",
     "tudigong.TuDiGongMixin",
     "VillagerMixin",
     "wom.WOMChestLootTableMixin",
