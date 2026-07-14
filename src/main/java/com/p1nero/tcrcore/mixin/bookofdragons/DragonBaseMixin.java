@@ -47,19 +47,19 @@ public abstract class DragonBaseMixin extends TamableAnimal implements GeoEntity
     @Shadow(remap = false)
     public abstract int getGrowthStage();
 
-    @Shadow
+    @Shadow(remap = false)
     public abstract void setTamingRitualCompleted(boolean completed);
 
-    @Shadow
+    @Shadow(remap = false)
     public abstract void setAwaitingTamingRitual(boolean awaiting);
 
-    @Shadow
+    @Shadow(remap = false)
     public abstract void setTamingRitualTimer(int timer);
 
-    @Shadow
+    @Shadow(remap = false)
     public abstract void setCommand(int command);
 
-    @Shadow
+    @Shadow(remap = false)
     public abstract void addAffection(UUID playerUUID, int amount);
 
     protected DragonBaseMixin(EntityType<? extends TamableAnimal> p_21803_, Level p_21804_) {
