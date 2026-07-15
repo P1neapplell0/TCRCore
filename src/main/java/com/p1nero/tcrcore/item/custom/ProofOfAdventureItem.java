@@ -33,10 +33,11 @@ public class ProofOfAdventureItem extends CuriosItem implements ICurioItem {
     @Override
     public boolean canEquip(SlotContext slotContext, ItemStack stack) {
         if(slotContext.entity() instanceof ServerPlayer player && !player.isCreative()) {
+            if(player.connection == null) {
+                return true;//不知为何，此时connection为null
+            }
             if(predicate != null && !predicate.test(player)) {
-                if(player.connection != null) {//保险
-                    player.displayClientMessage(TCRCoreMod.getInfo("can_not_do_this_too_early"), true);
-                }
+                player.displayClientMessage(TCRCoreMod.getInfo("can_not_do_this_too_early"), true);
                 return false;
             }
 
@@ -46,9 +47,7 @@ public class ProofOfAdventureItem extends CuriosItem implements ICurioItem {
             });
             //徽章只能戴一个
             if(hasEquipped.get()) {
-                if(player.connection != null) {//保险
-                    player.displayClientMessage(TCRCoreMod.getInfo("can_only_equip_one"), true);
-                }
+                player.displayClientMessage(TCRCoreMod.getInfo("can_only_equip_one"), true);
                 return false;
             }
 
