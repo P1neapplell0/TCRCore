@@ -109,15 +109,21 @@ public class TCRCapabilityProvider implements ICapabilityProvider, INBTSerializa
     }
 
     /**
-     * 返回轮回次数，保持血量不变
+     * 返回轮回次数，保持血量，能否装备徽章不变
      */
     public static int clearPlayerData(ServerPlayer serverPlayer) {
         TCRPlayer tcrPlayer = getTCRPlayer(serverPlayer);
         int newSardine = tcrPlayer.getSardine() + 1;
         double healthAdder = tcrPlayer.getHealthAdder();
+        boolean oldBossRushFinished = PlayerDataManager.bossRushFinished.get(serverPlayer);
+        boolean isAllEyeKilled = PlayerDataManager.isAllEyeKilled.get(serverPlayer);
+        boolean oldIsAllHumanoidKilled = PlayerDataManager.isAllHumanoidKilled.get(serverPlayer);
         tcrPlayer.clear();
         tcrPlayer.setSardine(newSardine);
         tcrPlayer.setHealthAdder(healthAdder);
+        PlayerDataManager.bossRushFinished.put(serverPlayer, oldBossRushFinished);
+        PlayerDataManager.isAllEyeKilled.put(serverPlayer, isAllEyeKilled);
+        PlayerDataManager.isAllHumanoidKilled.put(serverPlayer, oldIsAllHumanoidKilled);
         syncPlayerDataToClient(serverPlayer);
         return newSardine;
     }

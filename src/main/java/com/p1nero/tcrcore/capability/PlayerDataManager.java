@@ -18,8 +18,6 @@ import java.util.Set;
 public class PlayerDataManager {
     private final static Set<String> EXISTING_ID = new HashSet<>();
     public static DoubleData currentQuestId = new DoubleData("currentQuestId", 0);
-
-    public static BoolData bossRushFinished = new BoolData("bossRushFinished", false);
     //通关标记
     public static BoolData gameCleared = new BoolData("gameCleared", false);
 
@@ -94,26 +92,39 @@ public class PlayerDataManager {
     public static BoolData ancientRemnantHumanoidKilled = new BoolData("ancientRemnantHumanoidKilled", false);
     public static BoolData harbingerRemnantHumanoidKilled = new BoolData("harbingerRemnantHumanoidKilled", false);
 
+    //轮回的时候将继承
+    public static BoolData isAllEyeKilled = new BoolData("isAllEyeKilled", false);
+    public static BoolData isAllHumanoidKilled = new BoolData("isAllHumanoidKilled", false);
+    public static BoolData bossRushFinished = new BoolData("bossRushFinished", false);
+
     public static boolean isAllEyeKilled(Player player) {
-        return stormEyeKilled.get(player) &&
+        if(isAllEyeKilled.get(player)) {
+            return true;
+        }
+        isAllEyeKilled.put(player, stormEyeKilled.get(player) &&
                 flameEyeKilled.get(player) &&
                 abyssEyeKilled.get(player) &&
                 cursedEyeKilled.get(player) &&
                 desertEyeKilled.get(player) &&
                 mechEyeKilled.get(player) &&
                 voidEyeKilled.get(player) &&
-                monstEyeKilled.get(player);
+                monstEyeKilled.get(player));
+        return isAllEyeKilled.get(player);
     }
 
     public static boolean isAllHumanoidKilled(Player player) {
-        return scyllaHumanoidKilled.get(player) &&
+        if(isAllHumanoidKilled.get(player)) {
+            return true;
+        }
+        isAllHumanoidKilled.put(player, scyllaHumanoidKilled.get(player) &&
                 ignisHumanoidKilled.get(player) &&
                 netheriteHumanoidKilled.get(player) &&
                 maledictusHumanoidKilled.get(player) &&
                 leviathanHumanoidKilled.get(player) &&
                 enderGuardianHumanoidKilled.get(player) &&
                 ancientRemnantHumanoidKilled.get(player) &&
-                harbingerRemnantHumanoidKilled.get(player);
+                harbingerRemnantHumanoidKilled.get(player));
+        return isAllHumanoidKilled.get(player);
     }
 
     public static void putData(Player player, String key, double value) {
