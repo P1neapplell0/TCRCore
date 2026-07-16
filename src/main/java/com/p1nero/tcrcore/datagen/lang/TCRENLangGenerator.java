@@ -128,7 +128,8 @@ public class TCRENLangGenerator extends TCRLangProvider {
         // Dragon Taming Side Quest
         this.addQuest(TCRQuests.TAME_DRAGON, "Dragon-Taming Chapter", "Raise the dragon to adulthood", "%s gave you a dragon. Now, follow the method described in [%s] to raise it to adulthood! You can feed your dragon any foods!\n\n§a[Quest Reward]: §f[%s] [%s]");
         this.addQuest(TCRQuests.TAME_DRAGON_BACK_TO_FERRY_GIRL, "Dragon-Taming Chapter", "Talk to %s", "With your careful care, the dragon has grown to adulthood. %s mentioned earlier that she would give us a treasure once the dragon is grown. Hurry back to %s to see!\n\n§a[Quest Reward]: §f[%s] [%s]");
-
+        this.addQuest(TCRQuests.TAME_DRAGON_BIND_DRAGON, "Dragon-Taming Chapter", "Perform the Ritual of Contract", "[%s] has given us [%s]! Hurry and perform the contract ritual with the dragon!");
+        this.addQuest(TCRQuests.TAME_DRAGON_BACK_TO_FERRY_GIRL_2, "Dragon-Taming Chapter", "Talk to %s", "The contract is sealed! Hurry back to %s and see what happens!");
         // Main Quest · Desert Eye
         this.addQuest(TCRQuests.USE_LAND_RESONANCE_STONE, "Earth Chapter", "Use [%s]", "You’ve finally arrived at the legendary [%s]. What adventures await here? Hurry and use [%s]! It will guide us to retrieve the first eye.");
         this.addQuest(TCRQuests.GET_DESERT_EYE, "Earth Chapter", "Retrieve [%s]", "[%s] has marked the scattered locations of [%s]. Set out to retrieve [%s]!\n\n§a[Hint]: Explore the tower to find the key to summon the boss! Note that [%s§a] may be hidden within blocks!\n\n§4[Note]: If you cannot complete the quest after obtaining it, try disabling any plugins that might automatically pick up items, then drop and re-pick up the item!");
