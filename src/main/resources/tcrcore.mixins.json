@@ -20,6 +20,10 @@
     "DrownedMixin",
     "fantasyarmor.FAArmorItemMixin",
     "findme.CompanionContractServiceMixin",
+    "findme.CompanionEntityClassifierMixin",
+    "findme.CompanionManagerMixin",
+    "findme.CompanionMountCinematicFlowServiceMixin",
+    "findme.CompanionSummonCompletionServiceMixin",
     "aether.GuiHooksMixin",
     "cataclysm.Ignited_Revenant_EntityMixin",
     "cataclysm.Ignitium_ArmorMixin",
@@ -116,6 +120,7 @@
     "epicskills.SkillTreeScreenMixin",
     "ftbq.QuestScreenMixin",
     "iss.CastBarOverlayMixin",
+    "findme.ClientEventsMixin",
     "mmmmmmmmmmmm.ClientBoundDamageNumberMessageMixin"
   ],
   "injectors": {

@@ -33,10 +33,10 @@
 	[properties.Layout_HOTBAR_1X9]
 		hotbar1x9Properties = "0.3515625000,0.9341317415,0.7815815210"
 		offhand1x9Properties = "0.3031249940,0.9311377406,0.7824444175"
-		centerHud1x9Properties = "0.3486394584,0.8562874198,0.6702424288"
-		xpBar1x9Properties = "0.4829931855,0.8562874198,0.7109642625"
+		centerHud1x9Properties = "0.3484374881,0.8592814207,0.6702424288"
+		xpBar1x9Properties = "0.4593749940,0.8592814207,0.7109642625"
 		statusValueBar1x9Properties = "0.6796875000,0.9520958066,0.7747759819"
-		1x9MainHandOffsets = "1,1,0,0"
+		1x9MainHandOffsets = "0,1,0,0"
 		hotbarEnabled = true
 		centerHudEnabled = true
 		xpBarEnabled = true
@@ -123,4 +123,25 @@
 		#Vertical gap between rows of buff icons.
 		#Range: 0 ~ 50
 		buffRowVerticalGap = 2
+
+	[properties.Global_Toggles]
+		#Allow Ares HUD to override Mana Unification/Iron's Spells/Covenant of the Seven Mana/LP bars.
+		#Set to false if you want to use the original mod's UI.
+		overrideSpellBars = true
+		#Replace the food/hunger bar with the mana bar.
+		#Functions similarly to the TcrCore/DuelCraft integration. Suitable for magic-heavy modpacks.
+		replaceFoodWithMana = false
+		#Always Display mana for Mana Unification
+		focusDisplayManaMu = true
+		#Always Display mana for Iron's Spells
+		focusDisplayManaIss = false
+		#Always Display Food In Status Valuebar, if turned off, it depend on wether the bar is on
+		focusDisplayStatusValueBarFood = true
+		#Always Display Mana In Status Valuebar, if turned off, it depend on wether the bar is on
+		focusDisplayStatusValueBarMana = true
+		#Always Display Armor In Status Valuebar, if turned off, it depend on wether the bar is on
+		focusDisplayStatusValueBarArmor = true
+		#Automatically snap the XP/Ascension orb to the center of the gap between left and right status bars.
+		#When disabled, a scale-aware proximity check is used instead.
+		snapXpToCenterHud = true
 
