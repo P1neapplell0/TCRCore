@@ -47,15 +47,15 @@ public class TCRItems {
             .withPredicate(PlayerDataManager::isAllEyeKilled)
             .withAttributes("charm",
                     new AttributeContainer(Attributes.ATTACK_DAMAGE, 0.1, AttributeModifier.Operation.MULTIPLY_TOTAL),
-                    new AttributeContainer(ALObjects.Attributes.CRIT_DAMAGE.get(), 0.2, AttributeModifier.Operation.MULTIPLY_TOTAL),
-                    new AttributeContainer(ALObjects.Attributes.CRIT_CHANCE.get(), 0.1, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(ALObjects.Attributes.CRIT_DAMAGE.get(), 0.2, AttributeModifier.Operation.ADDITION),
+                    new AttributeContainer(ALObjects.Attributes.CRIT_CHANCE.get(), 0.1, AttributeModifier.Operation.ADDITION),
                     new AttributeContainer(Attributes.ARMOR, -0.25F, AttributeModifier.Operation.MULTIPLY_TOTAL)));
     public static final RegistryObject<Item> PROOF_OF_ADVENTURE_PLUS = REGISTRY.register("proof_of_adventure_plus", () -> new ProofOfAdventureItem(new Item.Properties().stacksTo(1).rarity(Rarity.EPIC).fireResistant())
             .withPredicate(PlayerDataManager::isAllHumanoidKilled)
             .withAttributes("charm",
                     new AttributeContainer(Attributes.ATTACK_DAMAGE, 0.1, AttributeModifier.Operation.MULTIPLY_TOTAL),
-                    new AttributeContainer(ALObjects.Attributes.CRIT_DAMAGE.get(), 0.4, AttributeModifier.Operation.MULTIPLY_TOTAL),
-                    new AttributeContainer(ALObjects.Attributes.CRIT_CHANCE.get(), 0.2, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(ALObjects.Attributes.CRIT_DAMAGE.get(), 0.4, AttributeModifier.Operation.ADDITION),
+                    new AttributeContainer(ALObjects.Attributes.CRIT_CHANCE.get(), 0.2, AttributeModifier.Operation.ADDITION),
                     new AttributeContainer(EpicFightAttributes.IMPACT.get(), 0.2, AttributeModifier.Operation.MULTIPLY_TOTAL),
                     new AttributeContainer(EpicFightAttributes.ARMOR_NEGATION.get(), 0.2, AttributeModifier.Operation.MULTIPLY_TOTAL),
                     new AttributeContainer(AttributeRegistry.MAX_MANA.get(), 0.5, AttributeModifier.Operation.MULTIPLY_TOTAL),
@@ -66,8 +66,8 @@ public class TCRItems {
             .withPredicate(player -> PlayerDataManager.bossRushFinished.get(player))
             .withAttributes("charm",
                     new AttributeContainer(Attributes.ATTACK_DAMAGE, 0.1, AttributeModifier.Operation.MULTIPLY_TOTAL),
-                    new AttributeContainer(ALObjects.Attributes.CRIT_DAMAGE.get(), 0.4, AttributeModifier.Operation.MULTIPLY_TOTAL),
-                    new AttributeContainer(ALObjects.Attributes.CRIT_CHANCE.get(), 0.2, AttributeModifier.Operation.MULTIPLY_TOTAL),
+                    new AttributeContainer(ALObjects.Attributes.CRIT_DAMAGE.get(), 0.4, AttributeModifier.Operation.ADDITION),
+                    new AttributeContainer(ALObjects.Attributes.CRIT_CHANCE.get(), 0.2, AttributeModifier.Operation.ADDITION),
                     new AttributeContainer(EpicFightAttributes.IMPACT.get(), 0.2, AttributeModifier.Operation.MULTIPLY_TOTAL),
                     new AttributeContainer(EpicFightAttributes.ARMOR_NEGATION.get(), 0.2, AttributeModifier.Operation.MULTIPLY_TOTAL),
                     new AttributeContainer(AttributeRegistry.MAX_MANA.get(), 0.5, AttributeModifier.Operation.MULTIPLY_TOTAL),
