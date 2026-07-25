@@ -840,19 +840,19 @@ public class LivingEntityEventListeners {
                     baseBossEntity.discard();
                 }
             }
-            //优化多人肘击，2人一只
-            if (baseBossEntity.level() instanceof ServerLevel serverLevel) {
-                if (serverLevel.players().size() > 1 && event.getSource().getEntity() instanceof Player) {
-                    int playerCount = EntityUtils.countOfNoneCreativeOrSpectator(serverLevel);
-                    if (playerCount > 1 && serverLevel.getEntities(baseBossEntity.getType(), Entity::isAlive).size() < (playerCount / 2)) {
-                        baseBossEntity.getType().spawn(serverLevel, baseBossEntity.getOnPos(), MobSpawnType.MOB_SUMMONED);
-                        serverLevel.players().forEach(serverPlayer -> {
-                            serverPlayer.displayClientMessage(TCRCoreMod.getInfo("obey_rule").withStyle(ChatFormatting.RED), true);
-                            serverPlayer.displayClientMessage(TCRCoreMod.getInfo("obey_rule").withStyle(ChatFormatting.RED), false);
-                        });
-                    }
-                }
-            }
+//            //优化多人肘击，2人一只
+//            if (baseBossEntity.level() instanceof ServerLevel serverLevel) {
+//                if (serverLevel.players().size() > 1 && event.getSource().getEntity() instanceof Player) {
+//                    int playerCount = EntityUtils.countOfNoneCreativeOrSpectator(serverLevel);
+//                    if (playerCount > 1 && serverLevel.getEntities(baseBossEntity.getType(), Entity::isAlive).size() < (playerCount / 2)) {
+//                        baseBossEntity.getType().spawn(serverLevel, baseBossEntity.getOnPos(), MobSpawnType.MOB_SUMMONED);
+//                        serverLevel.players().forEach(serverPlayer -> {
+//                            serverPlayer.displayClientMessage(TCRCoreMod.getInfo("obey_rule").withStyle(ChatFormatting.RED), true);
+//                            serverPlayer.displayClientMessage(TCRCoreMod.getInfo("obey_rule").withStyle(ChatFormatting.RED), false);
+//                        });
+//                    }
+//                }
+//            }
         } else if (event.getEntity() instanceof BaseSmallBossEntity boss) {
             if (!boss.isInFighting() && event.getSource().getEntity() instanceof Player player) {
                 player.displayClientMessage(TCRCoreMod.getInfo("talk_to_start").withStyle(ChatFormatting.GOLD), true);

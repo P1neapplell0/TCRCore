@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:chests/bastion_other",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "minecraft:chests/bastion_bridge"
+        }
+      ],
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 1.0,
+        "min": 1.0
+      }
+    }
+  ],
+  "random_sequence": "aether:chests/dungeon/bronze/bronze_dungeon"
+}
