@@ -15,7 +15,7 @@ plugins {
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
-    id("me.modmuss50.mod-publish-plugin") version "1.1.0"
+    id("me.modmuss50.mod-publish-plugin") version "2.1.1"
 }
 
 apply plugin: 'org.spongepowered.mixin'
@@ -554,6 +554,8 @@ publishMods {
         projectId = "1325071"
         minecraftVersions.add(minecraft_version)
         projectSlug = "tcr-core"
+        client = true
+        server = true
     }
 
 }
