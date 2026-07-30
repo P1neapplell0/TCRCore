@@ -1,5 +1,6 @@
 package com.p1nero.tcrcore.entity.custom.mimic;
 
+import com.p1nero.tcrcore.TCRCoreMod;
 import com.p1nero.tcrcore.save_data.TCRDimSaveData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
@@ -8,6 +9,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
@@ -55,7 +57,13 @@ public class TCRMimic extends ProteusEntity {
             this.die(damageSource);
             return true;
         }
-        return super.hurt(damageSource, amount);
+        boolean hurt = super.hurt(damageSource, amount);
+        if (!this.level().isClientSide && damageSource.getEntity() instanceof Player player) {
+            int copiedAnimations = this.getPatch().copyMap.size();
+            int defense = Math.round((1.0F - Math.min(1.5F, copiedAnimations * 0.8F) * 0.3F) * 100.0F);
+            player.displayClientMessage(TCRCoreMod.getInfo("mimic_defense", this.getDisplayName(), defense, this.getDisplayName()), true);
+        }
+        return hurt;
     }
 
     @Override

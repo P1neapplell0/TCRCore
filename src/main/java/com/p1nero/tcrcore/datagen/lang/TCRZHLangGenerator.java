@@ -364,6 +364,7 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         this.addInfo("i18n_pack", "国际化翻译包，感谢所有译者！");
         this.addInfo("can_not_dodge", "Boss攻击将无视闪避！");
         this.addInfo("can_not_guard", "Boss攻击将无视防御！");
+        this.addInfo("mimic_defense", "%s当前防御度：%s%%。让%s学习更多动画以降低防御！");
         this.addInfo("pec_weapon_lock", "武器技能已锁定！在[%s]击败[%s]以解锁！");
         this.addInfo("resonance_stone_usage", "可与使徒封印的位置共鸣。");
         this.addInfo("resonance_search_failed", "错误：无法共鸣！请重启游戏后再次尝试！请保留latest.log并向作者报告此错误！[%s]");

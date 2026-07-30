@@ -430,6 +430,7 @@
   "info.tcr.lock_tutorial_sub": "§cMove the mouse to switch targets!",
   "info.tcr.magic_sword_desc": "When playing air attack or dash attack, it will ignore cooldown and mana cost, automatically casting the equipped magic with half level.",
   "info.tcr.map_pos_marked_press_to_open": "Labeled location, press [%s] to view the map.",
+  "info.tcr.mimic_defense": "%s's current defense: %s%%. Let %s learn more animations to lower its defense!",
   "info.tcr.more_beautiful_models_and_trail": "Custom 3D weapon trail texture expansion, optional",
   "info.tcr.need_to_unlock_waystone": "Some waystones remain inactive!",
   "info.tcr.nether_unlock": "Nether Unlocked!",

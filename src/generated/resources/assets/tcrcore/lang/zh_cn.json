@@ -430,6 +430,7 @@
   "info.tcr.lock_tutorial_sub": "§c晃动鼠标以切换锁定目标！再次按下以解除锁定！",
   "info.tcr.magic_sword_desc": "释放冲刺或跳跃攻击时将无视冷却无视法力值，自动释放所携带的魔法，但法术等级减半。",
   "info.tcr.map_pos_marked_press_to_open": "已标记地点，按 [%s] 查看地图",
+  "info.tcr.mimic_defense": "%s当前防御度：%s%%。让%s学习更多动画以降低防御！",
   "info.tcr.more_beautiful_models_and_trail": "定制3D武器刀光制材质拓展，可选",
   "info.tcr.need_to_unlock_waystone": "仍有传送石碑未激活！",
   "info.tcr.nether_unlock": "地狱之门已解锁！",
