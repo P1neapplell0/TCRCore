@@ -1,0 +1,5 @@
+
+[tooltip]
+	#Add the spell's guide description to spell scroll tooltips.
+	showScrollSpellDescription = false
+
