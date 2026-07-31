@@ -29,10 +29,24 @@ public class TCRCapabilityProvider implements ICapabilityProvider, INBTSerializa
 
     public static TCRPlayer EMPTY = new TCRPlayer(null);
 
-    private final LazyOptional<TCRPlayer> optional = LazyOptional.of(this::createTCRPlayer);
+    private LazyOptional<TCRPlayer> optional = LazyOptional.of(this::createTCRPlayer);
+    private boolean optionalInvalidated;
 
     public TCRCapabilityProvider(Player player) {
         original = player;
+    }
+
+    public void invalidate() {
+        optionalInvalidated = true;
+        optional.invalidate();
+    }
+
+    private LazyOptional<TCRPlayer> getOptional() {
+        if (optionalInvalidated) {
+            optional = LazyOptional.of(this::createTCRPlayer);
+            optionalInvalidated = false;
+        }
+        return optional;
     }
 
     private TCRPlayer createTCRPlayer() {
@@ -46,7 +60,7 @@ public class TCRCapabilityProvider implements ICapabilityProvider, INBTSerializa
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction direction) {
         if(capability == TCR_PLAYER){
-            return optional.cast();
+            return getOptional().cast();
         }
 
         return LazyOptional.empty();
@@ -68,24 +82,32 @@ public class TCRCapabilityProvider implements ICapabilityProvider, INBTSerializa
     public static void attachEntityCapabilities(AttachCapabilitiesEvent<Entity> event) {
         if (event.getObject() instanceof Player player) {
             if(!player.getCapability(TCRCapabilityProvider.TCR_PLAYER).isPresent()){
-                event.addCapability(ResourceLocation.fromNamespaceAndPath(TCRCoreMod.MOD_ID, "tcr_player"), new TCRCapabilityProvider(player));
+                TCRCapabilityProvider provider = new TCRCapabilityProvider(player);
+                event.addCapability(ResourceLocation.fromNamespaceAndPath(TCRCoreMod.MOD_ID, "tcr_player"), provider);
+                event.addListener(provider::invalidate);
             }
         }
     }
 
     @SubscribeEvent
     public static void onPlayerCloned(PlayerEvent.Clone event) {
+        if (!event.isWasDeath()) {
+            return;
+        }
+
         event.getOriginal().reviveCaps();
-        if(event.isWasDeath()) {
+        try {
             event.getOriginal().getCapability(TCRCapabilityProvider.TCR_PLAYER).ifPresent(oldStore -> {
                 event.getEntity().getCapability(TCRCapabilityProvider.TCR_PLAYER).ifPresent(newStore -> {
                     newStore.copyFrom(oldStore);
                     if(event.getEntity() instanceof ServerPlayer serverPlayer) {
                         newStore.updateHealth(serverPlayer, false, 0);
+                        newStore.syncToClient(serverPlayer);
                     }
-                    newStore.syncToClient(((ServerPlayer) event.getEntity()));
                 });
             });
+        } finally {
+            event.getOriginal().invalidateCaps();
         }
     }
 

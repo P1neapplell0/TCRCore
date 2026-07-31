@@ -1,5 +1,6 @@
 package com.p1nero.tcrcore.events;
 
+import com.bobmowzie.mowziesmobs.client.render.entity.player.GeckoFirstPersonRenderer;
 import com.github.L_Ender.cataclysm.init.ModEffect;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.p1nero.battle_field1.worldgen.PBF1Dimensions;
@@ -9,12 +10,14 @@ import com.p1nero.tcrcore.client.TCRKeyMappings;
 import com.p1nero.tcrcore.client.gui.*;
 import com.p1nero.tcrcore.dialog.custom.handler.HandleIronGolemDialog;
 import com.p1nero.tcrcore.dialog.custom.handler.HandleVillagerDialog;
+import com.p1nero.tcrcore.mixin.epicfight.ControlEngineAccessor;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.LevelLoadingScreen;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FormattedCharSequence;
@@ -24,9 +27,14 @@ import net.minecraft.world.entity.npc.Villager;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.*;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.shelmarow.combat_evolution.api.event.ShowExecutionIconEvent;
+import yesman.epicfight.api.client.model.SoftBodyTranslatable;
+import yesman.epicfight.client.ClientEngine;
+import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
+import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 
 import java.util.*;
 
@@ -59,6 +67,10 @@ public class ClientForgeEvents {
     @SubscribeEvent
     public static void onClientTick(TickEvent.ClientTickEvent event){
         if(event.phase == TickEvent.Phase.END) {
+            removeStaleEpicFightPlayerPatches();
+            if (Minecraft.getInstance().player == null && Minecraft.getInstance().level == null) {
+                clearMowzieFirstPersonPlayer(null);
+            }
             CustomQuestOverlayRenderer.tick();
             BTSpawnerBlockIndicatorRenderer.tick();
             if(!buttonsInCreateWorldScreen.isEmpty()) {
@@ -118,6 +130,60 @@ public class ClientForgeEvents {
         if(event.getSelf() instanceof IronGolem ironGolem) {
             HandleIronGolemDialog.openDialogScreen(ironGolem, event.getLocalPlayer(), event.getServerData());
         }
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onClientPlayerClone(ClientPlayerNetworkEvent.Clone event) {
+        invalidateOldClientPlayer(event.getOldPlayer());
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onClientPlayerLoggingOut(ClientPlayerNetworkEvent.LoggingOut event) {
+        LocalPlayer player = event.getPlayer();
+        if (player != null) {
+            clearMowzieFirstPersonPlayer(player);
+            invalidateOldClientPlayer(player);
+        }
+        ControlEngineAccessor controlEngine = (ControlEngineAccessor) ClientEngine.getInstance().controlEngine;
+        controlEngine.tcr$setPlayer(null);
+        controlEngine.tcr$setPlayerPatch(null);
+    }
+
+    private static void removeStaleEpicFightPlayerPatches() {
+        Minecraft minecraft = Minecraft.getInstance();
+        LocalPlayer currentPlayer = minecraft.player;
+        if (currentPlayer == null && minecraft.level != null) {
+            return;
+        }
+
+        try {
+            SoftBodyTranslatable.TRACKING_SIMULATION_SUBJECTS.removeIf(subject ->
+                    subject instanceof LocalPlayerPatch playerPatch && playerPatch.getOriginal() != currentPlayer);
+        } catch (ConcurrentModificationException ignored) {
+            // EpicSkins can add a patch from an asynchronous cosmetic callback; retry next tick.
+        }
+    }
+
+    private static void clearMowzieFirstPersonPlayer(LocalPlayer expectedPlayer) {
+        if (GeckoFirstPersonRenderer.GECKO_PLAYER_FIRST_PERSON != null
+                && (expectedPlayer == null
+                || GeckoFirstPersonRenderer.GECKO_PLAYER_FIRST_PERSON.getPlayer() == expectedPlayer)) {
+            GeckoFirstPersonRenderer.GECKO_PLAYER_FIRST_PERSON = null;
+        }
+    }
+
+    private static void invalidateOldClientPlayer(LocalPlayer player) {
+        LocalPlayerPatch playerPatch = EpicFightCapabilities.getEntityPatch(player, LocalPlayerPatch.class);
+        if (playerPatch != null) {
+            try {
+                SoftBodyTranslatable.TRACKING_SIMULATION_SUBJECTS.removeIf(subject -> subject == playerPatch);
+            } catch (ConcurrentModificationException ignored) {
+                // The identity-based tick cleanup will retry after the EpicSkins callback completes.
+            }
+        }
+        player.getCapability(EpicFightCapabilities.CAPABILITY_SKILL).invalidate();
+        player.getCapability(EpicFightCapabilities.CAPABILITY_ENTITY).invalidate();
+        player.invalidateCaps();
     }
 
     @SubscribeEvent
