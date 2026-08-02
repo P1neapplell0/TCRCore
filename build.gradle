@@ -13,7 +13,7 @@ buildscript {
 plugins {
     id 'eclipse'
     id 'idea'
-    id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
+    id 'net.minecraftforge.gradle' version '[6.0.25,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id("me.modmuss50.mod-publish-plugin") version "2.1.1"
 }
@@ -201,9 +201,9 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    implementation "maven.modrinth:preloading-tricks:3.2.2"
+    runtimeOnly "maven.modrinth:preloading-tricks:3.2.2"
 //    implementation fg.deobf("curse.maven:registry-blocker-1118861:6998623")
-    implementation ("libs:tcrmodfilter:1.0.4")
+    runtimeOnly ("libs:tcrmodfilter:1.0.4")
 //    implementation fg.deobf("libs:pbf:1.1.0")
     implementation fg.deobf("curse.maven:p1neros-primal-arena-dimension-1369741:7147163")
     implementation fg.deobf("curse.maven:summoningrituals-671040:5446506")
@@ -212,10 +212,10 @@ dependencies {
     implementation fg.deobf("maven.modrinth:epicfight-extra:1.1.8-mc1.20.1-forge")
     implementation fg.deobf("curse.maven:epic-fight-guandao-moveset-900642:7416260")
     implementation fg.deobf("curse.maven:weapons-of-miracles-epicfight-918614:8195403")
-    implementation fg.deobf("curse.maven:fancymenu-367706:6918987")
-    implementation fg.deobf("curse.maven:drippy-loading-screen-511770:6412211")
-    implementation fg.deobf("curse.maven:konkrete-410295:5028413")
-    implementation fg.deobf("curse.maven:melody-938643:5109692")
+    runtimeOnly fg.deobf("curse.maven:fancymenu-367706:6918987")
+    runtimeOnly fg.deobf("curse.maven:drippy-loading-screen-511770:6412211")
+    runtimeOnly fg.deobf("curse.maven:konkrete-410295:5028413")
+    runtimeOnly fg.deobf("curse.maven:melody-938643:5109692")
 
 //    implementation fg.deobf("curse.maven:ldlib-626676:7809449")
 //    implementation fg.deobf("curse.maven:modern-ui-352491:6956345")
@@ -223,26 +223,26 @@ dependencies {
 
 //    implementation fg.deobf("curse.maven:ash-of-sin-no-more-too-many-structures-1499971:7873205")
 
-    implementation fg.deobf("curse.maven:fluid-tick-structure-processor-1369713:7133622")
+    runtimeOnly fg.deobf("curse.maven:fluid-tick-structure-processor-1369713:7133622")
     implementation fg.deobf("maven.modrinth:epic-fight:${epicfight_version}")
 //    implementation fg.deobf("libs:registry-blocker:0.7.1")
 //    implementation fg.deobf("maven.modrinth:epic-fight-skill-tree:${epicskills_version}")
 //    implementation fg.deobf("libs:epicfight-skilltree:20.2.6.6")
     implementation fg.deobf("curse.maven:epic-fight-skill-tree-1295882:8366985")
     implementation fg.deobf("libs:multiplayer_boss_fight-forge1.20.1:1.0.2")
-    implementation fg.deobf("curse.maven:p1nero-better-structure-block-970671:6817772")
+    runtimeOnly fg.deobf("curse.maven:p1nero-better-structure-block-970671:6817772")
     implementation fg.deobf("curse.maven:epic-fight-indestructible-915201:7125700")
     implementation fg.deobf("curse.maven:epic-fight-skill-irons-spells-n-spellbooks-1454101:7644948")
 
     implementation fg.deobf("curse.maven:epic-fight-wraithon-1354901:7304728")
-    implementation fg.deobf("maven.modrinth:epic-fight-invincible-lib:${invincible_version}")
-    implementation fg.deobf("libs:p1nero_bow:20.13.1.4")
+    runtimeOnly fg.deobf("maven.modrinth:epic-fight-invincible-lib:${invincible_version}")
+    runtimeOnly fg.deobf("libs:p1nero_bow:20.13.1.4")
 //    implementation fg.deobf("curse.maven:p1neros-epic-x-cataclysm-1325059:7842335")
     implementation fg.deobf("libs:p1nero_ec:20.14.0.9")
     implementation fg.deobf("libs:Find_me:1.2.4")
 
-    implementation fg.deobf("curse.maven:ares-hud-1477275:7849085")
-    implementation fg.deobf("libs:better_trident_model:1.0.0")
+    runtimeOnly fg.deobf("curse.maven:ares-hud-1477275:7849085")
+    runtimeOnly fg.deobf("libs:better_trident_model:1.0.0")
     implementation fg.deobf("curse.maven:sword-soaring-1011068:7305158")
     implementation fg.deobf("curse.maven:epic-fight-dodge-parry-reward-1304607:7685159")
     implementation fg.deobf("curse.maven:epic-fight-avalon-1268823:7619938")
@@ -258,33 +258,33 @@ dependencies {
     implementation fg.deobf("curse.maven:epic-fight-the-mimic-1360684:7717502")
 
     //铁魔法
-    implementation fg.deobf("curse.maven:playeranimator-658587:4587214")
+    runtimeOnly fg.deobf("curse.maven:playeranimator-658587:4587214")
     implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-855414:7691158")
-    implementation fg.deobf("curse.maven:irons-spells-n-spellbooks-scroll-description-1454137:7576978")
-    implementation fg.deobf("curse.maven:epic-fight-skillbook-description-1454141:7629226")
+    runtimeOnly fg.deobf("curse.maven:irons-spells-n-spellbooks-scroll-description-1454137:7576978")
+    runtimeOnly fg.deobf("curse.maven:epic-fight-skillbook-description-1454141:7629226")
 
 //    implementation fg.deobf("curse.maven:shoulder-surfing-reloaded-243190:6993788")
 //    implementation fg.deobf("curse.maven:better-lock-on-1339577:7717444")
-    implementation fg.deobf("curse.maven:better-lock-on-1339577:7740893")
+    runtimeOnly fg.deobf("curse.maven:better-lock-on-1339577:7740893")
 
-    implementation fg.deobf("curse.maven:default-options-232131:6972483")
+    runtimeOnly fg.deobf("curse.maven:default-options-232131:6972483")
 
-    implementation fg.deobf("curse.maven:radiant-gear-602199:6029352")
+    runtimeOnly fg.deobf("curse.maven:radiant-gear-602199:6029352")
 
     implementation fg.deobf("curse.maven:tudigong-wayfinder-1350265:7163705")
 //    implementation fg.deobf("curse.maven:tudigong-wayfinder-1350265:7076274")
-    implementation fg.deobf("curse.maven:lithostitched-936015:6742615")//村庄插入
+    runtimeOnly fg.deobf("curse.maven:lithostitched-936015:6742615")//村庄插入
 
     //悬赏板
-    implementation fg.deobf("curse.maven:kambrik-455585:4654401")
+    runtimeOnly fg.deobf("curse.maven:kambrik-455585:4654401")
     implementation fg.deobf("curse.maven:bountiful-309516:5937417")
     implementation fg.deobf("libs:bountiful_npc:1.0.3")
 //    implementation fg.deobf("libs:no_more_too_many_structures:1.0.0")
 
-    implementation fg.deobf("curse.maven:global-shaderpack-properties-1344473:6982618")//全局光影包配置，添加灾变维度用。
+    runtimeOnly fg.deobf("curse.maven:global-shaderpack-properties-1344473:6982618")//全局光影包配置，添加灾变维度用。
 
     implementation fg.deobf("curse.maven:epic-fight-super-golem-1236331:6861276")
-    implementation fg.deobf("curse.maven:epic-fight-super-warden-1272352:6640554")
+    runtimeOnly fg.deobf("curse.maven:epic-fight-super-warden-1272352:6640554")
 
 //    implementation fg.deobf("curse.maven:kill-cam-1489164:7787111")
 
@@ -293,21 +293,21 @@ dependencies {
 //    implementation fg.deobf("curse.maven:parcool-482378:6831668")
 //    implementation fg.deobf("curse.maven:official-epic-fight-x-parcool-1259252:6870242")
 
-    implementation fg.deobf("curse.maven:clear-water-286098:4744630")
+    runtimeOnly fg.deobf("curse.maven:clear-water-286098:4744630")
 
-    implementation fg.deobf("curse.maven:enchanting-infuser-551151:5528724")
-    implementation fg.deobf("curse.maven:puzzles-lib-495476:6387081")
+    runtimeOnly fg.deobf("curse.maven:enchanting-infuser-551151:5528724")
+    runtimeOnly fg.deobf("curse.maven:puzzles-lib-495476:6387081")
 
-    implementation fg.deobf("curse.maven:hunger-strike-75334:5574481")
+    runtimeOnly fg.deobf("curse.maven:hunger-strike-75334:5574481")
 
-    implementation fg.deobf("curse.maven:patchouli-306770:6164575")
+    runtimeOnly fg.deobf("curse.maven:patchouli-306770:6164575")
 
     //ftb
     implementation fg.deobf("curse.maven:ftb-quests-forge-289412:6829212")
     implementation fg.deobf("curse.maven:ftb-library-forge-404465:6807424")
     implementation fg.deobf("curse.maven:ftb-teams-forge-404468:6130786")
-    implementation fg.deobf("curse.maven:ftb-xmod-compat-889915:6402486")
-    implementation fg.deobf("curse.maven:certain-questing-additions-1372051:8048068")
+    runtimeOnly fg.deobf("curse.maven:ftb-xmod-compat-889915:6402486")
+    runtimeOnly fg.deobf("curse.maven:certain-questing-additions-1372051:8048068")
 
     implementation fg.deobf("curse.maven:architectury-api-419699:5137938")
 
@@ -316,20 +316,20 @@ dependencies {
 
     //主要boss
     implementation fg.deobf("curse.maven:aether-255308:6134920")
-    implementation fg.deobf("curse.maven:structure-gel-api-378802:5278429")
-    implementation fg.deobf("curse.maven:aether-lost-content-318602:4927038")
+    runtimeOnly fg.deobf("curse.maven:structure-gel-api-378802:5278429")
+    runtimeOnly fg.deobf("curse.maven:aether-lost-content-318602:4927038")
     implementation fg.deobf("libs:ba_bt:3.2.1")
     implementation fg.deobf("curse.maven:epic-fight-the-leonidas-1445144:7619585")
     implementation fg.deobf("curse.maven:epic-fight-the-arachne-1445154:7529944")
     implementation fg.deobf("curse.maven:alexs-mobs-426558:5698791")
 
     implementation fg.deobf("curse.maven:bosses-of-mass-destruction-forge-941573:5067728")
-    implementation fg.deobf("curse.maven:cerbons-api-955605:5050080")
+    runtimeOnly fg.deobf("curse.maven:cerbons-api-955605:5050080")
 
     implementation fg.deobf("curse.maven:dodos-mobs-1349823:7018547")
     implementation fg.deobf("curse.maven:mowzies-mobs-250498:6586086")
 //    implementation fg.deobf("curse.maven:from-the-shadow-reborn-986907:7037169")
-    implementation fg.deobf("curse.maven:more-hitboxes-1115989:6942239")
+    runtimeOnly fg.deobf("curse.maven:more-hitboxes-1115989:6942239")
     implementation fg.deobf("curse.maven:cataclysm-dimensions-1303494:7748030")
     implementation fg.deobf("curse.maven:lendercataclysm-551586:7934870")
 //    implementation fg.deobf("curse.maven:cinematic-cataclysm-1399324:7302287")
@@ -349,31 +349,31 @@ dependencies {
 
     implementation fg.deobf("curse.maven:explorers-compass-edited-1203888:6733733")
     implementation fg.deobf("curse.maven:natures-compass-252848:4712189")
-    implementation fg.deobf("curse.maven:wits-909375:4789318")//定位工具，生产环境不加
+    runtimeOnly fg.deobf("curse.maven:wits-909375:4789318")//定位工具，生产环境不加
 
     //结构类
-    implementation fg.deobf("curse.maven:ati-structures-964608:6730813")
-    implementation fg.deobf("curse.maven:the-lost-castle-687118:4614797")
+    runtimeOnly fg.deobf("curse.maven:ati-structures-964608:6730813")
+    runtimeOnly fg.deobf("curse.maven:the-lost-castle-687118:4614797")
     implementation fg.deobf("libs:supplementaries:3.1.41")
     implementation fg.deobf("curse.maven:quark-243121:6427817")
-    implementation fg.deobf("curse.maven:zeta-968868:6432578")
-    implementation fg.deobf("curse.maven:yungs-better-ocean-monuments-689238:4883003")
+    runtimeOnly fg.deobf("curse.maven:zeta-968868:6432578")
+    runtimeOnly fg.deobf("curse.maven:yungs-better-ocean-monuments-689238:4883003")
 
-    implementation fg.deobf("curse.maven:when-dungeons-arise-442508:4983862")
-    implementation fg.deobf("curse.maven:towns-and-towers-626761:4923828")
-    implementation fg.deobf("curse.maven:cristel-lib-856996:5869180")
-    implementation fg.deobf("curse.maven:abridged-948999:6745463")
+    runtimeOnly fg.deobf("curse.maven:when-dungeons-arise-442508:4983862")
+    runtimeOnly fg.deobf("curse.maven:towns-and-towers-626761:4923828")
+    runtimeOnly fg.deobf("curse.maven:cristel-lib-856996:5869180")
+    runtimeOnly fg.deobf("curse.maven:abridged-948999:6745463")
 
     //螺旋塔村
-    implementation "curse.maven:spiral-tower-villages-1280127:6705885"
+    runtimeOnly "curse.maven:spiral-tower-villages-1280127:6705885"
 
-    implementation fg.deobf("curse.maven:travelers-titles-504908:5065825")
+    runtimeOnly fg.deobf("curse.maven:travelers-titles-504908:5065825")
     implementation fg.deobf("curse.maven:yungs-better-end-island-901344:5193815")
-    implementation fg.deobf("curse.maven:yungs-better-nether-fortresses-817651:5193465")
+    runtimeOnly fg.deobf("curse.maven:yungs-better-nether-fortresses-817651:5193465")
     implementation fg.deobf("curse.maven:yungs-api-421850:5769971")
 
-    implementation fg.deobf("curse.maven:awesome-dungeon-edition-ocean-forge-556490:4601248")
-    implementation fg.deobf("curse.maven:library-ferret-forge-532727:4601234")
+    runtimeOnly fg.deobf("curse.maven:awesome-dungeon-edition-ocean-forge-556490:4601248")
+    runtimeOnly fg.deobf("curse.maven:library-ferret-forge-532727:4601234")
 
     //背包，防止bug用
     compileOnly fg.deobf("curse.maven:sophisticated-core-618298:6266807")
@@ -382,14 +382,14 @@ dependencies {
     //真背包
     implementation fg.deobf("curse.maven:beyond-dimensions-1222890:7719949")
 
-    implementation fg.deobf("curse.maven:trashslot-235577:6319121")
+//    implementation fg.deobf("curse.maven:trashslot-235577:6319121")
 //    implementation fg.deobf("curse.maven:corgilib-693313:6616784")
 //    implementation fg.deobf("curse.maven:oh-the-trees-youll-grow-962544:7864095")
 //    implementation fg.deobf("curse.maven:oh-the-biomes-weve-gone-1070751:7759426")
-    implementation fg.deobf("curse.maven:biomes-o-plenty-220318:6364065")
-    implementation fg.deobf("curse.maven:terrablender-563928:6290448")
-    implementation fg.deobf("curse.maven:glitchcore-955399:5787839")
-    implementation fg.deobf("curse.maven:mixinbooster-980731:7711418")
+    runtimeOnly fg.deobf("curse.maven:biomes-o-plenty-220318:6364065")
+    runtimeOnly fg.deobf("curse.maven:terrablender-563928:6290448")
+    runtimeOnly fg.deobf("curse.maven:glitchcore-955399:5787839")
+    runtimeOnly fg.deobf("curse.maven:mixinbooster-980731:7711418")
     dependencies {
         compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.0"))
         implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.5.0")) {
@@ -420,13 +420,13 @@ dependencies {
     compileOnly fg.deobf("curse.maven:citadel-331936:7476570")
     compileOnly fg.deobf("curse.maven:domestication-innovation-whitelist-1447219:7540479")
 
-    implementation fg.deobf("curse.maven:prism-lib-638111:4650325")
-    implementation fg.deobf("curse.maven:iceberg-520110:5838149")
+    runtimeOnly fg.deobf("curse.maven:prism-lib-638111:4650325")
+    runtimeOnly fg.deobf("curse.maven:iceberg-520110:5838149")
 
-    implementation fg.deobf("curse.maven:configured-457570:5180900")
-    implementation fg.deobf("curse.maven:havns-style-combat-1355783:7062128")
+    runtimeOnly fg.deobf("curse.maven:configured-457570:5180900")
+//    implementation fg.deobf("curse.maven:havns-style-combat-1355783:7062128")
 
-    implementation fg.deobf("curse.maven:blueprint-382216:6408581")
+    runtimeOnly fg.deobf("curse.maven:blueprint-382216:6408581")
 
     implementation fg.deobf("curse.maven:lootr-361276:6330326")
 
@@ -434,24 +434,24 @@ dependencies {
     implementation fg.deobf("curse.maven:artifacts-312353:6399828")
     implementation fg.deobf("curse.maven:unique-accessories-1336987:7293163")
     implementation fg.deobf("curse.maven:apothic-attributes-898963:5634071")
-    implementation fg.deobf("curse.maven:placebo-283644:6274231")
+    runtimeOnly fg.deobf("curse.maven:placebo-283644:6274231")
 
-    implementation fg.deobf("curse.maven:expandability-465066:5301414")
-    implementation fg.deobf("curse.maven:cloth-config-348521:5729105")
+    runtimeOnly fg.deobf("curse.maven:expandability-465066:5301414")
+    runtimeOnly fg.deobf("curse.maven:cloth-config-348521:5729105")
 
     //传送石
     implementation fg.deobf("curse.maven:waystones-245755:6270584")
-    implementation fg.deobf("curse.maven:balm-531761:6362504")
+    runtimeOnly fg.deobf("curse.maven:balm-531761:6362504")
 
     //音效，脚步
-    implementation fg.deobf("curse.maven:sound-physics-remastered-535489:6352920")
-    implementation fg.deobf("curse.maven:ambientsounds-254284:6570130")
-    implementation fg.deobf("curse.maven:creativecore-257814:6383884")
+    runtimeOnly fg.deobf("curse.maven:sound-physics-remastered-535489:6352920")
+    runtimeOnly fg.deobf("curse.maven:ambientsounds-254284:6570130")
+    runtimeOnly fg.deobf("curse.maven:creativecore-257814:6383884")
 
-    implementation fg.deobf("curse.maven:spark-361579:4738952")
+    runtimeOnly fg.deobf("curse.maven:spark-361579:4738952")
 
-    implementation fg.deobf("curse.maven:inventory-profiles-next-495267:6095062")
-    implementation fg.deobf("curse.maven:libipn-679177:5208511")
+    runtimeOnly fg.deobf("curse.maven:inventory-profiles-next-495267:6095062")
+    runtimeOnly fg.deobf("curse.maven:libipn-679177:5208511")
     implementation fg.deobf("curse.maven:kotlin-for-forge-351264:5402061")
 
     implementation fg.deobf("curse.maven:xaeros-world-map-317780:7598469")//大地图
@@ -461,12 +461,12 @@ dependencies {
 
     implementation fg.deobf("curse.maven:fast-tpa-1122207:6680358")
 
-    implementation fg.deobf("curse.maven:resourceful-config-714059:6231176")
+    runtimeOnly fg.deobf("curse.maven:resourceful-config-714059:6231176")
 
 //    implementation fg.deobf("curse.maven:fancy-toasts-1326436:7577035")//优化进度贴图
 
-    implementation fg.deobf("curse.maven:embeddium-908741:5681725")
-    implementation fg.deobf("curse.maven:oculus-581495:6020952")
+    runtimeOnly fg.deobf("curse.maven:embeddium-908741:5681725")
+    runtimeOnly fg.deobf("curse.maven:oculus-581495:6020952")
 
 //    implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
 //
@@ -489,7 +489,7 @@ dependencies {
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
-    implementation fg.deobf("curse.maven:just-enough-resources-jer-240630:5057220")
+    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:5057220")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
 
