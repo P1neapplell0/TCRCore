@@ -16,10 +16,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.screens.LevelLoadingScreen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.IronGolem;
@@ -42,8 +40,6 @@ import java.util.*;
 public class ClientForgeEvents {
 
     public static Set<Button> buttonsInCreateWorldScreen = new HashSet<>();
-
-    public static final ResourceLocation BACKGROUND_LOCATION = ResourceLocation.withDefaultNamespace("textures/gui/light_dirt_background.png");
 
     public static MutableComponent component = null, component2 = null, component3 = null;
     public static List<FormattedCharSequence> component2Lines = null;
@@ -184,15 +180,6 @@ public class ClientForgeEvents {
         player.getCapability(EpicFightCapabilities.CAPABILITY_SKILL).invalidate();
         player.getCapability(EpicFightCapabilities.CAPABILITY_ENTITY).invalidate();
         player.invalidateCaps();
-    }
-
-    @SubscribeEvent
-    public static void onRenderBackground(ScreenEvent.BackgroundRendered event) {
-        if(Minecraft.getInstance().level == null && !(event.getScreen() instanceof LevelLoadingScreen)) {
-            event.getGuiGraphics().blit(BACKGROUND_LOCATION, 0, 0, 0, 0.0F, 0.0F, event.getScreen().width, event.getScreen().height, 32, 32);
-//            event.getGuiGraphics().fill(0, 0, event.getScreen().width, event.getScreen().height, FastColor.ABGR32.color(255, 255, 255, 255));
-        }
-
     }
 
     @SubscribeEvent
