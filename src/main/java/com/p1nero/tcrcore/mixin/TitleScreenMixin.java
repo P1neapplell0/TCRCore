@@ -1,7 +1,9 @@
 package com.p1nero.tcrcore.mixin;
 
+import com.apexhosting.partnerlink.ApexPartnerLinkScreen;
 import com.mojang.realmsclient.gui.screens.RealmsNotificationsScreen;
 import net.minecraft.Util;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.*;
 import net.minecraft.client.gui.screens.*;
 import net.minecraft.network.chat.Component;
@@ -91,7 +93,8 @@ public abstract class TitleScreenMixin extends Screen {
         int y = this.height / 4 + 48 + 72 + 12 + 24;
 
         this.addRenderableWidget(Button.builder(Component.literal("Get a Server!"), button -> {
-            Util.getPlatform().openUri("https://apexhost.gg/P1nero");
+            Minecraft.getInstance().setScreen(new ApexPartnerLinkScreen());
+//            Util.getPlatform().openUri("https://apexhost.gg/P1nero");
         }).bounds(x, y, buttonWidth, buttonHeight).build());
     }
 }

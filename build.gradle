@@ -229,6 +229,7 @@ dependencies {
 //    implementation fg.deobf("maven.modrinth:epic-fight-skill-tree:${epicskills_version}")
     implementation fg.deobf("curse.maven:epic-fight-skill-tree-1295882:8375059")
     implementation fg.deobf("libs:multiplayer_boss_fight-forge1.20.1:1.0.2")
+    implementation fg.deobf("libs:apexhosting-partner-link-forge-1.20.1:1.0.3")
     runtimeOnly fg.deobf("curse.maven:p1nero-better-structure-block-970671:6817772")
     implementation fg.deobf("curse.maven:epic-fight-indestructible-915201:7125700")
     implementation fg.deobf("curse.maven:epic-fight-skill-irons-spells-n-spellbooks-1454101:7644948")
