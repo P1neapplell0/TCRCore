@@ -62,7 +62,7 @@ public class TCRENLangGenerator extends TCRLangProvider {
         this.add("unlock_tip.epicskills.prodigy.time_travel", "Kill 1000 Enderman");
 
         this.add("unlock_tip.epicskills.prodigy.buster_parade", "Kill 10 Hollow");
-        this.add("unlock_tip.epicskills.prodigy.perfect_bulwark", "Kill 50 guardian");
+        this.add("unlock_tip.epicskills.prodigy.perfect_bulwark", "Kill 50 Endermen");
         this.add("unlock_tip.epicskills.prodigy.avatar_of_might", "Kill 50 Hollow");
 
         this.add("unlock_tip.epicskills.prodigy.precise_roll", "Sprint 4 km");

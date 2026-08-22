@@ -63,7 +63,7 @@ public class TCRZHLangGenerator extends TCRLangProvider {
         this.add("unlock_tip.epicskills.prodigy.time_travel", "击杀1000只末影人");
 
         this.add("unlock_tip.epicskills.prodigy.buster_parade", "击杀10只活尸");
-        this.add("unlock_tip.epicskills.prodigy.perfect_bulwark", "击杀50只守卫者");
+        this.add("unlock_tip.epicskills.prodigy.perfect_bulwark", "击杀50只末影人");
         this.add("unlock_tip.epicskills.prodigy.avatar_of_might", "击杀50只活尸");
 
         this.add("unlock_tip.epicskills.prodigy.precise_roll", "冲刺4公里");
