@@ -1,0 +1,23 @@
+{
+  "_comment": "block_factorys_bosses",
+  "structure.ba_bt.land_tower": "Torre de la Tierra",
+  "structure.ba_bt.ocean_tower": "Torre del Océano",
+  "structure.ba_bt.core_tower": "Torre del Núcleo",
+  "structure.tcrcore.gate_of_disaster": "Puerta del Desastre",
+  "structure.lost_aether_content.platinum_dungeon": "Mazmorra de Platino",
+  "structure.tcrcore.underworld_arena": "Arena Infernal",
+  "structure.tlc.lost_castle": "Puerta del End",
+  "structure.dodosmobs.jungle_prison": "Prisión de la Quimera",
+  "structure.ribbits.ribbit_village": "Aldea Ribbit",
+  "structure.trek.overworld.very_rare.floating_farm_large": "Isla Celestial",
+  "structure.aquamirae.ship": "Barco de Guerra Encallado",
+  "structure.aquamirae.ice_maze": "Laberinto de Hielo",
+  "structure.block_factorys_bosses.dragon_tower": "JEFE [Dragón Infernal] Torre del Dragón",
+  "structure.block_factorys_bosses.sandworm_nest": "JEFE [Gusano de Arena] Nido del Gusano de Arena",
+  "structure.block_factorys_bosses.underworld_arena": "JEFE [Caballero del Inframundo] Arena del Inframundo",
+  "structure.block_factorys_bosses.yeti_hideout": "JEFE [Yeti] Guarida del Yeti",
+  "structure.mowziesmobs.frostmaw_spawn": "JEFE [Frostmaw]",
+  "structure.mowziesmobs.wrought_chamber": "JEFE [Ferrous Wroughtnaut] Cámara Forjada",
+  "structure.mowziesmobs.umvuthana_grove": "JEFE [Umvuthana] Arboleda de Umvuthana",
+  "structure.mowziesmobs.monastery": "[Tongbi, el Escultor] Monasterio"
+}
